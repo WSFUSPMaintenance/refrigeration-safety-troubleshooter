@@ -1,167 +1,246 @@
 [
   {
     "wire": "4001",
-    "drawing": "RC-4/RC-5/RC-6",
+    "drawing": "RC-4",
+    "line": "400-419",
     "description": "120 VAC control feed / line continuation",
     "expectedVoltage": "120 VAC",
+    "from": "120 VAC service",
+    "to": "RC-4 safety circuit devices",
     "notes": "Primary control feed used across safety circuits"
+  },
+  {
+    "wire": "4002",
+    "drawing": "RC-4",
+    "line": "402",
+    "description": "Power supply input / 120 VAC feed section",
+    "expectedVoltage": "120 VAC",
+    "from": "FU4021",
+    "to": "PWS4021"
   },
   {
     "wire": "4031",
     "drawing": "RC-4",
+    "line": "402",
     "description": "24 VDC positive distribution from FU4091",
     "expectedVoltage": "24 VDC",
-    "notes": "Feeds 24 VDC components"
+    "from": "FU4091",
+    "to": "24 VDC components"
   },
   {
     "wire": "4032",
     "drawing": "RC-4",
+    "line": "402",
     "description": "24 VDC negative/common distribution",
     "expectedVoltage": "0 VDC reference",
-    "notes": "24 VDC common"
+    "from": "PWS4021 V-",
+    "to": "24 VDC components"
+  },
+  {
+    "wire": "4052",
+    "drawing": "RC-4",
+    "line": "405",
+    "description": "Safety relay input chain section",
+    "expectedVoltage": "120 VAC when prior safety contact closed",
+    "from": "CR4191",
+    "to": "CR4211"
+  },
+  {
+    "wire": "4053",
+    "drawing": "RC-4",
+    "line": "405",
+    "description": "Safety relay input chain section",
+    "expectedVoltage": "120 VAC when prior safety contact closed",
+    "from": "CR4211",
+    "to": "CR4231"
+  },
+  {
+    "wire": "4054",
+    "drawing": "RC-4",
+    "line": "405",
+    "description": "Safety relay input chain section",
+    "expectedVoltage": "120 VAC when prior safety contact closed",
+    "from": "CR4231",
+    "to": "CR4281"
+  },
+  {
+    "wire": "4055",
+    "drawing": "RC-4",
+    "line": "405",
+    "description": "Safety relay input chain section",
+    "expectedVoltage": "120 VAC when prior safety contact closed",
+    "from": "CR4281",
+    "to": "CR4331"
+  },
+  {
+    "wire": "4056",
+    "drawing": "RC-4",
+    "line": "405",
+    "description": "Safety relay input chain section",
+    "expectedVoltage": "120 VAC when prior safety contact closed",
+    "from": "CR4331",
+    "to": "next safety chain point"
   },
   {
     "wire": "4071",
     "drawing": "RC-4",
-    "description": "Safety relay chain section through CR4371/CR5061/CR5131/CR4071",
-    "expectedVoltage": "120 VAC when permissives are made"
+    "line": "407",
+    "description": "Safety relay chain through NH3, recirculator, and safety contacts",
+    "expectedVoltage": "120 VAC when permissives are made",
+    "from": "CR4371",
+    "to": "CR5061 / CR5131 / CR407"
+  },
+  {
+    "wire": "4072",
+    "drawing": "RC-4",
+    "line": "407",
+    "description": "Recirculator HTR1 safety relay section",
+    "expectedVoltage": "120 VAC when CR5061 closed",
+    "from": "CR5061",
+    "to": "CR5131"
+  },
+  {
+    "wire": "4073",
+    "drawing": "RC-4",
+    "line": "407",
+    "description": "Recirculator LTR1 safety relay section",
+    "expectedVoltage": "120 VAC when CR5131 closed",
+    "from": "CR5131",
+    "to": "CR407"
+  },
+  {
+    "wire": "4074",
+    "drawing": "RC-4",
+    "line": "407",
+    "description": "Safety relay feed into CR407 coil/contact path",
+    "expectedVoltage": "120 VAC when safety chain complete",
+    "from": "CR5131 output",
+    "to": "CR407"
   },
   {
     "wire": "4131",
     "drawing": "RC-4",
+    "line": "413",
     "description": "Safety Circuit OK pilot light feed",
-    "expectedVoltage": "120 VAC when safety OK"
+    "expectedVoltage": "120 VAC when safety OK",
+    "from": "CR407 contact",
+    "to": "LT4131"
   },
   {
     "wire": "4141",
     "drawing": "RC-4",
+    "line": "414",
     "description": "Safety Circuit Tripped pilot light feed",
-    "expectedVoltage": "120 VAC when tripped"
+    "expectedVoltage": "120 VAC when tripped",
+    "from": "CR407 contact",
+    "to": "LT4141"
+  },
+  {
+    "wire": "4161",
+    "drawing": "RC-4",
+    "line": "416",
+    "description": "Power fail reset timer circuit",
+    "expectedVoltage": "120 VAC when powered",
+    "from": "Control feed",
+    "to": "TD4161"
   },
   {
     "wire": "4171",
     "drawing": "RC-4",
+    "line": "417",
     "description": "Reset circuit / CR417 path",
-    "expectedVoltage": "120 VAC during reset permissive"
+    "expectedVoltage": "120 VAC during reset permissive",
+    "from": "TD4161 / PB4181",
+    "to": "CR417"
   },
   {
     "wire": "4191",
     "drawing": "RC-4",
+    "line": "419",
     "description": "E-Stop chain section after PB4191",
-    "expectedVoltage": "120 VAC when E-Stop chain is closed"
+    "expectedVoltage": "120 VAC when E-Stop chain is closed",
+    "from": "PB4191",
+    "to": "PB4192"
   },
   {
     "wire": "4192",
     "drawing": "RC-4",
+    "line": "419",
     "description": "E-Stop chain section after PB4192",
-    "expectedVoltage": "120 VAC when E-Stop chain is closed"
+    "expectedVoltage": "120 VAC when E-Stop chain is closed",
+    "from": "PB4192",
+    "to": "PB4193"
   },
   {
     "wire": "4193",
     "drawing": "RC-4",
+    "line": "419",
     "description": "E-Stop chain section after PB4193",
-    "expectedVoltage": "120 VAC when E-Stop chain is closed"
+    "expectedVoltage": "120 VAC when E-Stop chain is closed",
+    "from": "PB4193",
+    "to": "CR419"
   },
   {
     "wire": "4211",
     "drawing": "RC-4",
+    "line": "421",
     "description": "High pressure switch / CR421 feed",
-    "expectedVoltage": "120 VAC when high pressure switch is closed"
+    "expectedVoltage": "120 VAC when high pressure switch is closed",
+    "from": "PS421",
+    "to": "CR421"
+  },
+  {
+    "wire": "4231",
+    "drawing": "RC-4",
+    "line": "423",
+    "description": "EPCS discharge pressure relay circuit",
+    "expectedVoltage": "120 VAC when permissive is made",
+    "from": "DV4231",
+    "to": "CR4231"
+  },
+  {
+    "wire": "4261",
+    "drawing": "RC-4",
+    "line": "426",
+    "description": "EPCS crossover valve output HTR to HPS",
+    "expectedVoltage": "Output dependent",
+    "from": "CR4231 circuit",
+    "to": "SOL4261"
+  },
+  {
+    "wire": "4281",
+    "drawing": "RC-4",
+    "line": "428",
+    "description": "EPCS high temp suction relay circuit",
+    "expectedVoltage": "120 VAC when permissive is made",
+    "from": "DV4281",
+    "to": "CR4281"
+  },
+  {
+    "wire": "4311",
+    "drawing": "RC-4",
+    "line": "431",
+    "description": "EPCS crossover valve output HPS to LTS",
+    "expectedVoltage": "Output dependent",
+    "from": "CR4281 circuit",
+    "to": "SOL4311"
+  },
+  {
+    "wire": "4331",
+    "drawing": "RC-4",
+    "line": "433",
+    "description": "EPCS low temp suction relay circuit",
+    "expectedVoltage": "120 VAC when permissive is made",
+    "from": "DV4331",
+    "to": "CR4331"
   },
   {
     "wire": "4371",
     "drawing": "RC-4/RC-7",
+    "line": "437",
     "description": "NH3 shutdown relay output into safety circuit",
-    "expectedVoltage": "120 VAC during normal non-shutdown condition"
-  },
-  {
-    "wire": "5011",
-    "drawing": "RC-5",
-    "description": "HTR1 high level relay feed",
-    "expectedVoltage": "120 VAC during normal path"
-  },
-  {
-    "wire": "5061",
-    "drawing": "RC-5",
-    "description": "HTR1 high level safety relay output",
-    "expectedVoltage": "120 VAC when CR5061 is energized"
-  },
-  {
-    "wire": "5081",
-    "drawing": "RC-5",
-    "description": "LTR1 high level relay feed",
-    "expectedVoltage": "120 VAC during normal path"
-  },
-  {
-    "wire": "5131",
-    "drawing": "RC-5",
-    "description": "LTR1 high level safety relay output",
-    "expectedVoltage": "120 VAC when CR5131 is energized"
-  },
-  {
-    "wire": "5211",
-    "drawing": "RC-5",
-    "description": "King liquid solenoid output",
-    "expectedVoltage": "120 VAC when solenoid is commanded"
-  },
-  {
-    "wire": "5221",
-    "drawing": "RC-5",
-    "description": "King hot gas solenoid output",
-    "expectedVoltage": "120 VAC when solenoid is commanded"
-  },
-  {
-    "wire": "5231",
-    "drawing": "RC-5",
-    "description": "Compressor CP-01 safety interlock input",
-    "expectedVoltage": "120 VAC when safety relay is made"
-  },
-  {
-    "wire": "5232",
-    "drawing": "RC-5",
-    "description": "Compressor CP-01 safety interlock output",
-    "expectedVoltage": "120 VAC when interlock contact is closed"
-  },
-  {
-    "wire": "5301",
-    "drawing": "RC-5",
-    "description": "Recirculator HTR1 remote enable input/output section",
-    "expectedVoltage": "120 VAC when enabled"
-  },
-  {
-    "wire": "5311",
-    "drawing": "RC-5",
-    "description": "Recirculator LTR1 remote enable input/output section",
-    "expectedVoltage": "120 VAC when enabled"
-  },
-  {
-    "wire": "6011",
-    "drawing": "RC-6",
-    "description": "High ventilation interlock relay feed/output",
-    "expectedVoltage": "120 VAC when ventilation permissive is made"
-  },
-  {
-    "wire": "6091",
-    "drawing": "RC-6/RC-7",
-    "description": "Evis M/U air shutdown/interlock circuit",
-    "expectedVoltage": "120 VAC when permissive is made"
-  },
-  {
-    "wire": "6141",
-    "drawing": "RC-6/RC-8",
-    "description": "Cooler M/U air shutdown/interlock circuit",
-    "expectedVoltage": "120 VAC when permissive is made"
-  },
-  {
-    "wire": "6171",
-    "drawing": "RC-6/RC-8",
-    "description": "Debone M/U air shutdown/interlock circuit",
-    "expectedVoltage": "120 VAC when permissive is made"
-  },
-  {
-    "wire": "8181",
-    "drawing": "RC-7/RC-8",
-    "description": "Alarm output / beacon power continuation",
-    "expectedVoltage": "Controller output dependent"
+    "expectedVoltage": "120 VAC during normal non-shutdown condition",
+    "from": "NH3 monitor output",
+    "to": "CR437"
   }
 ]

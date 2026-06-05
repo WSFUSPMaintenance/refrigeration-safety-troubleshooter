@@ -1,18 +1,38 @@
 [
   {
-    "symptom": "Entire compressor room down",
+    "symptom": "Safety circuit tripped",
     "firstCheck": "Wire 4001 and CR407",
-    "next": "If CR407 is de-energized, trace CR5131, CR5061, CR4371, CR4191."
+    "next": "If CR407 is de-energized, trace CR4371, CR5061, CR5131, CR4191, and pressure safety contacts."
   },
   {
-    "symptom": "Safety circuit tripped",
+    "symptom": "Panel appears dead",
+    "firstCheck": "FU4021 input/output",
+    "next": "If FU4021 output missing, isolate downstream short before replacing fuse."
+  },
+  {
+    "symptom": "24 VDC devices dead",
+    "firstCheck": "PWS4021 and FU4091",
+    "next": "Verify 120 VAC input and 24 VDC output."
+  },
+  {
+    "symptom": "E-Stop circuit open",
+    "firstCheck": "CR419",
+    "next": "Measure across PB4191, PB4192, PB4193. 120 VAC across a device identifies the open station."
+  },
+  {
+    "symptom": "Safety OK light off",
+    "firstCheck": "LT4131 and CR407",
+    "next": "If CR407 made but LT4131 off, check lamp, wire 4131, and CR407 contact."
+  },
+  {
+    "symptom": "Safety tripped light on",
     "firstCheck": "LT4141 and CR407",
     "next": "Use Safety Circuit Tripped tree."
   },
   {
-    "symptom": "Possible false high level",
-    "firstCheck": "Actual vessel level",
-    "next": "If level normal, check FS5011 or FS5081 path."
+    "symptom": "High pressure shutdown",
+    "firstCheck": "Actual pressure, then PS421",
+    "next": "If pressure normal but PS421 open, suspect switch or wiring."
   },
   {
     "symptom": "NH3 shutdown",
@@ -20,13 +40,13 @@
     "next": "If detector reads 0 ppm, verify sensor relay and calibration."
   },
   {
+    "symptom": "Possible false high level",
+    "firstCheck": "Actual vessel level",
+    "next": "If level normal, check FS5011 or FS5081 path."
+  },
+  {
     "symptom": "Compressor will not start",
     "firstCheck": "Safety OK light and compressor interlock input",
     "next": "If safety OK, compare interlock input and output voltage."
-  },
-  {
-    "symptom": "Ventilation fault",
-    "firstCheck": "CR6011 and exhaust fan interlocks",
-    "next": "Check TAS6021, emergency vent switches, EF-1/EF-2 aux contacts."
   }
 ]
