@@ -1,48 +1,48 @@
 [
   {
+    "symptom": "Engine room ventilation fault",
+    "firstCheck": "CR6011, EF-1, EF-2 interlocks",
+    "next": "If CR6011 is energized, check EF-1 and EF-2 auxiliary/interlock contacts."
+  },
+  {
+    "symptom": "CR6011 not energized",
+    "firstCheck": "CR6011 coil voltage",
+    "next": "If no voltage, trace TAS6021, SS6031, SS6041, and source feed."
+  },
+  {
+    "symptom": "EF-1 high vent interlock open",
+    "firstCheck": "EF-1 starter/overload/aux contact",
+    "next": "If fan is running but contact open, inspect auxiliary contact wiring and mechanical linkage."
+  },
+  {
+    "symptom": "EF-2 high vent interlock open",
+    "firstCheck": "EF-2 starter/overload/aux contact",
+    "next": "If fan is running but contact open, inspect auxiliary contact wiring and mechanical linkage."
+  },
+  {
+    "symptom": "Evis M/U air shutdown",
+    "firstCheck": "CR6091, then Units 1-3 interlocks",
+    "next": "Find the first open unit interlock in the chain."
+  },
+  {
+    "symptom": "Cooler M/U air shutdown",
+    "firstCheck": "CR6141, then cooler M/U air unit interlock",
+    "next": "Check starter, overload, auxiliary contact, disconnect, and motor."
+  },
+  {
+    "symptom": "Debone M/U air shutdown",
+    "firstCheck": "CR6171, then Debone M/U air unit interlock",
+    "next": "Check starter, overload, auxiliary contact, disconnect, and motor."
+  },
+  {
     "symptom": "Safety circuit tripped",
     "firstCheck": "Wire 4001 and CR407",
     "next": "If CR407 is de-energized, trace CR4371, CR5061, CR5131, CR4191, and pressure safety contacts."
   },
   {
-    "symptom": "HTR1 high level",
-    "firstCheck": "Actual HTR1 level, then FS5011",
-    "next": "If level normal and FS5011 open, suspect float or wiring."
-  },
-  {
-    "symptom": "LTR1 high level",
-    "firstCheck": "Actual LTR1 level, then FS5081",
-    "next": "If level normal and FS5081 open, suspect float or wiring."
-  },
-  {
-    "symptom": "CP-01 will not start",
-    "firstCheck": "CR4071A, Wire 5231, Wire 5232",
-    "next": "If 5231 has power but 5232 does not, CP-01 interlock is open."
-  },
-  {
     "symptom": "Any compressor will not start",
     "firstCheck": "Safety OK light and proper CR4071 contact group",
     "next": "Compare compressor interlock input and output voltage."
-  },
-  {
-    "symptom": "King liquid solenoid does not energize",
-    "firstCheck": "CR4071A and Wire 5211",
-    "next": "If Wire 5211 has 120 VAC and valve does not move, check solenoid coil/valve."
-  },
-  {
-    "symptom": "King hot gas solenoid does not energize",
-    "firstCheck": "CR4071A and Wire 5221",
-    "next": "If Wire 5221 has 120 VAC and valve does not move, check solenoid coil/valve."
-  },
-  {
-    "symptom": "Recirculator remote enable lost",
-    "firstCheck": "CR4071D, Wire 5301, Wire 5311",
-    "next": "If CR4071D is not passing, safety relay contact or upstream safety issue exists."
-  },
-  {
-    "symptom": "High pressure shutdown",
-    "firstCheck": "Actual pressure, then PS421",
-    "next": "If pressure normal but PS421 open, suspect switch or wiring."
   },
   {
     "symptom": "NH3 shutdown",

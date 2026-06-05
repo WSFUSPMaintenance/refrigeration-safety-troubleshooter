@@ -1,123 +1,5 @@
 [
   {
-    "id": "FU4021",
-    "description": "120 VAC Control Circuit Fuse",
-    "type": "Fuse",
-    "drawing": "RC-4",
-    "line": "402",
-    "location": "Safety Control Panel",
-    "normalState": "Closed / good fuse",
-    "expectedVoltage": "120 VAC on both sides",
-    "failureEffect": "Loss of control power downstream"
-  },
-  {
-    "id": "PWS4021",
-    "description": "Power Supply",
-    "type": "Power Supply",
-    "drawing": "RC-4",
-    "line": "402",
-    "location": "Safety Control Panel",
-    "normalState": "Input powered, output active",
-    "expectedVoltage": "120 VAC input, 24 VDC output",
-    "failureEffect": "Loss of 24 VDC components"
-  },
-  {
-    "id": "FU4091",
-    "description": "24 VDC Components Fuse",
-    "type": "Fuse",
-    "drawing": "RC-4",
-    "line": "402",
-    "location": "Safety Control Panel",
-    "normalState": "Closed / good fuse",
-    "expectedVoltage": "24 VDC on both sides",
-    "failureEffect": "Loss of 24 VDC devices"
-  },
-  {
-    "id": "CR419",
-    "description": "E-Stop Safety Relay",
-    "type": "Relay",
-    "drawing": "RC-4",
-    "line": "419",
-    "location": "Safety Control Panel",
-    "normalState": "Energized when all E-Stops are reset",
-    "expectedVoltage": "120 VAC at coil",
-    "upstream": [
-      "PB4191",
-      "PB4192",
-      "PB4193"
-    ],
-    "downstream": [
-      "CR4191"
-    ],
-    "failureEffect": "Safety relay cannot reset"
-  },
-  {
-    "id": "PB4191",
-    "description": "Emergency Stop Pushbutton 1",
-    "type": "Pushbutton",
-    "drawing": "RC-4",
-    "line": "419",
-    "location": "Field E-Stop Circuit",
-    "normalState": "Closed when reset",
-    "expectedVoltage": "0 VAC across when closed, 120 VAC across when open",
-    "failureEffect": "CR419 drops out"
-  },
-  {
-    "id": "PB4192",
-    "description": "Emergency Stop Pushbutton 2",
-    "type": "Pushbutton",
-    "drawing": "RC-4",
-    "line": "419",
-    "location": "Field E-Stop Circuit",
-    "normalState": "Closed when reset",
-    "expectedVoltage": "0 VAC across when closed, 120 VAC across when open",
-    "failureEffect": "CR419 drops out"
-  },
-  {
-    "id": "PB4193",
-    "description": "Emergency Stop Pushbutton 3",
-    "type": "Pushbutton",
-    "drawing": "RC-4",
-    "line": "419",
-    "location": "Field E-Stop Circuit",
-    "normalState": "Closed when reset",
-    "expectedVoltage": "0 VAC across when closed, 120 VAC across when open",
-    "failureEffect": "CR419 drops out"
-  },
-  {
-    "id": "TD4161",
-    "description": "Power Fail Reset Timer",
-    "type": "Timer",
-    "drawing": "RC-4",
-    "line": "416",
-    "location": "Safety Control Panel",
-    "normalState": "Timed output after power restoration",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "Safety circuit may not reset after power loss"
-  },
-  {
-    "id": "CR417",
-    "description": "Power Fail Reset Relay",
-    "type": "Relay",
-    "drawing": "RC-4",
-    "line": "417",
-    "location": "Safety Control Panel",
-    "normalState": "Energized after power fail reset permissive",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "Reset permissive not made"
-  },
-  {
-    "id": "PB4181",
-    "description": "Safety Reset Pushbutton",
-    "type": "Pushbutton",
-    "drawing": "RC-4",
-    "line": "418",
-    "location": "Safety Control Panel Door",
-    "normalState": "Normally open, closes when pressed",
-    "expectedVoltage": "Transfers 120 VAC when pressed",
-    "failureEffect": "Safety relay will not reset"
-  },
-  {
     "id": "CR407",
     "description": "Master Safety Relay",
     "type": "Relay",
@@ -145,109 +27,15 @@
     "failureEffect": "Entire refrigeration safety permissive lost"
   },
   {
-    "id": "CR4071A",
-    "description": "Safety Relay Contact A",
-    "type": "Relay Contact",
-    "drawing": "RC-4/RC-5",
-    "line": "407 / 521-523",
-    "location": "Safety Control Panel",
-    "normalState": "Closed when CR407 energized",
-    "expectedVoltage": "120 VAC passing when closed",
-    "failureEffect": "King solenoid or CP-01 interlock path lost"
-  },
-  {
-    "id": "CR4071B",
-    "description": "Safety Relay Contact B",
-    "type": "Relay Contact",
-    "drawing": "RC-4/RC-5",
-    "line": "407 / 524-526",
-    "location": "Safety Control Panel",
-    "normalState": "Closed when CR407 energized",
-    "expectedVoltage": "120 VAC passing when closed",
-    "failureEffect": "SC-01, SC-02, or CP-02 interlock path lost"
-  },
-  {
-    "id": "CR4071C",
-    "description": "Safety Relay Contact C",
-    "type": "Relay Contact",
-    "drawing": "RC-4/RC-5",
-    "line": "407 / 527-529",
-    "location": "Safety Control Panel",
-    "normalState": "Closed when CR407 energized",
-    "expectedVoltage": "120 VAC passing when closed",
-    "failureEffect": "CP-05, CP-06, or CP-07 interlock path lost"
-  },
-  {
-    "id": "CR4071D",
-    "description": "Safety Relay Contact D",
-    "type": "Relay Contact",
-    "drawing": "RC-4/RC-5",
-    "line": "407 / 530-532",
-    "location": "Safety Control Panel",
-    "normalState": "Closed when CR407 energized",
-    "expectedVoltage": "120 VAC passing when closed",
-    "failureEffect": "Recirculator or water chiller remote enable lost"
-  },
-  {
-    "id": "CR4071E",
-    "description": "Safety Relay Contact E",
-    "type": "Relay Contact",
-    "drawing": "RC-4/RC-5",
-    "line": "407 / 533-535",
-    "location": "Safety Control Panel",
-    "normalState": "Closed when CR407 energized",
-    "expectedVoltage": "120 VAC passing when closed",
-    "failureEffect": "Future/spare safety interlock path lost"
-  },
-  {
-    "id": "LT4131",
-    "description": "Safety Circuit OK Pilot Light",
-    "type": "Pilot Light",
-    "drawing": "RC-4",
-    "line": "413",
-    "location": "Safety Control Panel Door",
-    "normalState": "ON when safety circuit is healthy",
-    "expectedVoltage": "120 VAC when ON",
-    "failureEffect": "Indication failure or circuit not made"
-  },
-  {
-    "id": "LT4141",
-    "description": "Safety Circuit Tripped Pilot Light",
-    "type": "Pilot Light",
-    "drawing": "RC-4",
-    "line": "414",
-    "location": "Safety Control Panel Door",
-    "normalState": "OFF when safety circuit is healthy",
-    "expectedVoltage": "120 VAC when trip indication active",
-    "failureEffect": "Indicates safety circuit tripped"
-  },
-  {
-    "id": "PS421",
-    "description": "High Pressure Switch",
-    "type": "Pressure Switch",
-    "drawing": "RC-4",
-    "line": "421",
-    "location": "Field Pressure Circuit",
-    "normalState": "Closed under normal pressure",
-    "expectedVoltage": "0 VAC across closed switch, 120 VAC across open switch",
-    "failureEffect": "High pressure shutdown"
-  },
-  {
-    "id": "CR421",
-    "description": "High Pressure Safety Relay",
+    "id": "CR419",
+    "description": "E-Stop Safety Relay",
     "type": "Relay",
     "drawing": "RC-4",
-    "line": "421",
+    "line": "419",
     "location": "Safety Control Panel",
-    "normalState": "Energized",
+    "normalState": "Energized when all E-Stops are reset",
     "expectedVoltage": "120 VAC at coil",
-    "upstream": [
-      "PS421"
-    ],
-    "downstream": [
-      "CR4211"
-    ],
-    "failureEffect": "High pressure permissive lost"
+    "failureEffect": "Safety relay cannot reset"
   },
   {
     "id": "CR437",
@@ -258,59 +46,7 @@
     "location": "Safety Control Panel",
     "normalState": "Energized during normal non-shutdown condition",
     "expectedVoltage": "120 VAC at coil",
-    "upstream": [
-      "RC-7",
-      "RC-8"
-    ],
-    "downstream": [
-      "CR4371",
-      "CR407"
-    ],
     "failureEffect": "NH3 shutdown opens safety chain"
-  },
-  {
-    "id": "CR4371",
-    "description": "NH3 Shutdown Safety Contact",
-    "type": "Relay Contact",
-    "drawing": "RC-4",
-    "line": "407 / 437",
-    "location": "Safety Control Panel",
-    "normalState": "Closed during normal non-shutdown condition",
-    "expectedVoltage": "120 VAC passing when normal",
-    "failureEffect": "Master safety relay cannot energize"
-  },
-  {
-    "id": "FS5011",
-    "description": "Recirculator HTR1 High Level Float Switch",
-    "type": "Float Switch",
-    "drawing": "RC-5",
-    "line": "501",
-    "location": "HTR1 Recirculator",
-    "normalState": "Normal level contact state per drawing",
-    "expectedVoltage": "Passes 120 VAC during normal condition",
-    "failureEffect": "HTR1 high level safety path opens"
-  },
-  {
-    "id": "CR5011",
-    "description": "Recirculator HTR1 High Level Relay",
-    "type": "Relay",
-    "drawing": "RC-5",
-    "line": "501",
-    "location": "Safety Control Panel",
-    "normalState": "Energized in normal HTR1 high level logic path",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "HTR1 high level logic does not transfer"
-  },
-  {
-    "id": "TD5041",
-    "description": "Recirculator HTR1 High Level 5 Sec Off Delay Timer",
-    "type": "Timer",
-    "drawing": "RC-5",
-    "line": "504",
-    "location": "Safety Control Panel",
-    "normalState": "Output made during normal condition after time delay",
-    "expectedVoltage": "120 VAC at timer coil/input",
-    "failureEffect": "HTR1 safety relay CR5061 may not energize"
   },
   {
     "id": "CR5061",
@@ -321,43 +57,7 @@
     "location": "Safety Control Panel",
     "normalState": "Energized",
     "expectedVoltage": "120 VAC at coil",
-    "downstream": [
-      "CR407"
-    ],
     "failureEffect": "Master safety relay cannot energize"
-  },
-  {
-    "id": "FS5081",
-    "description": "Recirculator LTR1 High Level Float Switch",
-    "type": "Float Switch",
-    "drawing": "RC-5",
-    "line": "508",
-    "location": "LTR1 Recirculator",
-    "normalState": "Normal level contact state per drawing",
-    "expectedVoltage": "Passes 120 VAC during normal condition",
-    "failureEffect": "LTR1 high level safety path opens"
-  },
-  {
-    "id": "CR5081",
-    "description": "Recirculator LTR1 High Level Relay",
-    "type": "Relay",
-    "drawing": "RC-5",
-    "line": "508",
-    "location": "Safety Control Panel",
-    "normalState": "Energized in normal LTR1 high level logic path",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "LTR1 high level logic does not transfer"
-  },
-  {
-    "id": "TD5111",
-    "description": "Recirculator LTR1 High Level 5 Sec Off Delay Timer",
-    "type": "Timer",
-    "drawing": "RC-5",
-    "line": "511",
-    "location": "Safety Control Panel",
-    "normalState": "Output made during normal condition after time delay",
-    "expectedVoltage": "120 VAC at timer coil/input",
-    "failureEffect": "LTR1 safety relay CR5131 may not energize"
   },
   {
     "id": "CR5131",
@@ -368,10 +68,62 @@
     "location": "Safety Control Panel",
     "normalState": "Energized",
     "expectedVoltage": "120 VAC at coil",
-    "downstream": [
-      "CR407"
-    ],
     "failureEffect": "Master safety relay cannot energize"
+  },
+  {
+    "id": "CR4071A",
+    "description": "Safety Relay Contact A",
+    "type": "Relay Contact",
+    "drawing": "RC-5",
+    "line": "521-523",
+    "location": "Safety Control Panel",
+    "normalState": "Closed when CR407 energized",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "King solenoid or CP-01 interlock path lost"
+  },
+  {
+    "id": "CR4071B",
+    "description": "Safety Relay Contact B",
+    "type": "Relay Contact",
+    "drawing": "RC-5",
+    "line": "524-526",
+    "location": "Safety Control Panel",
+    "normalState": "Closed when CR407 energized",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "SC-01, SC-02, or CP-02 interlock path lost"
+  },
+  {
+    "id": "CR4071C",
+    "description": "Safety Relay Contact C",
+    "type": "Relay Contact",
+    "drawing": "RC-5",
+    "line": "527-529",
+    "location": "Safety Control Panel",
+    "normalState": "Closed when CR407 energized",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "CP-05, CP-06, or CP-07 interlock path lost"
+  },
+  {
+    "id": "CR4071D",
+    "description": "Safety Relay Contact D",
+    "type": "Relay Contact",
+    "drawing": "RC-5",
+    "line": "530-532",
+    "location": "Safety Control Panel",
+    "normalState": "Closed when CR407 energized",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "Recirculator or water chiller remote enable lost"
+  },
+  {
+    "id": "CP-01-INT",
+    "description": "Compressor CP-01 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "523",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "CP-01 will not run"
   },
   {
     "id": "SOL5211",
@@ -396,113 +148,189 @@
     "failureEffect": "No hot gas solenoid operation"
   },
   {
-    "id": "CP-01-INT",
-    "description": "Compressor CP-01 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "523",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "CP-01 will not run"
+    "id": "CR6011",
+    "description": "High Ventilation Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "601",
+    "location": "Safety Control Panel",
+    "normalState": "Energized when high ventilation permissive is made",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "TAS6021",
+      "SS6031",
+      "SS6041"
+    ],
+    "downstream": [
+      "EF-1 interlock",
+      "EF-2 interlock",
+      "Spare high vent interlock"
+    ],
+    "failureEffect": "Engine room high ventilation permissive lost"
   },
   {
-    "id": "SC-01-INT",
-    "description": "Compressor SC-01 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "524",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "SC-01 will not run"
+    "id": "TAS6021",
+    "description": "Ventilation Thermostat",
+    "type": "Thermostat",
+    "drawing": "RC-6",
+    "line": "602",
+    "location": "Ventilation Control Circuit",
+    "normalState": "Closed when circuit condition calls for ventilation permissive",
+    "expectedVoltage": "0 VAC across closed contact, 120 VAC across open contact",
+    "failureEffect": "CR6011 may not energize"
   },
   {
-    "id": "SC-02-INT",
-    "description": "Compressor SC-02 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "525",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "SC-02 will not run"
+    "id": "SS6031",
+    "description": "Emergency Ventilation Switch 1",
+    "type": "Selector Switch",
+    "drawing": "RC-6",
+    "line": "603",
+    "location": "Emergency Ventilation Circuit",
+    "normalState": "Position dependent",
+    "expectedVoltage": "Passes 120 VAC when selected/closed",
+    "failureEffect": "Emergency ventilation input may be lost"
   },
   {
-    "id": "CP-02-INT",
-    "description": "Compressor CP-02 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "526",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "CP-02 will not run"
+    "id": "SS6041",
+    "description": "Emergency Ventilation Switch 2",
+    "type": "Selector Switch",
+    "drawing": "RC-6",
+    "line": "604",
+    "location": "Emergency Ventilation Circuit",
+    "normalState": "Position dependent",
+    "expectedVoltage": "Passes 120 VAC when selected/closed",
+    "failureEffect": "Emergency ventilation input may be lost"
   },
   {
-    "id": "CP-05-INT",
-    "description": "Compressor CP-05 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "527",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "CP-05 will not run"
+    "id": "EF-1-INT",
+    "description": "Exhaust Fan EF-1 High Vent Interlock",
+    "type": "Fan Interlock",
+    "drawing": "RC-6",
+    "line": "605",
+    "location": "Exhaust Fan EF-1 Starter/Aux Circuit",
+    "normalState": "Closed when EF-1 permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "High ventilation interlock fault"
   },
   {
-    "id": "CP-06-INT",
-    "description": "Compressor CP-06 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "528",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "CP-06 will not run"
+    "id": "EF-2-INT",
+    "description": "Exhaust Fan EF-2 High Vent Interlock",
+    "type": "Fan Interlock",
+    "drawing": "RC-6",
+    "line": "606",
+    "location": "Exhaust Fan EF-2 Starter/Aux Circuit",
+    "normalState": "Closed when EF-2 permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "High ventilation interlock fault"
   },
   {
-    "id": "CP-07-INT",
-    "description": "Compressor CP-07 Safety Interlock",
-    "type": "Compressor Interlock",
-    "drawing": "RC-5",
-    "line": "529",
-    "location": "Compressor Safety Interlock Circuit",
-    "normalState": "Closed when compressor safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "CP-07 will not run"
+    "id": "SPARE-HV-INT",
+    "description": "Spare High Vent Interlock",
+    "type": "Spare Interlock",
+    "drawing": "RC-6",
+    "line": "607",
+    "location": "Spare High Vent Interlock Circuit",
+    "normalState": "Closed/jumpered if unused",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "High ventilation permissive may be interrupted"
   },
   {
-    "id": "HTR1-REMOTE",
-    "description": "Recirculator HTR1 Remote Enable",
-    "type": "Remote Enable",
-    "drawing": "RC-5",
-    "line": "530",
-    "location": "Recirculator HTR1 Remote Enable Circuit",
-    "normalState": "Closed/enabled when CR4071D is made and remote enable is healthy",
-    "expectedVoltage": "120 VAC when enabled",
-    "failureEffect": "HTR1 remote enable lost"
+    "id": "CR6091",
+    "description": "Evis M/U Air Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "609",
+    "location": "Safety Control Panel",
+    "normalState": "Energized when Evis make-up air permissive is made",
+    "expectedVoltage": "120 VAC at coil",
+    "downstream": [
+      "Evis M/U Air Unit 1 interlock",
+      "Evis M/U Air Unit 2 interlock",
+      "Evis M/U Air Unit 3 interlock"
+    ],
+    "failureEffect": "Evis make-up air shutdown/interlock fault"
   },
   {
-    "id": "LTR1-REMOTE",
-    "description": "Recirculator LTR1 Remote Enable",
-    "type": "Remote Enable",
-    "drawing": "RC-5",
-    "line": "531",
-    "location": "Recirculator LTR1 Remote Enable Circuit",
-    "normalState": "Closed/enabled when CR4071D is made and remote enable is healthy",
-    "expectedVoltage": "120 VAC when enabled",
-    "failureEffect": "LTR1 remote enable lost"
+    "id": "EVIS-MUA-1-INT",
+    "description": "Evis M/U Air Unit 1 N3 Interlock",
+    "type": "M/U Air Interlock",
+    "drawing": "RC-6",
+    "line": "610",
+    "location": "Evis M/U Air Unit 1",
+    "normalState": "Closed when unit permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "Evis M/U air interlock path open"
   },
   {
-    "id": "WATER-CHILLER-INT",
-    "description": "F/F Water Chiller Safety Interlock",
-    "type": "Chiller Interlock",
-    "drawing": "RC-5",
-    "line": "532",
-    "location": "Water Chiller Safety Interlock Circuit",
-    "normalState": "Closed when chiller safety chain is healthy",
-    "expectedVoltage": "120 VAC input and output when permissive is made",
-    "failureEffect": "Water chiller unavailable"
+    "id": "EVIS-MUA-2-INT",
+    "description": "Evis M/U Air Unit 2 N3 Interlock",
+    "type": "M/U Air Interlock",
+    "drawing": "RC-6",
+    "line": "611",
+    "location": "Evis M/U Air Unit 2",
+    "normalState": "Closed when unit permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "Evis M/U air interlock path open"
+  },
+  {
+    "id": "EVIS-MUA-3-INT",
+    "description": "Evis M/U Air Unit 3 N3 Interlock",
+    "type": "M/U Air Interlock",
+    "drawing": "RC-6",
+    "line": "612",
+    "location": "Evis M/U Air Unit 3",
+    "normalState": "Closed when unit permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "Evis M/U air interlock path open"
+  },
+  {
+    "id": "CR6141",
+    "description": "Cooler M/U Air Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "614",
+    "location": "Safety Control Panel",
+    "normalState": "Energized when cooler M/U air permissive is made",
+    "expectedVoltage": "120 VAC at coil",
+    "downstream": [
+      "Cooler M/U Air Unit N3 interlock"
+    ],
+    "failureEffect": "Cooler make-up air shutdown/interlock fault"
+  },
+  {
+    "id": "COOLER-MUA-INT",
+    "description": "Cooler M/U Air Unit N3 Interlock",
+    "type": "M/U Air Interlock",
+    "drawing": "RC-6",
+    "line": "615",
+    "location": "Cooler M/U Air Unit",
+    "normalState": "Closed when unit permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "Cooler M/U air interlock path open"
+  },
+  {
+    "id": "CR6171",
+    "description": "Debone M/U Air Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "617",
+    "location": "Safety Control Panel",
+    "normalState": "Energized when debone M/U air permissive is made",
+    "expectedVoltage": "120 VAC at coil",
+    "downstream": [
+      "Debone M/U Air Unit N3 interlock"
+    ],
+    "failureEffect": "Debone make-up air shutdown/interlock fault"
+  },
+  {
+    "id": "DEBONE-MUA-INT",
+    "description": "Debone M/U Air Unit N3 Interlock",
+    "type": "M/U Air Interlock",
+    "drawing": "RC-6",
+    "line": "618",
+    "location": "Debone M/U Air Unit",
+    "normalState": "Closed when unit permissive is healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "failureEffect": "Debone M/U air interlock path open"
   }
 ]

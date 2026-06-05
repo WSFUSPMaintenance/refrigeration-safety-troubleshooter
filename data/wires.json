@@ -1,12 +1,12 @@
 [
   {
     "wire": "4001",
-    "drawing": "RC-4/RC-5",
-    "line": "400-539",
+    "drawing": "RC-4/RC-5/RC-6",
+    "line": "400-619",
     "description": "120 VAC control feed / line continuation",
     "expectedVoltage": "120 VAC",
     "from": "120 VAC service",
-    "to": "Safety circuit devices",
+    "to": "Safety and interlock devices",
     "notes": "Primary control feed used across safety circuits"
   },
   {
@@ -17,159 +17,6 @@
     "expectedVoltage": "120 VAC when permissives are made",
     "from": "CR4371",
     "to": "CR5061 / CR5131 / CR407"
-  },
-  {
-    "wire": "4131",
-    "drawing": "RC-4",
-    "line": "413",
-    "description": "Safety Circuit OK pilot light feed",
-    "expectedVoltage": "120 VAC when safety OK",
-    "from": "CR407 contact",
-    "to": "LT4131"
-  },
-  {
-    "wire": "4141",
-    "drawing": "RC-4",
-    "line": "414",
-    "description": "Safety Circuit Tripped pilot light feed",
-    "expectedVoltage": "120 VAC when tripped",
-    "from": "CR407 contact",
-    "to": "LT4141"
-  },
-  {
-    "wire": "4191",
-    "drawing": "RC-4",
-    "line": "419",
-    "description": "E-Stop chain section after PB4191",
-    "expectedVoltage": "120 VAC when E-Stop chain is closed",
-    "from": "PB4191",
-    "to": "PB4192"
-  },
-  {
-    "wire": "4192",
-    "drawing": "RC-4",
-    "line": "419",
-    "description": "E-Stop chain section after PB4192",
-    "expectedVoltage": "120 VAC when E-Stop chain is closed",
-    "from": "PB4192",
-    "to": "PB4193"
-  },
-  {
-    "wire": "4193",
-    "drawing": "RC-4",
-    "line": "419",
-    "description": "E-Stop chain section after PB4193",
-    "expectedVoltage": "120 VAC when E-Stop chain is closed",
-    "from": "PB4193",
-    "to": "CR419"
-  },
-  {
-    "wire": "4211",
-    "drawing": "RC-4",
-    "line": "421",
-    "description": "High pressure switch / CR421 feed",
-    "expectedVoltage": "120 VAC when high pressure switch is closed",
-    "from": "PS421",
-    "to": "CR421"
-  },
-  {
-    "wire": "4371",
-    "drawing": "RC-4/RC-7",
-    "line": "437",
-    "description": "NH3 shutdown relay output into safety circuit",
-    "expectedVoltage": "120 VAC during normal non-shutdown condition",
-    "from": "NH3 monitor output",
-    "to": "CR437"
-  },
-  {
-    "wire": "5011",
-    "drawing": "RC-5",
-    "line": "501",
-    "description": "HTR1 high level float/relay circuit feed",
-    "expectedVoltage": "120 VAC during normal path",
-    "from": "FS5011",
-    "to": "CR5011"
-  },
-  {
-    "wire": "5041",
-    "drawing": "RC-5",
-    "line": "504",
-    "description": "HTR1 high level timer circuit",
-    "expectedVoltage": "120 VAC during normal path",
-    "from": "CR5011",
-    "to": "TD5041"
-  },
-  {
-    "wire": "5051",
-    "drawing": "RC-5",
-    "line": "505",
-    "description": "HTR1 high level timer output section",
-    "expectedVoltage": "120 VAC after timer output made",
-    "from": "TD5041",
-    "to": "CR5061 path"
-  },
-  {
-    "wire": "5061",
-    "drawing": "RC-5",
-    "line": "506",
-    "description": "HTR1 high level safety relay output",
-    "expectedVoltage": "120 VAC when CR5061 is energized",
-    "from": "CR5061",
-    "to": "CR407 safety chain"
-  },
-  {
-    "wire": "5081",
-    "drawing": "RC-5",
-    "line": "508",
-    "description": "LTR1 high level float/relay circuit feed",
-    "expectedVoltage": "120 VAC during normal path",
-    "from": "FS5081",
-    "to": "CR5081"
-  },
-  {
-    "wire": "5111",
-    "drawing": "RC-5",
-    "line": "511",
-    "description": "LTR1 high level timer circuit",
-    "expectedVoltage": "120 VAC during normal path",
-    "from": "CR5081",
-    "to": "TD5111"
-  },
-  {
-    "wire": "5121",
-    "drawing": "RC-5",
-    "line": "512",
-    "description": "LTR1 high level timer output section",
-    "expectedVoltage": "120 VAC after timer output made",
-    "from": "TD5111",
-    "to": "CR5131 path"
-  },
-  {
-    "wire": "5131",
-    "drawing": "RC-5",
-    "line": "513",
-    "description": "LTR1 high level safety relay output",
-    "expectedVoltage": "120 VAC when CR5131 is energized",
-    "from": "CR5131",
-    "to": "CR407 safety chain"
-  },
-  {
-    "wire": "5211",
-    "drawing": "RC-5",
-    "line": "521",
-    "description": "King liquid solenoid output",
-    "expectedVoltage": "120 VAC when solenoid is commanded and safety contact made",
-    "from": "CR4071A",
-    "to": "SOL5211"
-  },
-  {
-    "wire": "5221",
-    "drawing": "RC-5",
-    "line": "522",
-    "description": "King hot gas solenoid output",
-    "expectedVoltage": "120 VAC when solenoid is commanded and safety contact made",
-    "from": "CR4071A",
-    "to": "SOL5221"
   },
   {
     "wire": "5231",
@@ -190,114 +37,6 @@
     "to": "CP-01 permission circuit"
   },
   {
-    "wire": "5241",
-    "drawing": "RC-5",
-    "line": "524",
-    "description": "Compressor SC-01 safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071B is made",
-    "from": "CR4071B",
-    "to": "SC-01 safety interlock input"
-  },
-  {
-    "wire": "5242",
-    "drawing": "RC-5",
-    "line": "524",
-    "description": "Compressor SC-01 safety interlock output",
-    "expectedVoltage": "120 VAC when SC-01 interlock contact is closed",
-    "from": "SC-01 safety interlock output",
-    "to": "SC-01 permission circuit"
-  },
-  {
-    "wire": "5251",
-    "drawing": "RC-5",
-    "line": "525",
-    "description": "Compressor SC-02 safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071B is made",
-    "from": "CR4071B",
-    "to": "SC-02 safety interlock input"
-  },
-  {
-    "wire": "5252",
-    "drawing": "RC-5",
-    "line": "525",
-    "description": "Compressor SC-02 safety interlock output",
-    "expectedVoltage": "120 VAC when SC-02 interlock contact is closed",
-    "from": "SC-02 safety interlock output",
-    "to": "SC-02 permission circuit"
-  },
-  {
-    "wire": "5261",
-    "drawing": "RC-5",
-    "line": "526",
-    "description": "Compressor CP-02 safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071B is made",
-    "from": "CR4071B",
-    "to": "CP-02 safety interlock input"
-  },
-  {
-    "wire": "5262",
-    "drawing": "RC-5",
-    "line": "526",
-    "description": "Compressor CP-02 safety interlock output",
-    "expectedVoltage": "120 VAC when CP-02 interlock contact is closed",
-    "from": "CP-02 safety interlock output",
-    "to": "CP-02 permission circuit"
-  },
-  {
-    "wire": "5271",
-    "drawing": "RC-5",
-    "line": "527",
-    "description": "Compressor CP-05 safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071C is made",
-    "from": "CR4071C",
-    "to": "CP-05 safety interlock input"
-  },
-  {
-    "wire": "5272",
-    "drawing": "RC-5",
-    "line": "527",
-    "description": "Compressor CP-05 safety interlock output",
-    "expectedVoltage": "120 VAC when CP-05 interlock contact is closed",
-    "from": "CP-05 safety interlock output",
-    "to": "CP-05 permission circuit"
-  },
-  {
-    "wire": "5281",
-    "drawing": "RC-5",
-    "line": "528",
-    "description": "Compressor CP-06 safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071C is made",
-    "from": "CR4071C",
-    "to": "CP-06 safety interlock input"
-  },
-  {
-    "wire": "5282",
-    "drawing": "RC-5",
-    "line": "528",
-    "description": "Compressor CP-06 safety interlock output",
-    "expectedVoltage": "120 VAC when CP-06 interlock contact is closed",
-    "from": "CP-06 safety interlock output",
-    "to": "CP-06 permission circuit"
-  },
-  {
-    "wire": "5291",
-    "drawing": "RC-5",
-    "line": "529",
-    "description": "Compressor CP-07 safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071C is made",
-    "from": "CR4071C",
-    "to": "CP-07 safety interlock input"
-  },
-  {
-    "wire": "5292",
-    "drawing": "RC-5",
-    "line": "529",
-    "description": "Compressor CP-07 safety interlock output",
-    "expectedVoltage": "120 VAC when CP-07 interlock contact is closed",
-    "from": "CP-07 safety interlock output",
-    "to": "CP-07 permission circuit"
-  },
-  {
     "wire": "5301",
     "drawing": "RC-5",
     "line": "530",
@@ -305,15 +44,6 @@
     "expectedVoltage": "120 VAC when CR4071D is made and remote enable contact closed",
     "from": "CR4071D",
     "to": "HTR1 remote enable"
-  },
-  {
-    "wire": "5302",
-    "drawing": "RC-5",
-    "line": "530",
-    "description": "Recirculator HTR1 remote enable output",
-    "expectedVoltage": "120 VAC when HTR1 remote enable contact closed",
-    "from": "HTR1 remote enable output",
-    "to": "HTR1 permission circuit"
   },
   {
     "wire": "5311",
@@ -325,30 +55,210 @@
     "to": "LTR1 remote enable"
   },
   {
-    "wire": "5312",
-    "drawing": "RC-5",
-    "line": "531",
-    "description": "Recirculator LTR1 remote enable output",
-    "expectedVoltage": "120 VAC when LTR1 remote enable contact closed",
-    "from": "LTR1 remote enable output",
-    "to": "LTR1 permission circuit"
+    "wire": "6011",
+    "drawing": "RC-6",
+    "line": "601",
+    "description": "High ventilation interlock relay feed/output",
+    "expectedVoltage": "120 VAC when high ventilation permissive is made",
+    "from": "TAS6021 / emergency ventilation path",
+    "to": "CR6011"
   },
   {
-    "wire": "5321",
-    "drawing": "RC-5",
-    "line": "532",
-    "description": "F/F Water Chiller safety interlock input",
-    "expectedVoltage": "120 VAC when CR4071D is made",
-    "from": "CR4071D",
-    "to": "Water chiller safety interlock input"
+    "wire": "6021",
+    "drawing": "RC-6",
+    "line": "602",
+    "description": "Thermostat path feed to high ventilation circuit",
+    "expectedVoltage": "120 VAC when thermostat path is closed",
+    "from": "TAS6021",
+    "to": "CR6011 high ventilation path"
   },
   {
-    "wire": "5322",
-    "drawing": "RC-5",
-    "line": "532",
-    "description": "F/F Water Chiller safety interlock output",
-    "expectedVoltage": "120 VAC when chiller safety interlock closed",
-    "from": "Water chiller interlock output",
-    "to": "Water chiller permission circuit"
+    "wire": "6031",
+    "drawing": "RC-6",
+    "line": "603",
+    "description": "Emergency ventilation switch 1 path",
+    "expectedVoltage": "120 VAC when switch path is closed",
+    "from": "SS6031",
+    "to": "High ventilation path"
+  },
+  {
+    "wire": "6041",
+    "drawing": "RC-6",
+    "line": "604",
+    "description": "Emergency ventilation switch 2 path",
+    "expectedVoltage": "120 VAC when switch path is closed",
+    "from": "SS6041",
+    "to": "High ventilation path"
+  },
+  {
+    "wire": "6051",
+    "drawing": "RC-6",
+    "line": "605",
+    "description": "Exhaust Fan EF-1 high vent interlock input",
+    "expectedVoltage": "120 VAC when CR6011 permissive path is made",
+    "from": "CR6011 / high ventilation relay path",
+    "to": "EF-1 interlock input"
+  },
+  {
+    "wire": "6052",
+    "drawing": "RC-6",
+    "line": "605",
+    "description": "Exhaust Fan EF-1 high vent interlock output",
+    "expectedVoltage": "120 VAC when EF-1 interlock is closed",
+    "from": "EF-1 interlock output",
+    "to": "High ventilation circuit continuation"
+  },
+  {
+    "wire": "6061",
+    "drawing": "RC-6",
+    "line": "606",
+    "description": "Exhaust Fan EF-2 high vent interlock input",
+    "expectedVoltage": "120 VAC when CR6011 permissive path is made",
+    "from": "CR6011 / high ventilation relay path",
+    "to": "EF-2 interlock input"
+  },
+  {
+    "wire": "6062",
+    "drawing": "RC-6",
+    "line": "606",
+    "description": "Exhaust Fan EF-2 high vent interlock output",
+    "expectedVoltage": "120 VAC when EF-2 interlock is closed",
+    "from": "EF-2 interlock output",
+    "to": "High ventilation circuit continuation"
+  },
+  {
+    "wire": "6071",
+    "drawing": "RC-6",
+    "line": "607",
+    "description": "Spare high vent interlock input",
+    "expectedVoltage": "120 VAC when high ventilation path is made",
+    "from": "High ventilation circuit",
+    "to": "Spare interlock input"
+  },
+  {
+    "wire": "6072",
+    "drawing": "RC-6",
+    "line": "607",
+    "description": "Spare high vent interlock output",
+    "expectedVoltage": "120 VAC when spare interlock is closed/jumpered",
+    "from": "Spare interlock output",
+    "to": "High ventilation circuit continuation"
+  },
+  {
+    "wire": "6091",
+    "drawing": "RC-6/RC-7",
+    "line": "609",
+    "description": "Evis M/U air shutdown/interlock circuit",
+    "expectedVoltage": "120 VAC when Evis M/U air permissive is made",
+    "from": "CR6091",
+    "to": "Evis M/U air interlock path"
+  },
+  {
+    "wire": "6101",
+    "drawing": "RC-6",
+    "line": "610",
+    "description": "Evis M/U Air Unit 1 N3 interlock input",
+    "expectedVoltage": "120 VAC when CR6091 is made",
+    "from": "CR6091",
+    "to": "Evis M/U Air Unit 1 interlock"
+  },
+  {
+    "wire": "6102",
+    "drawing": "RC-6",
+    "line": "610",
+    "description": "Evis M/U Air Unit 1 N3 interlock output",
+    "expectedVoltage": "120 VAC when Unit 1 interlock is closed",
+    "from": "Evis M/U Air Unit 1 interlock",
+    "to": "Evis interlock path continuation"
+  },
+  {
+    "wire": "6111",
+    "drawing": "RC-6",
+    "line": "611",
+    "description": "Evis M/U Air Unit 2 N3 interlock input",
+    "expectedVoltage": "120 VAC when CR6091 is made",
+    "from": "CR6091",
+    "to": "Evis M/U Air Unit 2 interlock"
+  },
+  {
+    "wire": "6112",
+    "drawing": "RC-6",
+    "line": "611",
+    "description": "Evis M/U Air Unit 2 N3 interlock output",
+    "expectedVoltage": "120 VAC when Unit 2 interlock is closed",
+    "from": "Evis M/U Air Unit 2 interlock",
+    "to": "Evis interlock path continuation"
+  },
+  {
+    "wire": "6121",
+    "drawing": "RC-6",
+    "line": "612",
+    "description": "Evis M/U Air Unit 3 N3 interlock input",
+    "expectedVoltage": "120 VAC when CR6091 is made",
+    "from": "CR6091",
+    "to": "Evis M/U Air Unit 3 interlock"
+  },
+  {
+    "wire": "6122",
+    "drawing": "RC-6",
+    "line": "612",
+    "description": "Evis M/U Air Unit 3 N3 interlock output",
+    "expectedVoltage": "120 VAC when Unit 3 interlock is closed",
+    "from": "Evis M/U Air Unit 3 interlock",
+    "to": "Evis interlock path continuation"
+  },
+  {
+    "wire": "6141",
+    "drawing": "RC-6/RC-8",
+    "line": "614",
+    "description": "Cooler M/U air shutdown/interlock circuit",
+    "expectedVoltage": "120 VAC when Cooler M/U air permissive is made",
+    "from": "CR6141",
+    "to": "Cooler M/U air interlock path"
+  },
+  {
+    "wire": "6151",
+    "drawing": "RC-6",
+    "line": "615",
+    "description": "Cooler M/U Air Unit N3 interlock input",
+    "expectedVoltage": "120 VAC when CR6141 is made",
+    "from": "CR6141",
+    "to": "Cooler M/U Air Unit interlock"
+  },
+  {
+    "wire": "6152",
+    "drawing": "RC-6",
+    "line": "615",
+    "description": "Cooler M/U Air Unit N3 interlock output",
+    "expectedVoltage": "120 VAC when cooler interlock is closed",
+    "from": "Cooler M/U Air Unit interlock",
+    "to": "Cooler interlock path continuation"
+  },
+  {
+    "wire": "6171",
+    "drawing": "RC-6/RC-8",
+    "line": "617",
+    "description": "Debone M/U air shutdown/interlock circuit",
+    "expectedVoltage": "120 VAC when Debone M/U air permissive is made",
+    "from": "CR6171",
+    "to": "Debone M/U air interlock path"
+  },
+  {
+    "wire": "6181",
+    "drawing": "RC-6",
+    "line": "618",
+    "description": "Debone M/U Air Unit N3 interlock input",
+    "expectedVoltage": "120 VAC when CR6171 is made",
+    "from": "CR6171",
+    "to": "Debone M/U Air Unit interlock"
+  },
+  {
+    "wire": "6182",
+    "drawing": "RC-6",
+    "line": "618",
+    "description": "Debone M/U Air Unit N3 interlock output",
+    "expectedVoltage": "120 VAC when Debone interlock is closed",
+    "from": "Debone M/U Air Unit interlock",
+    "to": "Debone interlock path continuation"
   }
 ]
