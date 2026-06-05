@@ -1,0 +1,32 @@
+[
+  {
+    "symptom": "Entire compressor room down",
+    "firstCheck": "Wire 4001 and CR407",
+    "next": "If CR407 is de-energized, trace CR5131, CR5061, CR4371, CR4191."
+  },
+  {
+    "symptom": "Safety circuit tripped",
+    "firstCheck": "LT4141 and CR407",
+    "next": "Use Safety Circuit Tripped tree."
+  },
+  {
+    "symptom": "Possible false high level",
+    "firstCheck": "Actual vessel level",
+    "next": "If level normal, check FS5011 or FS5081 path."
+  },
+  {
+    "symptom": "NH3 shutdown",
+    "firstCheck": "Active beacon and portable detector",
+    "next": "If detector reads 0 ppm, verify sensor relay and calibration."
+  },
+  {
+    "symptom": "Compressor will not start",
+    "firstCheck": "Safety OK light and compressor interlock input",
+    "next": "If safety OK, compare interlock input and output voltage."
+  },
+  {
+    "symptom": "Ventilation fault",
+    "firstCheck": "CR6011 and exhaust fan interlocks",
+    "next": "Check TAS6021, emergency vent switches, EF-1/EF-2 aux contacts."
+  }
+]
