@@ -1,11 +1,16 @@
-# Refrigeration Safety Troubleshooter v0.2
+# Refrigeration Safety Troubleshooter v0.3
 
-## v0.2 Changes
-- Symptom-Based Troubleshooting is the home screen.
-- Device / Wire Search is a secondary tab.
-- Added Quick Reference tab.
-- Added expanded RC-4, RC-5, RC-6, RC-7, and RC-8 starter data.
-- Added decision trees for safety trip, compressor start failure, HTR1/LTR1 high level, NH3 shutdown, ventilation fault, and E-Stop circuit open.
+## v0.3 Scope
+Expanded RC-4 Safety Circuit build.
 
-## Upload
-Replace existing files with this package and commit to main.
+Added:
+- RC-4 control power devices
+- RC-4 E-Stop circuit
+- RC-4 safety relay chain
+- RC-4 pressure safety devices
+- RC-4 NH3 shutdown interface
+- Expanded RC-4 wire register
+- RC-4 specific troubleshooting trees
+- Drawing and line references on troubleshooting steps
+
+Upload the full package and replace existing files.
