@@ -250,72 +250,6 @@
     "failureEffect": "High pressure permissive lost"
   },
   {
-    "id": "DV4231",
-    "description": "EPCS Discharge Pressure Switch",
-    "type": "Pressure Switch",
-    "drawing": "RC-4",
-    "line": "423",
-    "location": "EPCS Pressure Circuit",
-    "normalState": "Closed in normal condition",
-    "expectedVoltage": "0 VAC across closed switch",
-    "failureEffect": "EPCS discharge pressure shutdown"
-  },
-  {
-    "id": "CR4231",
-    "description": "EPCS Discharge Pressure Safety Relay",
-    "type": "Relay",
-    "drawing": "RC-4",
-    "line": "423",
-    "location": "Safety Control Panel",
-    "normalState": "Energized",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "EPCS discharge pressure permissive lost"
-  },
-  {
-    "id": "DV4281",
-    "description": "EPCS High Temp Suction Pressure Switch",
-    "type": "Pressure Switch",
-    "drawing": "RC-4",
-    "line": "428",
-    "location": "EPCS Pressure Circuit",
-    "normalState": "Closed in normal condition",
-    "expectedVoltage": "0 VAC across closed switch",
-    "failureEffect": "EPCS high temp suction shutdown"
-  },
-  {
-    "id": "CR4281",
-    "description": "EPCS High Temp Suction Safety Relay",
-    "type": "Relay",
-    "drawing": "RC-4",
-    "line": "428",
-    "location": "Safety Control Panel",
-    "normalState": "Energized",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "EPCS high temp suction permissive lost"
-  },
-  {
-    "id": "DV4331",
-    "description": "EPCS Low Temp Suction Pressure Switch",
-    "type": "Pressure Switch",
-    "drawing": "RC-4",
-    "line": "433",
-    "location": "EPCS Pressure Circuit",
-    "normalState": "Closed in normal condition",
-    "expectedVoltage": "0 VAC across closed switch",
-    "failureEffect": "EPCS low temp suction shutdown"
-  },
-  {
-    "id": "CR4331",
-    "description": "EPCS Low Temp Suction Safety Relay",
-    "type": "Relay",
-    "drawing": "RC-4",
-    "line": "433",
-    "location": "Safety Control Panel",
-    "normalState": "Energized",
-    "expectedVoltage": "120 VAC at coil",
-    "failureEffect": "EPCS low temp suction permissive lost"
-  },
-  {
     "id": "CR437",
     "description": "NH3 Shutdown Safety Relay",
     "type": "Relay",
@@ -357,6 +291,28 @@
     "failureEffect": "HTR1 high level safety path opens"
   },
   {
+    "id": "CR5011",
+    "description": "Recirculator HTR1 High Level Relay",
+    "type": "Relay",
+    "drawing": "RC-5",
+    "line": "501",
+    "location": "Safety Control Panel",
+    "normalState": "Energized in normal HTR1 high level logic path",
+    "expectedVoltage": "120 VAC at coil",
+    "failureEffect": "HTR1 high level logic does not transfer"
+  },
+  {
+    "id": "TD5041",
+    "description": "Recirculator HTR1 High Level 5 Sec Off Delay Timer",
+    "type": "Timer",
+    "drawing": "RC-5",
+    "line": "504",
+    "location": "Safety Control Panel",
+    "normalState": "Output made during normal condition after time delay",
+    "expectedVoltage": "120 VAC at timer coil/input",
+    "failureEffect": "HTR1 safety relay CR5061 may not energize"
+  },
+  {
     "id": "CR5061",
     "description": "Recirculator HTR1 High Level Safety Relay",
     "type": "Relay",
@@ -382,6 +338,28 @@
     "failureEffect": "LTR1 high level safety path opens"
   },
   {
+    "id": "CR5081",
+    "description": "Recirculator LTR1 High Level Relay",
+    "type": "Relay",
+    "drawing": "RC-5",
+    "line": "508",
+    "location": "Safety Control Panel",
+    "normalState": "Energized in normal LTR1 high level logic path",
+    "expectedVoltage": "120 VAC at coil",
+    "failureEffect": "LTR1 high level logic does not transfer"
+  },
+  {
+    "id": "TD5111",
+    "description": "Recirculator LTR1 High Level 5 Sec Off Delay Timer",
+    "type": "Timer",
+    "drawing": "RC-5",
+    "line": "511",
+    "location": "Safety Control Panel",
+    "normalState": "Output made during normal condition after time delay",
+    "expectedVoltage": "120 VAC at timer coil/input",
+    "failureEffect": "LTR1 safety relay CR5131 may not energize"
+  },
+  {
     "id": "CR5131",
     "description": "Recirculator LTR1 High Level Safety Relay",
     "type": "Relay",
@@ -394,5 +372,137 @@
       "CR407"
     ],
     "failureEffect": "Master safety relay cannot energize"
+  },
+  {
+    "id": "SOL5211",
+    "description": "King Liquid Solenoid",
+    "type": "Solenoid",
+    "drawing": "RC-5",
+    "line": "521",
+    "location": "King Liquid Solenoid Circuit",
+    "normalState": "Energized when commanded and safety permissive is made",
+    "expectedVoltage": "120 VAC when commanded",
+    "failureEffect": "No liquid solenoid operation"
+  },
+  {
+    "id": "SOL5221",
+    "description": "King Hot Gas Solenoid",
+    "type": "Solenoid",
+    "drawing": "RC-5",
+    "line": "522",
+    "location": "King Hot Gas Solenoid Circuit",
+    "normalState": "Energized when commanded and safety permissive is made",
+    "expectedVoltage": "120 VAC when commanded",
+    "failureEffect": "No hot gas solenoid operation"
+  },
+  {
+    "id": "CP-01-INT",
+    "description": "Compressor CP-01 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "523",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "CP-01 will not run"
+  },
+  {
+    "id": "SC-01-INT",
+    "description": "Compressor SC-01 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "524",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "SC-01 will not run"
+  },
+  {
+    "id": "SC-02-INT",
+    "description": "Compressor SC-02 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "525",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "SC-02 will not run"
+  },
+  {
+    "id": "CP-02-INT",
+    "description": "Compressor CP-02 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "526",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "CP-02 will not run"
+  },
+  {
+    "id": "CP-05-INT",
+    "description": "Compressor CP-05 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "527",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "CP-05 will not run"
+  },
+  {
+    "id": "CP-06-INT",
+    "description": "Compressor CP-06 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "528",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "CP-06 will not run"
+  },
+  {
+    "id": "CP-07-INT",
+    "description": "Compressor CP-07 Safety Interlock",
+    "type": "Compressor Interlock",
+    "drawing": "RC-5",
+    "line": "529",
+    "location": "Compressor Safety Interlock Circuit",
+    "normalState": "Closed when compressor safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "CP-07 will not run"
+  },
+  {
+    "id": "HTR1-REMOTE",
+    "description": "Recirculator HTR1 Remote Enable",
+    "type": "Remote Enable",
+    "drawing": "RC-5",
+    "line": "530",
+    "location": "Recirculator HTR1 Remote Enable Circuit",
+    "normalState": "Closed/enabled when CR4071D is made and remote enable is healthy",
+    "expectedVoltage": "120 VAC when enabled",
+    "failureEffect": "HTR1 remote enable lost"
+  },
+  {
+    "id": "LTR1-REMOTE",
+    "description": "Recirculator LTR1 Remote Enable",
+    "type": "Remote Enable",
+    "drawing": "RC-5",
+    "line": "531",
+    "location": "Recirculator LTR1 Remote Enable Circuit",
+    "normalState": "Closed/enabled when CR4071D is made and remote enable is healthy",
+    "expectedVoltage": "120 VAC when enabled",
+    "failureEffect": "LTR1 remote enable lost"
+  },
+  {
+    "id": "WATER-CHILLER-INT",
+    "description": "F/F Water Chiller Safety Interlock",
+    "type": "Chiller Interlock",
+    "drawing": "RC-5",
+    "line": "532",
+    "location": "Water Chiller Safety Interlock Circuit",
+    "normalState": "Closed when chiller safety chain is healthy",
+    "expectedVoltage": "120 VAC input and output when permissive is made",
+    "failureEffect": "Water chiller unavailable"
   }
 ]

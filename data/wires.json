@@ -1,85 +1,13 @@
 [
   {
     "wire": "4001",
-    "drawing": "RC-4",
-    "line": "400-419",
+    "drawing": "RC-4/RC-5",
+    "line": "400-539",
     "description": "120 VAC control feed / line continuation",
     "expectedVoltage": "120 VAC",
     "from": "120 VAC service",
-    "to": "RC-4 safety circuit devices",
+    "to": "Safety circuit devices",
     "notes": "Primary control feed used across safety circuits"
-  },
-  {
-    "wire": "4002",
-    "drawing": "RC-4",
-    "line": "402",
-    "description": "Power supply input / 120 VAC feed section",
-    "expectedVoltage": "120 VAC",
-    "from": "FU4021",
-    "to": "PWS4021"
-  },
-  {
-    "wire": "4031",
-    "drawing": "RC-4",
-    "line": "402",
-    "description": "24 VDC positive distribution from FU4091",
-    "expectedVoltage": "24 VDC",
-    "from": "FU4091",
-    "to": "24 VDC components"
-  },
-  {
-    "wire": "4032",
-    "drawing": "RC-4",
-    "line": "402",
-    "description": "24 VDC negative/common distribution",
-    "expectedVoltage": "0 VDC reference",
-    "from": "PWS4021 V-",
-    "to": "24 VDC components"
-  },
-  {
-    "wire": "4052",
-    "drawing": "RC-4",
-    "line": "405",
-    "description": "Safety relay input chain section",
-    "expectedVoltage": "120 VAC when prior safety contact closed",
-    "from": "CR4191",
-    "to": "CR4211"
-  },
-  {
-    "wire": "4053",
-    "drawing": "RC-4",
-    "line": "405",
-    "description": "Safety relay input chain section",
-    "expectedVoltage": "120 VAC when prior safety contact closed",
-    "from": "CR4211",
-    "to": "CR4231"
-  },
-  {
-    "wire": "4054",
-    "drawing": "RC-4",
-    "line": "405",
-    "description": "Safety relay input chain section",
-    "expectedVoltage": "120 VAC when prior safety contact closed",
-    "from": "CR4231",
-    "to": "CR4281"
-  },
-  {
-    "wire": "4055",
-    "drawing": "RC-4",
-    "line": "405",
-    "description": "Safety relay input chain section",
-    "expectedVoltage": "120 VAC when prior safety contact closed",
-    "from": "CR4281",
-    "to": "CR4331"
-  },
-  {
-    "wire": "4056",
-    "drawing": "RC-4",
-    "line": "405",
-    "description": "Safety relay input chain section",
-    "expectedVoltage": "120 VAC when prior safety contact closed",
-    "from": "CR4331",
-    "to": "next safety chain point"
   },
   {
     "wire": "4071",
@@ -89,33 +17,6 @@
     "expectedVoltage": "120 VAC when permissives are made",
     "from": "CR4371",
     "to": "CR5061 / CR5131 / CR407"
-  },
-  {
-    "wire": "4072",
-    "drawing": "RC-4",
-    "line": "407",
-    "description": "Recirculator HTR1 safety relay section",
-    "expectedVoltage": "120 VAC when CR5061 closed",
-    "from": "CR5061",
-    "to": "CR5131"
-  },
-  {
-    "wire": "4073",
-    "drawing": "RC-4",
-    "line": "407",
-    "description": "Recirculator LTR1 safety relay section",
-    "expectedVoltage": "120 VAC when CR5131 closed",
-    "from": "CR5131",
-    "to": "CR407"
-  },
-  {
-    "wire": "4074",
-    "drawing": "RC-4",
-    "line": "407",
-    "description": "Safety relay feed into CR407 coil/contact path",
-    "expectedVoltage": "120 VAC when safety chain complete",
-    "from": "CR5131 output",
-    "to": "CR407"
   },
   {
     "wire": "4131",
@@ -134,24 +35,6 @@
     "expectedVoltage": "120 VAC when tripped",
     "from": "CR407 contact",
     "to": "LT4141"
-  },
-  {
-    "wire": "4161",
-    "drawing": "RC-4",
-    "line": "416",
-    "description": "Power fail reset timer circuit",
-    "expectedVoltage": "120 VAC when powered",
-    "from": "Control feed",
-    "to": "TD4161"
-  },
-  {
-    "wire": "4171",
-    "drawing": "RC-4",
-    "line": "417",
-    "description": "Reset circuit / CR417 path",
-    "expectedVoltage": "120 VAC during reset permissive",
-    "from": "TD4161 / PB4181",
-    "to": "CR417"
   },
   {
     "wire": "4191",
@@ -190,51 +73,6 @@
     "to": "CR421"
   },
   {
-    "wire": "4231",
-    "drawing": "RC-4",
-    "line": "423",
-    "description": "EPCS discharge pressure relay circuit",
-    "expectedVoltage": "120 VAC when permissive is made",
-    "from": "DV4231",
-    "to": "CR4231"
-  },
-  {
-    "wire": "4261",
-    "drawing": "RC-4",
-    "line": "426",
-    "description": "EPCS crossover valve output HTR to HPS",
-    "expectedVoltage": "Output dependent",
-    "from": "CR4231 circuit",
-    "to": "SOL4261"
-  },
-  {
-    "wire": "4281",
-    "drawing": "RC-4",
-    "line": "428",
-    "description": "EPCS high temp suction relay circuit",
-    "expectedVoltage": "120 VAC when permissive is made",
-    "from": "DV4281",
-    "to": "CR4281"
-  },
-  {
-    "wire": "4311",
-    "drawing": "RC-4",
-    "line": "431",
-    "description": "EPCS crossover valve output HPS to LTS",
-    "expectedVoltage": "Output dependent",
-    "from": "CR4281 circuit",
-    "to": "SOL4311"
-  },
-  {
-    "wire": "4331",
-    "drawing": "RC-4",
-    "line": "433",
-    "description": "EPCS low temp suction relay circuit",
-    "expectedVoltage": "120 VAC when permissive is made",
-    "from": "DV4331",
-    "to": "CR4331"
-  },
-  {
     "wire": "4371",
     "drawing": "RC-4/RC-7",
     "line": "437",
@@ -242,5 +80,275 @@
     "expectedVoltage": "120 VAC during normal non-shutdown condition",
     "from": "NH3 monitor output",
     "to": "CR437"
+  },
+  {
+    "wire": "5011",
+    "drawing": "RC-5",
+    "line": "501",
+    "description": "HTR1 high level float/relay circuit feed",
+    "expectedVoltage": "120 VAC during normal path",
+    "from": "FS5011",
+    "to": "CR5011"
+  },
+  {
+    "wire": "5041",
+    "drawing": "RC-5",
+    "line": "504",
+    "description": "HTR1 high level timer circuit",
+    "expectedVoltage": "120 VAC during normal path",
+    "from": "CR5011",
+    "to": "TD5041"
+  },
+  {
+    "wire": "5051",
+    "drawing": "RC-5",
+    "line": "505",
+    "description": "HTR1 high level timer output section",
+    "expectedVoltage": "120 VAC after timer output made",
+    "from": "TD5041",
+    "to": "CR5061 path"
+  },
+  {
+    "wire": "5061",
+    "drawing": "RC-5",
+    "line": "506",
+    "description": "HTR1 high level safety relay output",
+    "expectedVoltage": "120 VAC when CR5061 is energized",
+    "from": "CR5061",
+    "to": "CR407 safety chain"
+  },
+  {
+    "wire": "5081",
+    "drawing": "RC-5",
+    "line": "508",
+    "description": "LTR1 high level float/relay circuit feed",
+    "expectedVoltage": "120 VAC during normal path",
+    "from": "FS5081",
+    "to": "CR5081"
+  },
+  {
+    "wire": "5111",
+    "drawing": "RC-5",
+    "line": "511",
+    "description": "LTR1 high level timer circuit",
+    "expectedVoltage": "120 VAC during normal path",
+    "from": "CR5081",
+    "to": "TD5111"
+  },
+  {
+    "wire": "5121",
+    "drawing": "RC-5",
+    "line": "512",
+    "description": "LTR1 high level timer output section",
+    "expectedVoltage": "120 VAC after timer output made",
+    "from": "TD5111",
+    "to": "CR5131 path"
+  },
+  {
+    "wire": "5131",
+    "drawing": "RC-5",
+    "line": "513",
+    "description": "LTR1 high level safety relay output",
+    "expectedVoltage": "120 VAC when CR5131 is energized",
+    "from": "CR5131",
+    "to": "CR407 safety chain"
+  },
+  {
+    "wire": "5211",
+    "drawing": "RC-5",
+    "line": "521",
+    "description": "King liquid solenoid output",
+    "expectedVoltage": "120 VAC when solenoid is commanded and safety contact made",
+    "from": "CR4071A",
+    "to": "SOL5211"
+  },
+  {
+    "wire": "5221",
+    "drawing": "RC-5",
+    "line": "522",
+    "description": "King hot gas solenoid output",
+    "expectedVoltage": "120 VAC when solenoid is commanded and safety contact made",
+    "from": "CR4071A",
+    "to": "SOL5221"
+  },
+  {
+    "wire": "5231",
+    "drawing": "RC-5",
+    "line": "523",
+    "description": "Compressor CP-01 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071A is made",
+    "from": "CR4071A",
+    "to": "CP-01 safety interlock input"
+  },
+  {
+    "wire": "5232",
+    "drawing": "RC-5",
+    "line": "523",
+    "description": "Compressor CP-01 safety interlock output",
+    "expectedVoltage": "120 VAC when CP-01 interlock contact is closed",
+    "from": "CP-01 safety interlock output",
+    "to": "CP-01 permission circuit"
+  },
+  {
+    "wire": "5241",
+    "drawing": "RC-5",
+    "line": "524",
+    "description": "Compressor SC-01 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071B is made",
+    "from": "CR4071B",
+    "to": "SC-01 safety interlock input"
+  },
+  {
+    "wire": "5242",
+    "drawing": "RC-5",
+    "line": "524",
+    "description": "Compressor SC-01 safety interlock output",
+    "expectedVoltage": "120 VAC when SC-01 interlock contact is closed",
+    "from": "SC-01 safety interlock output",
+    "to": "SC-01 permission circuit"
+  },
+  {
+    "wire": "5251",
+    "drawing": "RC-5",
+    "line": "525",
+    "description": "Compressor SC-02 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071B is made",
+    "from": "CR4071B",
+    "to": "SC-02 safety interlock input"
+  },
+  {
+    "wire": "5252",
+    "drawing": "RC-5",
+    "line": "525",
+    "description": "Compressor SC-02 safety interlock output",
+    "expectedVoltage": "120 VAC when SC-02 interlock contact is closed",
+    "from": "SC-02 safety interlock output",
+    "to": "SC-02 permission circuit"
+  },
+  {
+    "wire": "5261",
+    "drawing": "RC-5",
+    "line": "526",
+    "description": "Compressor CP-02 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071B is made",
+    "from": "CR4071B",
+    "to": "CP-02 safety interlock input"
+  },
+  {
+    "wire": "5262",
+    "drawing": "RC-5",
+    "line": "526",
+    "description": "Compressor CP-02 safety interlock output",
+    "expectedVoltage": "120 VAC when CP-02 interlock contact is closed",
+    "from": "CP-02 safety interlock output",
+    "to": "CP-02 permission circuit"
+  },
+  {
+    "wire": "5271",
+    "drawing": "RC-5",
+    "line": "527",
+    "description": "Compressor CP-05 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071C is made",
+    "from": "CR4071C",
+    "to": "CP-05 safety interlock input"
+  },
+  {
+    "wire": "5272",
+    "drawing": "RC-5",
+    "line": "527",
+    "description": "Compressor CP-05 safety interlock output",
+    "expectedVoltage": "120 VAC when CP-05 interlock contact is closed",
+    "from": "CP-05 safety interlock output",
+    "to": "CP-05 permission circuit"
+  },
+  {
+    "wire": "5281",
+    "drawing": "RC-5",
+    "line": "528",
+    "description": "Compressor CP-06 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071C is made",
+    "from": "CR4071C",
+    "to": "CP-06 safety interlock input"
+  },
+  {
+    "wire": "5282",
+    "drawing": "RC-5",
+    "line": "528",
+    "description": "Compressor CP-06 safety interlock output",
+    "expectedVoltage": "120 VAC when CP-06 interlock contact is closed",
+    "from": "CP-06 safety interlock output",
+    "to": "CP-06 permission circuit"
+  },
+  {
+    "wire": "5291",
+    "drawing": "RC-5",
+    "line": "529",
+    "description": "Compressor CP-07 safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071C is made",
+    "from": "CR4071C",
+    "to": "CP-07 safety interlock input"
+  },
+  {
+    "wire": "5292",
+    "drawing": "RC-5",
+    "line": "529",
+    "description": "Compressor CP-07 safety interlock output",
+    "expectedVoltage": "120 VAC when CP-07 interlock contact is closed",
+    "from": "CP-07 safety interlock output",
+    "to": "CP-07 permission circuit"
+  },
+  {
+    "wire": "5301",
+    "drawing": "RC-5",
+    "line": "530",
+    "description": "Recirculator HTR1 remote enable input/output section",
+    "expectedVoltage": "120 VAC when CR4071D is made and remote enable contact closed",
+    "from": "CR4071D",
+    "to": "HTR1 remote enable"
+  },
+  {
+    "wire": "5302",
+    "drawing": "RC-5",
+    "line": "530",
+    "description": "Recirculator HTR1 remote enable output",
+    "expectedVoltage": "120 VAC when HTR1 remote enable contact closed",
+    "from": "HTR1 remote enable output",
+    "to": "HTR1 permission circuit"
+  },
+  {
+    "wire": "5311",
+    "drawing": "RC-5",
+    "line": "531",
+    "description": "Recirculator LTR1 remote enable input/output section",
+    "expectedVoltage": "120 VAC when CR4071D is made and remote enable contact closed",
+    "from": "CR4071D",
+    "to": "LTR1 remote enable"
+  },
+  {
+    "wire": "5312",
+    "drawing": "RC-5",
+    "line": "531",
+    "description": "Recirculator LTR1 remote enable output",
+    "expectedVoltage": "120 VAC when LTR1 remote enable contact closed",
+    "from": "LTR1 remote enable output",
+    "to": "LTR1 permission circuit"
+  },
+  {
+    "wire": "5321",
+    "drawing": "RC-5",
+    "line": "532",
+    "description": "F/F Water Chiller safety interlock input",
+    "expectedVoltage": "120 VAC when CR4071D is made",
+    "from": "CR4071D",
+    "to": "Water chiller safety interlock input"
+  },
+  {
+    "wire": "5322",
+    "drawing": "RC-5",
+    "line": "532",
+    "description": "F/F Water Chiller safety interlock output",
+    "expectedVoltage": "120 VAC when chiller safety interlock closed",
+    "from": "Water chiller interlock output",
+    "to": "Water chiller permission circuit"
   }
 ]

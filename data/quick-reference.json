@@ -5,29 +5,39 @@
     "next": "If CR407 is de-energized, trace CR4371, CR5061, CR5131, CR4191, and pressure safety contacts."
   },
   {
-    "symptom": "Panel appears dead",
-    "firstCheck": "FU4021 input/output",
-    "next": "If FU4021 output missing, isolate downstream short before replacing fuse."
+    "symptom": "HTR1 high level",
+    "firstCheck": "Actual HTR1 level, then FS5011",
+    "next": "If level normal and FS5011 open, suspect float or wiring."
   },
   {
-    "symptom": "24 VDC devices dead",
-    "firstCheck": "PWS4021 and FU4091",
-    "next": "Verify 120 VAC input and 24 VDC output."
+    "symptom": "LTR1 high level",
+    "firstCheck": "Actual LTR1 level, then FS5081",
+    "next": "If level normal and FS5081 open, suspect float or wiring."
   },
   {
-    "symptom": "E-Stop circuit open",
-    "firstCheck": "CR419",
-    "next": "Measure across PB4191, PB4192, PB4193. 120 VAC across a device identifies the open station."
+    "symptom": "CP-01 will not start",
+    "firstCheck": "CR4071A, Wire 5231, Wire 5232",
+    "next": "If 5231 has power but 5232 does not, CP-01 interlock is open."
   },
   {
-    "symptom": "Safety OK light off",
-    "firstCheck": "LT4131 and CR407",
-    "next": "If CR407 made but LT4131 off, check lamp, wire 4131, and CR407 contact."
+    "symptom": "Any compressor will not start",
+    "firstCheck": "Safety OK light and proper CR4071 contact group",
+    "next": "Compare compressor interlock input and output voltage."
   },
   {
-    "symptom": "Safety tripped light on",
-    "firstCheck": "LT4141 and CR407",
-    "next": "Use Safety Circuit Tripped tree."
+    "symptom": "King liquid solenoid does not energize",
+    "firstCheck": "CR4071A and Wire 5211",
+    "next": "If Wire 5211 has 120 VAC and valve does not move, check solenoid coil/valve."
+  },
+  {
+    "symptom": "King hot gas solenoid does not energize",
+    "firstCheck": "CR4071A and Wire 5221",
+    "next": "If Wire 5221 has 120 VAC and valve does not move, check solenoid coil/valve."
+  },
+  {
+    "symptom": "Recirculator remote enable lost",
+    "firstCheck": "CR4071D, Wire 5301, Wire 5311",
+    "next": "If CR4071D is not passing, safety relay contact or upstream safety issue exists."
   },
   {
     "symptom": "High pressure shutdown",
@@ -38,15 +48,5 @@
     "symptom": "NH3 shutdown",
     "firstCheck": "Active beacon and portable detector",
     "next": "If detector reads 0 ppm, verify sensor relay and calibration."
-  },
-  {
-    "symptom": "Possible false high level",
-    "firstCheck": "Actual vessel level",
-    "next": "If level normal, check FS5011 or FS5081 path."
-  },
-  {
-    "symptom": "Compressor will not start",
-    "firstCheck": "Safety OK light and compressor interlock input",
-    "next": "If safety OK, compare interlock input and output voltage."
   }
 ]

@@ -73,7 +73,7 @@
         "no": "estop"
       },
       "st8": {
-        "device": "CR4211 / CR4231 / CR4281 / CR4331",
+        "device": "CR4211 / pressure contacts",
         "drawing": "RC-4",
         "line": "405",
         "question": "Are all pressure safety contacts in the CR407 safety chain passing voltage?",
@@ -82,7 +82,7 @@
           "result": "Primary safety contacts appear made. Check reset/seal-in logic, CR417, TD4161, and wiring into CR407."
         },
         "no": {
-          "result": "One of the pressure safety contacts is open. Check High Pressure, EPCS Discharge Pressure, EPCS High Temp Suction, and EPCS Low Temp Suction trees."
+          "result": "One of the pressure safety contacts is open. Check High Pressure and EPCS pressure safety paths."
         }
       },
       "nh3": {
@@ -139,106 +139,262 @@
       }
     }
   },
-  "rc4-control-power": {
-    "title": "RC-4 Control Power Failure",
-    "start": "p1",
+  "htr1-high-level": {
+    "title": "HTR1 High Level Shutdown",
+    "start": "h1",
     "nodes": {
-      "p1": {
-        "device": "FU4021",
-        "drawing": "RC-4",
-        "line": "402",
-        "question": "Is 120 VAC present on the input side of FU4021?",
-        "expected": "120 VAC",
-        "yes": "p2",
-        "no": {
-          "result": "Incoming 120 VAC service missing. Check panel feed/source."
-        }
-      },
-      "p2": {
-        "device": "FU4021",
-        "drawing": "RC-4",
-        "line": "402",
-        "question": "Is 120 VAC present on the output side of FU4021?",
-        "expected": "120 VAC",
-        "yes": "p3",
-        "no": {
-          "result": "FU4021 open. Identify downstream short before replacing fuse."
-        }
-      },
-      "p3": {
-        "device": "PWS4021",
-        "drawing": "RC-4",
-        "line": "402",
-        "question": "Is PWS4021 receiving 120 VAC input and producing 24 VDC output?",
-        "expected": "120 VAC input, 24 VDC output",
-        "yes": "p4",
-        "no": {
-          "result": "Power supply or supply wiring fault."
-        }
-      },
-      "p4": {
-        "device": "FU4091",
-        "drawing": "RC-4",
-        "line": "402",
-        "question": "Is 24 VDC present on both sides of FU4091?",
-        "expected": "24 VDC both sides",
+      "h1": {
+        "device": "Actual HTR1 Vessel Level",
+        "drawing": "Field Verification",
+        "line": "",
+        "question": "Is HTR1 actually in high level?",
+        "expected": "NO",
         "yes": {
-          "result": "Control power and 24 VDC distribution are good. Move to safety chain."
+          "result": "Real process condition. Correct liquid level issue before reset."
+        },
+        "no": "h2"
+      },
+      "h2": {
+        "device": "FS5011",
+        "drawing": "RC-5",
+        "line": "501",
+        "question": "Is FS5011 passing voltage in normal condition?",
+        "expected": "YES",
+        "yes": "h3",
+        "no": {
+          "result": "FS5011 open, failed, misadjusted, or wiring open."
+        }
+      },
+      "h3": {
+        "device": "CR5011",
+        "drawing": "RC-5",
+        "line": "501",
+        "question": "Is CR5011 energized?",
+        "expected": "YES",
+        "yes": "h4",
+        "no": {
+          "result": "Open circuit between FS5011 and CR5011, or relay coil failure if voltage is present."
+        }
+      },
+      "h4": {
+        "device": "TD5041",
+        "drawing": "RC-5",
+        "line": "504",
+        "question": "Is TD5041 output feeding CR5061 path?",
+        "expected": "YES",
+        "yes": "h5",
+        "no": {
+          "result": "TD5041 timer or timer contact fault."
+        }
+      },
+      "h5": {
+        "device": "CR5061",
+        "drawing": "RC-5",
+        "line": "506",
+        "question": "Is CR5061 closed / passing voltage to safety chain?",
+        "expected": "YES",
+        "yes": {
+          "result": "HTR1 high level circuit is not the active fault."
         },
         "no": {
-          "result": "FU4091 open or 24 VDC distribution fault."
+          "result": "CR5061 contact/wiring fault or CR506 not fully energized."
         }
       }
     }
   },
-  "estop-active": {
-    "title": "E-Stop Circuit Open",
-    "start": "e1",
+  "ltr1-high-level": {
+    "title": "LTR1 High Level Shutdown",
+    "start": "l1",
     "nodes": {
-      "e1": {
-        "device": "CR419",
-        "drawing": "RC-4",
-        "line": "419",
-        "question": "Is CR419 energized?",
+      "l1": {
+        "device": "Actual LTR1 Vessel Level",
+        "drawing": "Field Verification",
+        "line": "",
+        "question": "Is LTR1 actually in high level?",
+        "expected": "NO",
+        "yes": {
+          "result": "Real process condition. Correct liquid level issue before reset."
+        },
+        "no": "l2"
+      },
+      "l2": {
+        "device": "FS5081",
+        "drawing": "RC-5",
+        "line": "508",
+        "question": "Is FS5081 passing voltage in normal condition?",
+        "expected": "YES",
+        "yes": "l3",
+        "no": {
+          "result": "FS5081 open, failed, misadjusted, or wiring open."
+        }
+      },
+      "l3": {
+        "device": "CR5081",
+        "drawing": "RC-5",
+        "line": "508",
+        "question": "Is CR5081 energized?",
+        "expected": "YES",
+        "yes": "l4",
+        "no": {
+          "result": "Open circuit between FS5081 and CR5081, or relay coil failure if voltage is present."
+        }
+      },
+      "l4": {
+        "device": "TD5111",
+        "drawing": "RC-5",
+        "line": "511",
+        "question": "Is TD5111 output feeding CR5131 path?",
+        "expected": "YES",
+        "yes": "l5",
+        "no": {
+          "result": "TD5111 timer or timer contact fault."
+        }
+      },
+      "l5": {
+        "device": "CR5131",
+        "drawing": "RC-5",
+        "line": "513",
+        "question": "Is CR5131 closed / passing voltage to safety chain?",
         "expected": "YES",
         "yes": {
-          "result": "E-Stop relay is made. Look downstream at CR4191 contact/wiring."
-        },
-        "no": "e2"
-      },
-      "e2": {
-        "device": "PB4191",
-        "drawing": "RC-4",
-        "line": "419",
-        "question": "Measure across PB4191. Is 120 VAC present across it?",
-        "expected": "NO",
-        "yes": {
-          "result": "PB4191 is open, pressed, failed, or wiring issue at PB4191."
-        },
-        "no": "e3"
-      },
-      "e3": {
-        "device": "PB4192",
-        "drawing": "RC-4",
-        "line": "419",
-        "question": "Measure across PB4192. Is 120 VAC present across it?",
-        "expected": "NO",
-        "yes": {
-          "result": "PB4192 is open, pressed, failed, or wiring issue at PB4192."
-        },
-        "no": "e4"
-      },
-      "e4": {
-        "device": "PB4193",
-        "drawing": "RC-4",
-        "line": "419",
-        "question": "Measure across PB4193. Is 120 VAC present across it?",
-        "expected": "NO",
-        "yes": {
-          "result": "PB4193 is open, pressed, failed, or wiring issue at PB4193."
+          "result": "LTR1 high level circuit is not the active fault."
         },
         "no": {
-          "result": "E-Stop chain appears closed. Check CR419 coil voltage and relay base."
+          "result": "CR5131 contact/wiring fault or CR513 not fully energized."
+        }
+      }
+    }
+  },
+  "compressor-wont-start": {
+    "title": "Compressor Will Not Start",
+    "start": "cw1",
+    "nodes": {
+      "cw1": {
+        "device": "CR407",
+        "drawing": "RC-4",
+        "line": "407",
+        "question": "Is CR407 energized and Safety OK light ON?",
+        "expected": "YES",
+        "yes": "cw2",
+        "no": {
+          "result": "Start with Safety Circuit Tripped tree. Compressor cannot run until safety relay is made."
+        }
+      },
+      "cw2": {
+        "device": "CR4071 Contact Group",
+        "drawing": "RC-5",
+        "line": "523-535",
+        "question": "Is the appropriate CR4071 contact group passing 120 VAC?",
+        "expected": "YES",
+        "yes": "cw3",
+        "no": {
+          "result": "CR407 made but CR4071 contact group is not passing. Suspect failed relay contact or wiring."
+        }
+      },
+      "cw3": {
+        "device": "Compressor Interlock Input",
+        "drawing": "RC-5",
+        "line": "523-529",
+        "question": "Is 120 VAC present at the selected compressor interlock input?",
+        "expected": "120 VAC",
+        "yes": "cw4",
+        "no": {
+          "result": "Upstream safety/interlock feed missing. Trace CR4071 contact group."
+        }
+      },
+      "cw4": {
+        "device": "Compressor Interlock Output",
+        "drawing": "RC-5",
+        "line": "523-529",
+        "question": "Is 120 VAC present at the selected compressor interlock output?",
+        "expected": "120 VAC",
+        "yes": {
+          "result": "Safety panel has granted permission. Move to compressor starter/control panel."
+        },
+        "no": {
+          "result": "Compressor protection device or interlock contact open. Check overload, oil safety, HP/LP safeties, and auxiliary contacts."
+        }
+      }
+    }
+  },
+  "cp01-wont-start": {
+    "title": "CP-01 Will Not Start",
+    "start": "cp1",
+    "nodes": {
+      "cp1": {
+        "device": "CR4071A",
+        "drawing": "RC-5",
+        "line": "523",
+        "question": "Is CR4071A passing 120 VAC toward Wire 5231?",
+        "expected": "YES",
+        "yes": "cp2",
+        "no": {
+          "result": "Safety relay contact CR4071A or upstream safety circuit is not made."
+        }
+      },
+      "cp2": {
+        "device": "Wire 5231",
+        "drawing": "RC-5",
+        "line": "523",
+        "question": "Is 120 VAC present on Wire 5231 at CP-01 interlock input?",
+        "expected": "120 VAC",
+        "yes": "cp3",
+        "no": {
+          "result": "Open wire or terminal issue between CR4071A and CP-01 interlock input."
+        }
+      },
+      "cp3": {
+        "device": "CP-01 Interlock Output / Wire 5232",
+        "drawing": "RC-5",
+        "line": "523",
+        "question": "Is 120 VAC present on Wire 5232 leaving CP-01 safety interlock?",
+        "expected": "120 VAC",
+        "yes": {
+          "result": "Safety panel permission is present. Move to CP-01 starter/control circuit."
+        },
+        "no": {
+          "result": "CP-01 safety interlock is open. Check compressor overload, oil safety, pressure safeties, or auxiliary contact."
+        }
+      }
+    }
+  },
+  "recirculator-remote-enable": {
+    "title": "Recirculator Remote Enable Lost",
+    "start": "r1",
+    "nodes": {
+      "r1": {
+        "device": "CR4071D",
+        "drawing": "RC-5",
+        "line": "530-531",
+        "question": "Is CR4071D passing 120 VAC to the recirculator remote enable circuits?",
+        "expected": "YES",
+        "yes": "r2",
+        "no": {
+          "result": "Safety relay CR407 is not made or CR4071D contact is not passing."
+        }
+      },
+      "r2": {
+        "device": "HTR1 Remote Enable / Wire 5301",
+        "drawing": "RC-5",
+        "line": "530",
+        "question": "Is 120 VAC present at Wire 5301?",
+        "expected": "120 VAC",
+        "yes": "r3",
+        "no": {
+          "result": "Open wire or terminal issue between CR4071D and HTR1 remote enable input."
+        }
+      },
+      "r3": {
+        "device": "LTR1 Remote Enable / Wire 5311",
+        "drawing": "RC-5",
+        "line": "531",
+        "question": "Is 120 VAC present at Wire 5311?",
+        "expected": "120 VAC",
+        "yes": {
+          "result": "Remote enable feed is available to HTR1 and LTR1. Check downstream remote enable contacts or external controls."
+        },
+        "no": {
+          "result": "Open wire or terminal issue between CR4071D and LTR1 remote enable input."
         }
       }
     }
@@ -343,173 +499,6 @@
         },
         "no": {
           "result": "Trace controller shutdown output, RC-7/RC-8 relay outputs, and wire 4371."
-        }
-      }
-    }
-  },
-  "compressor-wont-start": {
-    "title": "Compressor Will Not Start",
-    "start": "cw1",
-    "nodes": {
-      "cw1": {
-        "device": "CR407",
-        "drawing": "RC-4",
-        "line": "407",
-        "question": "Is CR407 energized and Safety OK light ON?",
-        "expected": "YES",
-        "yes": "cw2",
-        "no": {
-          "result": "Start with Safety Circuit Tripped tree. Compressor cannot run until safety relay is made."
-        }
-      },
-      "cw2": {
-        "device": "Compressor Interlock Input",
-        "drawing": "RC-5",
-        "line": "523-535",
-        "question": "Is 120 VAC present at the selected compressor interlock input?",
-        "expected": "120 VAC",
-        "yes": "cw3",
-        "no": {
-          "result": "Upstream safety/interlock feed missing. Trace CR4071 contact group."
-        }
-      },
-      "cw3": {
-        "device": "Compressor Interlock Output",
-        "drawing": "RC-5",
-        "line": "523-535",
-        "question": "Is 120 VAC present at the selected compressor interlock output?",
-        "expected": "120 VAC",
-        "yes": {
-          "result": "Safety panel has granted permission. Move to compressor starter/control panel."
-        },
-        "no": {
-          "result": "Compressor protection device or interlock contact open. Check overload, oil safety, HP/LP safeties, and auxiliary contacts."
-        }
-      }
-    }
-  },
-  "htr1-high-level": {
-    "title": "HTR1 High Level Shutdown",
-    "start": "h1",
-    "nodes": {
-      "h1": {
-        "device": "Actual Vessel Level",
-        "drawing": "Field Verification",
-        "line": "",
-        "question": "Is HTR1 actually in high level?",
-        "expected": "NO",
-        "yes": {
-          "result": "Real process condition. Correct liquid level issue before reset."
-        },
-        "no": "h2"
-      },
-      "h2": {
-        "device": "FS5011",
-        "drawing": "RC-5",
-        "line": "501",
-        "question": "Is FS5011 passing voltage in normal condition?",
-        "expected": "YES",
-        "yes": "h3",
-        "no": {
-          "result": "FS5011 open, failed, misadjusted, or wiring open."
-        }
-      },
-      "h3": {
-        "device": "CR5011",
-        "drawing": "RC-5",
-        "line": "501",
-        "question": "Is CR5011 energized?",
-        "expected": "YES",
-        "yes": "h4",
-        "no": {
-          "result": "Open circuit between FS5011 and CR5011, or relay coil failure if voltage is present."
-        }
-      },
-      "h4": {
-        "device": "TD5041",
-        "drawing": "RC-5",
-        "line": "504",
-        "question": "Is TD5041 output feeding CR5061 path?",
-        "expected": "YES",
-        "yes": "h5",
-        "no": {
-          "result": "TD5041 timer or timer contact fault."
-        }
-      },
-      "h5": {
-        "device": "CR5061",
-        "drawing": "RC-5",
-        "line": "506",
-        "question": "Is CR5061 closed / passing voltage to safety chain?",
-        "expected": "YES",
-        "yes": {
-          "result": "HTR1 high level circuit is not the active fault."
-        },
-        "no": {
-          "result": "CR5061 contact/wiring fault or CR506 not fully energized."
-        }
-      }
-    }
-  },
-  "ltr1-high-level": {
-    "title": "LTR1 High Level Shutdown",
-    "start": "l1",
-    "nodes": {
-      "l1": {
-        "device": "Actual Vessel Level",
-        "drawing": "Field Verification",
-        "line": "",
-        "question": "Is LTR1 actually in high level?",
-        "expected": "NO",
-        "yes": {
-          "result": "Real process condition. Correct liquid level issue before reset."
-        },
-        "no": "l2"
-      },
-      "l2": {
-        "device": "FS5081",
-        "drawing": "RC-5",
-        "line": "508",
-        "question": "Is FS5081 passing voltage in normal condition?",
-        "expected": "YES",
-        "yes": "l3",
-        "no": {
-          "result": "FS5081 open, failed, misadjusted, or wiring open."
-        }
-      },
-      "l3": {
-        "device": "CR5081",
-        "drawing": "RC-5",
-        "line": "508",
-        "question": "Is CR5081 energized?",
-        "expected": "YES",
-        "yes": "l4",
-        "no": {
-          "result": "Open circuit between FS5081 and CR5081, or relay coil failure if voltage is present."
-        }
-      },
-      "l4": {
-        "device": "TD5111",
-        "drawing": "RC-5",
-        "line": "511",
-        "question": "Is TD5111 output feeding CR5131 path?",
-        "expected": "YES",
-        "yes": "l5",
-        "no": {
-          "result": "TD5111 timer or timer contact fault."
-        }
-      },
-      "l5": {
-        "device": "CR5131",
-        "drawing": "RC-5",
-        "line": "513",
-        "question": "Is CR5131 closed / passing voltage to safety chain?",
-        "expected": "YES",
-        "yes": {
-          "result": "LTR1 high level circuit is not the active fault."
-        },
-        "no": {
-          "result": "CR5131 contact/wiring fault or CR513 not fully energized."
         }
       }
     }
