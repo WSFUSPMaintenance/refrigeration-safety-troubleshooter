@@ -1,15 +1,15 @@
-# Refrigeration Safety Troubleshooter v0.4
+# Refrigeration Safety Troubleshooter v0.5
 
-## v0.4 Scope
-RC-5 Safety Circuit Expansion.
+## v0.5 Scope
+RC-6 Ventilation Interlock Wiring.
 
 Added:
-- HTR1 high level circuit
-- LTR1 high level circuit
-- CR4071 safety contact groups
-- King liquid and hot gas solenoid outputs
-- Compressor safety interlock branches
-- CP-01 specific decision tree
-- Recirculator HTR1 / LTR1 remote enable references
-- Expanded RC-5 wire register
-- Expanded quick reference entries
+- High ventilation interlock relay CR6011
+- TAS6021 thermostat path
+- Emergency ventilation switches SS6031 and SS6041
+- EF-1 / EF-2 high vent interlock paths
+- Evis M/U air relay CR6091 and Units 1-3 interlocks
+- Cooler M/U air relay CR6141 and interlock
+- Debone M/U air relay CR6171 and interlock
+- RC-6 wire register
+- RC-6 troubleshooting trees
