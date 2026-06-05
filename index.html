@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Refrigeration Safety Troubleshooter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Refrigeration Safety Troubleshooter</h1>
+    <p>Wayne Farms Union Springs, Rev 5 Safety Control Panel</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Start Troubleshooting</h2>
+      <div id="symptomButtons" class="grid"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Device Lookup</h2>
+      <div class="lookup">
+        <input id="searchInput" placeholder="Search device, wire, relay, alarm..." />
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="searchResults"></div>
+    </section>
+
+    <section class="panel hidden" id="treePanel">
+      <button id="backBtn">← Back</button>
+      <h2 id="treeTitle"></h2>
+      <div id="stepCard"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Electrical troubleshooting only. Do not bypass safety devices.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

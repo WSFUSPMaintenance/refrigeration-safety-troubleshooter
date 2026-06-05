@@ -1,0 +1,90 @@
+[
+  {
+    "id": "CR407",
+    "description": "Master Safety Relay",
+    "drawing": "RC-4",
+    "line": "407",
+    "location": "Main Refrigeration Safety Panel",
+    "normalState": "Energized, LED ON",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "CR4371",
+      "CR5061",
+      "CR5131",
+      "CR4171",
+      "CR4191"
+    ],
+    "downstream": [
+      "Compressor safety interlocks",
+      "Safety OK light"
+    ]
+  },
+  {
+    "id": "CR513",
+    "description": "LTR1 High Level Safety Relay",
+    "drawing": "RC-5",
+    "line": "513",
+    "location": "Main Refrigeration Safety Panel",
+    "normalState": "Energized, LED ON",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "TD511",
+      "CR508",
+      "FS5081"
+    ],
+    "downstream": [
+      "CR5131",
+      "CR407"
+    ]
+  },
+  {
+    "id": "CR506",
+    "description": "HTR1 High Level Safety Relay",
+    "drawing": "RC-5",
+    "line": "506",
+    "location": "Main Refrigeration Safety Panel",
+    "normalState": "Energized, LED ON",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "TD504",
+      "CR501",
+      "FS5011"
+    ],
+    "downstream": [
+      "CR5061",
+      "CR407"
+    ]
+  },
+  {
+    "id": "PB4192",
+    "description": "Emergency Stop Station #2",
+    "drawing": "RC-4",
+    "line": "419",
+    "location": "E-Stop Station",
+    "normalState": "Closed",
+    "expectedVoltage": "0 VAC across device when closed",
+    "upstream": [
+      "PB4191"
+    ],
+    "downstream": [
+      "PB4193",
+      "CR419"
+    ]
+  },
+  {
+    "id": "CR437",
+    "description": "NH3 Shutdown Relay",
+    "drawing": "RC-4",
+    "line": "437",
+    "location": "Main Refrigeration Safety Panel",
+    "normalState": "Energized during normal non-shutdown condition",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "NH3 monitoring outputs"
+    ],
+    "downstream": [
+      "CR4371",
+      "CR407"
+    ]
+  }
+]
