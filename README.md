@@ -1,16 +1,15 @@
-# Refrigeration Safety Troubleshooter v0.3
+# Refrigeration Safety Troubleshooter v0.4
 
-## v0.3 Scope
-Expanded RC-4 Safety Circuit build.
+## v0.4 Scope
+RC-5 Safety Circuit Expansion.
 
 Added:
-- RC-4 control power devices
-- RC-4 E-Stop circuit
-- RC-4 safety relay chain
-- RC-4 pressure safety devices
-- RC-4 NH3 shutdown interface
-- Expanded RC-4 wire register
-- RC-4 specific troubleshooting trees
-- Drawing and line references on troubleshooting steps
-
-Upload the full package and replace existing files.
+- HTR1 high level circuit
+- LTR1 high level circuit
+- CR4071 safety contact groups
+- King liquid and hot gas solenoid outputs
+- Compressor safety interlock branches
+- CP-01 specific decision tree
+- Recirculator HTR1 / LTR1 remote enable references
+- Expanded RC-5 wire register
+- Expanded quick reference entries
