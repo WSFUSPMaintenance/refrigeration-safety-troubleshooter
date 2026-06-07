@@ -18,6 +18,7 @@
     <button class="tab" data-tab="lookup">Device / Wire Search</button>
     <button class="tab" data-tab="chains">Cause Chains</button>
     <button class="tab" data-tab="matrix">Alarm Matrix</button>
+    <button class="tab" data-tab="drawings">Drawings</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
   </nav>
 
@@ -56,6 +57,13 @@
       <h2>NH3 Alarm Matrix</h2>
       <p class="helper">Sensor, area, beacon, shutdown output, and first field check.</p>
       <div id="alarmMatrix"></div>
+    </section>
+
+    <section class="panel tabPanel hidden" id="drawingsPanel">
+      <h2>Drawings</h2>
+      <p class="helper">Open the Rev 5 drawing sheets directly in the app. Use the browser zoom or pinch-to-zoom on mobile for detail.</p>
+      <div id="drawingButtons" class="grid"></div>
+      <div id="drawingViewer"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="quickPanel">
