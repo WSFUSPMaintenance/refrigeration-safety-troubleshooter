@@ -1,0 +1,178 @@
+[
+  {
+    "id": "safety-lost",
+    "title": "Safety Circuit Lost, Meter Guide",
+    "start": "g1",
+    "steps": {
+      "g1": {
+        "check": "Measure Wire 4071 at CR407",
+        "where": "RC-4 line 407, CR407 coil feed",
+        "expected": "120 VAC",
+        "present": {
+          "result": "Voltage is present. Suspect CR407 coil, socket, or relay."
+        },
+        "missing": "g2",
+        "drawing": "RC-4 line 407"
+      },
+      "g2": {
+        "check": "Check CR4191 E-Stop contact output",
+        "where": "RC-4 safety chain before CR407",
+        "expected": "120 VAC passing",
+        "present": "g3",
+        "missing": {
+          "result": "E-Stop branch open. Check PB4191, PB4192, PB4193, CR419, and CR4191."
+        },
+        "drawing": "RC-4 line 419"
+      },
+      "g3": {
+        "check": "Check CR4171 reset relay contact output",
+        "where": "RC-4 reset branch",
+        "expected": "120 VAC passing",
+        "present": "g4",
+        "missing": {
+          "result": "Reset branch open. Check PB4181, TD4161, and CR417."
+        },
+        "drawing": "RC-4 line 417"
+      },
+      "g4": {
+        "check": "Check CR4371 NH3 shutdown contact output",
+        "where": "RC-4 NH3 shutdown branch",
+        "expected": "120 VAC passing",
+        "present": "g5",
+        "missing": {
+          "result": "NH3 shutdown branch open. Check CR437 and Wire 437 from RC-7."
+        },
+        "drawing": "RC-4 line 437"
+      },
+      "g5": {
+        "check": "Check CR5061 HTR1 high level contact output",
+        "where": "RC-4 / RC-5 HTR1 branch",
+        "expected": "120 VAC passing",
+        "present": "g6",
+        "missing": {
+          "result": "HTR1 high level branch open. Check FS5011, CR5011, TD5041, and CR5061."
+        },
+        "drawing": "RC-4/RC-5 line 506"
+      },
+      "g6": {
+        "check": "Check CR5131 LTR1 high level contact output",
+        "where": "RC-4 / RC-5 LTR1 branch",
+        "expected": "120 VAC passing",
+        "present": {
+          "result": "Safety chain appears complete. Check wiring into CR407 coil/base."
+        },
+        "missing": {
+          "result": "LTR1 high level branch open. Check FS5081, CR5081, TD5111, and CR5131."
+        },
+        "drawing": "RC-4/RC-5 line 513"
+      }
+    }
+  },
+  {
+    "id": "cp05-wont-start",
+    "title": "CP-05 Will Not Start, Meter Guide",
+    "start": "c1",
+    "steps": {
+      "c1": {
+        "check": "Measure Wire 5271",
+        "where": "RC-5 line 527, CP-05 safety interlock input",
+        "expected": "120 VAC",
+        "present": "c2",
+        "missing": {
+          "result": "CP-05 input permissive is missing. Check CR407 and CR4071C safety relay output."
+        },
+        "drawing": "RC-5 line 527"
+      },
+      "c2": {
+        "check": "Measure Wire 5272",
+        "where": "RC-5 line 527, CP-05 safety interlock output",
+        "expected": "120 VAC",
+        "present": {
+          "result": "Safety panel permissive is present. Move to CP-05 starter/control circuit."
+        },
+        "missing": {
+          "result": "CP-05 interlock is open. Check compressor safeties/interlock contacts."
+        },
+        "drawing": "RC-5 line 527"
+      }
+    }
+  },
+  {
+    "id": "debone-mua-shutdown",
+    "title": "Debone M/U Air Shutdown, Meter Guide",
+    "start": "d1",
+    "steps": {
+      "d1": {
+        "check": "Measure Wire 617",
+        "where": "RC-8 to RC-6 Debone M/U air shutdown path",
+        "expected": "Output dependent on NH3 alarm state",
+        "present": "d2",
+        "missing": {
+          "result": "NH3 system is not commanding Debone M/U shutdown. Check RC-6 Debone M/U interlock and fan starter."
+        },
+        "drawing": "RC-8 line 815 / RC-6 line 617"
+      },
+      "d2": {
+        "check": "Check CR6171 coil/status",
+        "where": "RC-6 line 617",
+        "expected": "Relay responding to command",
+        "present": "d3",
+        "missing": {
+          "result": "CR6171 coil/socket/wiring fault or command not reaching relay."
+        },
+        "drawing": "RC-6 line 617"
+      },
+      "d3": {
+        "check": "Check Debone M/U Air Unit interlock",
+        "where": "RC-6 line 618",
+        "expected": "Interlock closed when unit healthy",
+        "present": {
+          "result": "Debone M/U air shutdown chain appears healthy. Check external fan control."
+        },
+        "missing": {
+          "result": "Debone M/U air unit interlock is open. Check starter, overload, disconnect, aux contact."
+        },
+        "drawing": "RC-6 line 618"
+      }
+    }
+  },
+  {
+    "id": "htr1-trip",
+    "title": "HTR1 High Level Trip, Meter Guide",
+    "start": "h1",
+    "steps": {
+      "h1": {
+        "check": "Verify actual HTR1 level",
+        "where": "Field vessel check",
+        "expected": "Not high level",
+        "present": "h2",
+        "missing": {
+          "result": "Real high level condition. Correct level before reset."
+        },
+        "drawing": "Field"
+      },
+      "h2": {
+        "check": "Measure FS5011 output",
+        "where": "RC-5 line 501",
+        "expected": "120 VAC passing when level normal",
+        "present": "h3",
+        "missing": {
+          "result": "FS5011 open, failed, misadjusted, or field wiring issue."
+        },
+        "drawing": "RC-5 line 501"
+      },
+      "h3": {
+        "check": "Check CR5011 / TD5041 / CR5061 path",
+        "where": "RC-5 lines 501-506",
+        "expected": "120 VAC through relay and timer chain",
+        "present": {
+          "result": "HTR1 branch appears healthy. Check CR5061 contact in CR407 safety chain."
+        },
+        "missing": {
+          "result": "Find first lost point through CR5011, TD5041, and CR5061."
+        },
+        "drawing": "RC-5 lines 501-506"
+      }
+    }
+  }
+]
