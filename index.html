@@ -14,6 +14,7 @@
 
   <nav class="tabs">
     <button class="tab active" data-tab="symptoms">Symptom Troubleshooting</button>
+    <button class="tab" data-tab="guided">Guided Meter Mode</button>
     <button class="tab" data-tab="lookup">Device / Wire Search</button>
     <button class="tab" data-tab="chains">Cause Chains</button>
     <button class="tab" data-tab="matrix">Alarm Matrix</button>
@@ -25,6 +26,13 @@
       <h2>What is the problem?</h2>
       <p class="helper">Start with what the technician sees in the field.</p>
       <div id="symptomButtons" class="grid"></div>
+    </section>
+
+    <section class="panel tabPanel hidden" id="guidedPanel">
+      <h2>Guided Meter Mode</h2>
+      <p class="helper">Use this when troubleshooting with a meter. Start with a symptom, then follow the voltage checks.</p>
+      <div id="guidedButtons" class="grid"></div>
+      <div id="guidedCard"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="lookupPanel">

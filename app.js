@@ -1,4 +1,4 @@
-let devices=[],wires=[],trees={},quickReference=[],chains=[],matrix=[],currentTree=null,currentNodeId=null;
+let devices=[],wires=[],trees={},quickReference=[],chains=[],matrix=[],guided=[],currentTree=null,currentNodeId=null,currentGuide=null,currentGuideStep=null;
 
 async function loadData(){
   try{
@@ -8,7 +8,8 @@ async function loadData(){
     quickReference=await fetch('data/quick-reference.json').then(r=>r.json());
     chains=await fetch('data/chains.json').then(r=>r.json());
     matrix=await fetch('data/alarm-matrix.json').then(r=>r.json());
-    setupTabs();renderSymptoms();renderQuickReference();renderChains();renderMatrix();setupSearch();
+    guided=await fetch('data/guided-tests.json').then(r=>r.json());
+    setupTabs();renderSymptoms();renderQuickReference();renderChains();renderMatrix();renderGuidedButtons();setupSearch();
   }catch(err){
     document.body.insertAdjacentHTML('beforeend',`<div class="panel bad"><h3>Data Load Error</h3><p>${err.message}</p><p>Confirm all JSON files are uploaded inside /data.</p></div>`);
   }
@@ -140,6 +141,35 @@ function renderMatrix(){
 
 function renderQuickReference(){
   document.getElementById('quickReference').innerHTML=`<table class="smallTable"><thead><tr><th>Symptom</th><th>First Check</th><th>Next Action</th></tr></thead><tbody>${quickReference.map(r=>`<tr><td>${r.symptom}</td><td>${r.firstCheck}</td><td>${r.next}</td></tr>`).join('')}</tbody></table>`;
+}
+
+function renderGuidedButtons(){
+  const el=document.getElementById('guidedButtons');
+  el.innerHTML='';
+  guided.forEach(g=>{
+    const btn=document.createElement('button');
+    btn.textContent=g.title;
+    btn.onclick=()=>startGuide(g.id);
+    el.appendChild(btn);
+  });
+}
+
+function startGuide(id){
+  currentGuide=guided.find(g=>g.id===id);
+  currentGuideStep=currentGuide.start;
+  renderGuideStep();
+}
+
+function renderGuideStep(){
+  const step=currentGuide.steps[currentGuideStep];
+  document.getElementById('guidedCard').innerHTML=`<div class="card priority"><h3>${currentGuide.title}</h3><h3>${step.check}</h3><p class="meta"><strong>Where:</strong> ${step.where}</p><p class="meta"><strong>Expected:</strong> ${step.expected}</p><p class="meta"><strong>Drawing:</strong> ${step.drawing}</p><div class="meterBox"><button onclick="guideAnswer('present')">Voltage Present / Pass</button><button onclick="guideAnswer('missing')">Voltage Missing / Fail</button></div></div>`;
+}
+
+function guideAnswer(state){
+  const step=currentGuide.steps[currentGuideStep];
+  const next=step[state];
+  if(typeof next==='string'){currentGuideStep=next;renderGuideStep();return;}
+  document.getElementById('guidedCard').innerHTML=`<div class="card ${state==='present'?'good':'bad'}"><h3>Result</h3><div class="result">${next.result}</div><button onclick="renderGuideStep()">Back to Meter Check</button></div>`;
 }
 
 loadData();

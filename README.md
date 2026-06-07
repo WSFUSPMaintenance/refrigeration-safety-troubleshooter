@@ -1,3 +1,11 @@
-# Refrigeration Safety Troubleshooter v0.9
+# Refrigeration Safety Troubleshooter v1.0
 
-Adds compressor-specific troubleshooting, Alarm Matrix tab, expanded fault propagation, and process-symptom home screen structure.
+## v1.0 Plant-Floor Release
+
+Adds:
+- Guided Meter Mode
+- Fault propagation search results
+- Compressor-specific troubleshooting
+- Alarm Matrix
+- Cause Chains
+- Rev 5 master safety-chain model
