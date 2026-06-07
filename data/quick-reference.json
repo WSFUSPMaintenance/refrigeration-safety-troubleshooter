@@ -1,52 +1,42 @@
 [
   {
-    "symptom": "CR407 not energized",
+    "symptom": "Safety circuit lost",
     "firstCheck": "Wire 4071 at CR407",
-    "next": "If missing, trace CR4191, CR4171, CR4371, CR5061, then CR5131."
+    "next": "If missing, trace CR4191 \u2192 CR4171 \u2192 CR4371 \u2192 CR5061 \u2192 CR5131."
   },
   {
-    "symptom": "Safety Circuit Tripped light on",
-    "firstCheck": "CR407 and Wire 4071",
-    "next": "Use Master Safety Chain Trace."
+    "symptom": "NH3 shutdown",
+    "firstCheck": "CR437 and Wire 437",
+    "next": "If Wire 437 missing, trace RC-7 Relay 5 and Sensors 5/6."
   },
   {
-    "symptom": "HTR1 high level trip",
-    "firstCheck": "Actual HTR1 level, then FS5011",
+    "symptom": "HTR1 high level",
+    "firstCheck": "Actual HTR1 level and FS5011",
     "next": "Trace FS5011 \u2192 CR5011 \u2192 TD5041 \u2192 CR5061 \u2192 CR407."
   },
   {
-    "symptom": "LTR1 high level trip",
-    "firstCheck": "Actual LTR1 level, then FS5081",
+    "symptom": "LTR1 high level",
+    "firstCheck": "Actual LTR1 level and FS5081",
     "next": "Trace FS5081 \u2192 CR5081 \u2192 TD5111 \u2192 CR5131 \u2192 CR407."
   },
   {
-    "symptom": "NH3 shutdown trip",
-    "firstCheck": "CR437 and Wire 437",
-    "next": "Trace Wire 437 back to RC-7 Relay 5 and Sensors 5/6."
+    "symptom": "Evis M/U air shutdown",
+    "firstCheck": "Wire 609 and CR6091",
+    "next": "Trace RC7 Sensor 9 \u2192 Wire 609 \u2192 CR6091 \u2192 Evis MUA unit interlocks."
   },
   {
-    "symptom": "Evis MUA shutdown",
-    "firstCheck": "Wire 609, then CR6091",
-    "next": "Trace RC-7 Sensor 9 \u2192 Wire 609 \u2192 CR6091 \u2192 Evis MUA unit interlocks."
+    "symptom": "Cooler M/U air shutdown",
+    "firstCheck": "Wire 614 and CR6141",
+    "next": "Trace RC8 Sensor 10 \u2192 Wire 614 \u2192 CR6141 \u2192 Cooler MUA interlock."
   },
   {
-    "symptom": "Cooler MUA shutdown",
-    "firstCheck": "Wire 614, then CR6141",
-    "next": "Trace RC-8 Sensor 10 \u2192 Wire 614 \u2192 CR6141 \u2192 Cooler MUA interlock."
+    "symptom": "Debone M/U air shutdown",
+    "firstCheck": "Wire 617 and CR6171",
+    "next": "Trace RC8 Sensor 11 \u2192 Wire 617 \u2192 CR6171 \u2192 Debone MUA interlock."
   },
   {
-    "symptom": "Debone MUA shutdown",
-    "firstCheck": "Wire 617, then CR6171",
-    "next": "Trace RC-8 Sensor 11 \u2192 Wire 617 \u2192 CR6171 \u2192 Debone MUA interlock."
-  },
-  {
-    "symptom": "Safety OK light off",
-    "firstCheck": "LT4131 and CR407",
-    "next": "If CR407 is made but LT4131 is off, check lamp, wire 4131, and CR407 contact."
-  },
-  {
-    "symptom": "Need full safety chain order",
-    "firstCheck": "CR4191 \u2192 CR4171 \u2192 CR4371 \u2192 CR5061 \u2192 CR5131 \u2192 CR407",
-    "next": "Search each relay/contact or use Master Safety Chain Trace."
+    "symptom": "Beacon active but no NH3 found",
+    "firstCheck": "Portable detector and fixed sensor reading",
+    "next": "Check sensor calibration, relay output, beacon wiring, and controller history."
   }
 ]

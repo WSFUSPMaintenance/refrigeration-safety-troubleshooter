@@ -123,7 +123,7 @@
     "drawing": "RC-4",
     "line": "414",
     "description": "Safety Circuit Tripped pilot light feed",
-    "expectedVoltage": "120 VAC when safety circuit tripped",
+    "expectedVoltage": "120 VAC when CR407 dropped",
     "from": "CR407 contact",
     "to": "LT4141"
   }

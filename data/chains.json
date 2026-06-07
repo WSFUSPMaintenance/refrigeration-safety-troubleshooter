@@ -1,0 +1,119 @@
+[
+  {
+    "id": "master-safety-chain",
+    "title": "Master Safety Chain to CR407",
+    "description": "Full upstream permissive path required to energize CR407.",
+    "nodes": [
+      "CR4191",
+      "CR4171",
+      "CR4371",
+      "CR5061",
+      "CR5131",
+      "Wire 4071",
+      "CR407"
+    ],
+    "failureEffect": "Loss of any node drops CR407 and removes refrigeration safety permissive.",
+    "firstCheck": "Measure Wire 4071 at CR407."
+  },
+  {
+    "id": "nh3-shutdown-chain",
+    "title": "NH3 Shutdown to CR407",
+    "description": "Machine room NH3 shutdown path from RC-7 to CR437 and then CR407.",
+    "nodes": [
+      "RC7-SENSOR-5/6",
+      "RC-7 Relay 5",
+      "Wire 437",
+      "CR437",
+      "CR4371",
+      "Wire 4071",
+      "CR407"
+    ],
+    "failureEffect": "Machine room NH3 alarm or relay fault drops CR407.",
+    "firstCheck": "Check CR437 status, then Wire 437."
+  },
+  {
+    "id": "htr1-chain",
+    "title": "HTR1 High Level to CR407",
+    "description": "HTR1 high-level path that opens the master safety relay chain.",
+    "nodes": [
+      "FS5011",
+      "CR5011",
+      "TD5041",
+      "CR5061",
+      "Wire 4071",
+      "CR407"
+    ],
+    "failureEffect": "HTR1 high level or false high-level fault drops CR407.",
+    "firstCheck": "Verify actual HTR1 level, then FS5011."
+  },
+  {
+    "id": "ltr1-chain",
+    "title": "LTR1 High Level to CR407",
+    "description": "LTR1 high-level path that opens the master safety relay chain.",
+    "nodes": [
+      "FS5081",
+      "CR5081",
+      "TD5111",
+      "CR5131",
+      "Wire 4071",
+      "CR407"
+    ],
+    "failureEffect": "LTR1 high level or false high-level fault drops CR407.",
+    "firstCheck": "Verify actual LTR1 level, then FS5081."
+  },
+  {
+    "id": "evis-mua-nh3-chain",
+    "title": "Evis M/U Air NH3 Shutdown",
+    "description": "NH3 detector output path that affects Evis make-up air shutdown.",
+    "nodes": [
+      "RC7-SENSOR-9",
+      "Wire 609",
+      "CR6091",
+      "Evis MUA Unit 1",
+      "Evis MUA Unit 2",
+      "Evis MUA Unit 3"
+    ],
+    "failureEffect": "Evis M/U air units lose permissive or show shutdown condition.",
+    "firstCheck": "Check Wire 609 and CR6091."
+  },
+  {
+    "id": "cooler-mua-nh3-chain",
+    "title": "Cooler M/U Air NH3 Shutdown",
+    "description": "NH3 detector output path that affects Cooler make-up air shutdown.",
+    "nodes": [
+      "RC8-SENSOR-10",
+      "Wire 614",
+      "CR6141",
+      "Cooler MUA Unit"
+    ],
+    "failureEffect": "Cooler M/U air unit loses permissive or shows shutdown condition.",
+    "firstCheck": "Check Wire 614 and CR6141."
+  },
+  {
+    "id": "debone-mua-nh3-chain",
+    "title": "Debone M/U Air NH3 Shutdown",
+    "description": "NH3 detector output path that affects Debone make-up air shutdown.",
+    "nodes": [
+      "RC8-SENSOR-11",
+      "Wire 617",
+      "CR6171",
+      "Debone MUA Unit"
+    ],
+    "failureEffect": "Debone M/U air unit loses permissive or shows shutdown condition.",
+    "firstCheck": "Check Wire 617 and CR6171."
+  },
+  {
+    "id": "engine-room-vent-chain",
+    "title": "Engine Room Ventilation NH3 Command",
+    "description": "NH3 detector output path that commands or affects engine room high ventilation logic.",
+    "nodes": [
+      "RC7-SENSOR-8",
+      "Wire 601",
+      "CR6011",
+      "EF-1 Interlock",
+      "EF-2 Interlock"
+    ],
+    "failureEffect": "High ventilation interlock fault or commanded ventilation state.",
+    "firstCheck": "Check Wire 601 and CR6011."
+  }
+]
