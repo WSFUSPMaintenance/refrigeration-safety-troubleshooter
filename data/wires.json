@@ -1,237 +1,130 @@
 [
   {
+    "wire": "4071",
+    "drawing": "RC-4",
+    "line": "407",
+    "description": "Master safety chain feed to CR407",
+    "expectedVoltage": "120 VAC when entire chain is healthy",
+    "from": "CR4191 / CR4171 / CR4371 / CR5061 / CR5131 chain",
+    "to": "CR407",
+    "notes": "Primary measurement point for master safety relay permissive"
+  },
+  {
     "wire": "437",
     "drawing": "RC-7 / RC-4",
     "line": "705-706 / 437",
     "description": "NH3 high shutdown output to CR437",
     "expectedVoltage": "120 VAC when safe / permissive made",
     "from": "RC-7 Relay 5 output",
-    "to": "CR437 coil on RC-4 Line 437",
-    "notes": "Loss of this wire drops CR437 and trips master safety relay path"
+    "to": "CR437 coil",
+    "notes": "Loss drops CR437 and opens CR407 chain"
+  },
+  {
+    "wire": "5011",
+    "drawing": "RC-5",
+    "line": "501",
+    "description": "HTR1 high level circuit feed",
+    "expectedVoltage": "120 VAC when HTR1 level path normal",
+    "from": "FS5011",
+    "to": "CR5011"
+  },
+  {
+    "wire": "5041",
+    "drawing": "RC-5",
+    "line": "504",
+    "description": "HTR1 high level timer input",
+    "expectedVoltage": "120 VAC when CR5011 output made",
+    "from": "CR5011",
+    "to": "TD5041"
+  },
+  {
+    "wire": "5061",
+    "drawing": "RC-5",
+    "line": "506",
+    "description": "HTR1 high level safety relay output",
+    "expectedVoltage": "120 VAC when CR5061 energized",
+    "from": "CR5061",
+    "to": "CR407 safety chain"
+  },
+  {
+    "wire": "5081",
+    "drawing": "RC-5",
+    "line": "508",
+    "description": "LTR1 high level circuit feed",
+    "expectedVoltage": "120 VAC when LTR1 level path normal",
+    "from": "FS5081",
+    "to": "CR5081"
+  },
+  {
+    "wire": "5111",
+    "drawing": "RC-5",
+    "line": "511",
+    "description": "LTR1 high level timer input",
+    "expectedVoltage": "120 VAC when CR5081 output made",
+    "from": "CR5081",
+    "to": "TD5111"
+  },
+  {
+    "wire": "5131",
+    "drawing": "RC-5",
+    "line": "513",
+    "description": "LTR1 high level safety relay output",
+    "expectedVoltage": "120 VAC when CR5131 energized",
+    "from": "CR5131",
+    "to": "CR407 safety chain"
   },
   {
     "wire": "601",
     "drawing": "RC-7 / RC-6",
     "line": "710 / 601",
-    "description": "Engine room ventilation circuit output from NH3 monitoring",
-    "expectedVoltage": "Output dependent on NH3 alarm logic",
-    "from": "RC-7 Sensor 8 / relay output",
-    "to": "RC-6 Line 601 high ventilation circuit"
+    "description": "NH3 output into high ventilation circuit",
+    "expectedVoltage": "Output dependent on NH3 logic",
+    "from": "RC-7 Sensor 8 relay output",
+    "to": "CR6011 / high ventilation circuit"
   },
   {
     "wire": "609",
     "drawing": "RC-7 / RC-6",
     "line": "712 / 609",
-    "description": "Evis M/U air shutdown output from NH3 monitoring",
-    "expectedVoltage": "Output dependent on NH3 alarm logic",
-    "from": "RC-7 Sensor 9 / relay output",
-    "to": "RC-6 Line 609 Evis M/U air shutdown"
+    "description": "NH3 output into Evis M/U air shutdown",
+    "expectedVoltage": "Output dependent on NH3 logic",
+    "from": "RC-7 Sensor 9 relay output",
+    "to": "CR6091 / Evis M/U air shutdown"
   },
   {
     "wire": "614",
     "drawing": "RC-8 / RC-6",
     "line": "813 / 614",
-    "description": "Cooler M/U air shutdown output from NH3 monitoring",
-    "expectedVoltage": "Output dependent on NH3 alarm logic",
-    "from": "RC-8 Sensor 10 / relay output",
-    "to": "RC-6 Line 614 Cooler M/U air shutdown"
+    "description": "NH3 output into Cooler M/U air shutdown",
+    "expectedVoltage": "Output dependent on NH3 logic",
+    "from": "RC-8 Sensor 10 relay output",
+    "to": "CR6141 / Cooler M/U air shutdown"
   },
   {
     "wire": "617",
     "drawing": "RC-8 / RC-6",
     "line": "815 / 617",
-    "description": "Debone M/U air shutdown output from NH3 monitoring",
-    "expectedVoltage": "Output dependent on NH3 alarm logic",
-    "from": "RC-8 Sensor 11 / relay output",
-    "to": "RC-6 Line 617 Debone M/U air shutdown"
+    "description": "NH3 output into Debone M/U air shutdown",
+    "expectedVoltage": "Output dependent on NH3 logic",
+    "from": "RC-8 Sensor 11 relay output",
+    "to": "CR6171 / Debone M/U air shutdown"
   },
   {
-    "wire": "701",
-    "drawing": "RC-7",
-    "line": "701",
-    "description": "EB-MR-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
+    "wire": "4131",
+    "drawing": "RC-4",
+    "line": "413",
+    "description": "Safety Circuit OK pilot light feed",
+    "expectedVoltage": "120 VAC when CR407 made",
+    "from": "CR407 contact",
+    "to": "LT4131"
   },
   {
-    "wire": "703",
-    "drawing": "RC-7",
-    "line": "703",
-    "description": "EB-MR-2 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "704",
-    "drawing": "RC-7",
-    "line": "704",
-    "description": "EB-MR-3 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "705",
-    "drawing": "RC-7",
-    "line": "705",
-    "description": "EB-MR-4 / shutdown output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "709",
-    "drawing": "RC-7",
-    "line": "709",
-    "description": "EB-CLR-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "713",
-    "drawing": "RC-7",
-    "line": "713",
-    "description": "EB-ICE-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "714",
-    "drawing": "RC-7",
-    "line": "714",
-    "description": "EB-ICE-2 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "716",
-    "drawing": "RC-7",
-    "line": "716",
-    "description": "EB-ICE-3 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "717",
-    "drawing": "RC-7",
-    "line": "717",
-    "description": "EB-CHILLER-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "718",
-    "drawing": "RC-7",
-    "line": "718",
-    "description": "EB-CHILLER-2 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-1 / RC-7 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "800",
-    "drawing": "RC-8",
-    "line": "800",
-    "description": "EB-MDMDOCK-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "801",
-    "drawing": "RC-8",
-    "line": "801",
-    "description": "EB-MDMDOCK-2 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "802",
-    "drawing": "RC-8",
-    "line": "802",
-    "description": "EB-CLRMAIN-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "804",
-    "drawing": "RC-8",
-    "line": "804",
-    "description": "EB-35CLR-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "805",
-    "drawing": "RC-8",
-    "line": "805",
-    "description": "EB-CHALL-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "806",
-    "drawing": "RC-8",
-    "line": "806",
-    "description": "EB-CO2CLR-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "809",
-    "drawing": "RC-8",
-    "line": "809",
-    "description": "EB-STCK-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "810",
-    "drawing": "RC-8",
-    "line": "810",
-    "description": "EB-ATTIC-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "812",
-    "drawing": "RC-8",
-    "line": "812",
-    "description": "EB-ATTIC-2 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "816",
-    "drawing": "RC-8",
-    "line": "816",
-    "description": "EB-DBN-1 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
-  },
-  {
-    "wire": "817",
-    "drawing": "RC-8",
-    "line": "817",
-    "description": "EB-DBN-2 output",
-    "expectedVoltage": "120 VAC when output active",
-    "from": "GG-6-2 / RC-8 relay output",
-    "to": "Beacon or shutdown circuit"
+    "wire": "4141",
+    "drawing": "RC-4",
+    "line": "414",
+    "description": "Safety Circuit Tripped pilot light feed",
+    "expectedVoltage": "120 VAC when safety circuit tripped",
+    "from": "CR407 contact",
+    "to": "LT4141"
   }
 ]

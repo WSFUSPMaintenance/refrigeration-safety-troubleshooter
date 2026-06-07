@@ -6,21 +6,52 @@
     "drawing": "RC-4",
     "line": "407",
     "location": "Safety Control Panel",
+    "branch": "Master Safety Chain",
     "normalState": "Energized, LED ON",
     "expectedVoltage": "120 VAC at coil",
     "upstream": [
-      "CR4371",
-      "CR5061",
-      "CR5131",
-      "CR4171",
-      "CR4191"
+      "CR4191 E-Stop",
+      "CR4171 Reset",
+      "CR4371 NH3 Shutdown",
+      "CR5061 HTR1 High Level",
+      "CR5131 LTR1 High Level"
     ],
     "downstream": [
-      "LT4131",
-      "LT4141",
-      "CR4071A-E"
+      "LT4131 Safety OK",
+      "LT4141 Safety Tripped",
+      "CR4071A-E interlocks"
     ],
     "failureEffect": "Entire refrigeration safety permissive lost"
+  },
+  {
+    "id": "CR419",
+    "description": "E-Stop Safety Relay",
+    "type": "Relay",
+    "drawing": "RC-4",
+    "line": "419",
+    "branch": "Master Safety Chain",
+    "normalState": "Energized when PB4191/PB4192/PB4193 reset",
+    "expectedVoltage": "120 VAC at coil",
+    "downstream": [
+      "CR4191",
+      "CR407 chain"
+    ],
+    "failureEffect": "Opens master safety chain"
+  },
+  {
+    "id": "CR417",
+    "description": "Power Fail Reset Relay",
+    "type": "Relay",
+    "drawing": "RC-4",
+    "line": "417",
+    "branch": "Master Safety Chain",
+    "normalState": "Energized after reset permissive",
+    "expectedVoltage": "120 VAC at coil",
+    "downstream": [
+      "CR4171",
+      "CR407 chain"
+    ],
+    "failureEffect": "Safety circuit will not reset"
   },
   {
     "id": "CR437",
@@ -28,681 +59,262 @@
     "type": "Relay",
     "drawing": "RC-4",
     "line": "437",
-    "location": "Safety Control Panel",
+    "branch": "Master Safety Chain",
     "normalState": "Energized during normal non-shutdown condition",
-    "expectedVoltage": "120 VAC at coil",
+    "expectedVoltage": "120 VAC at coil from Wire 437",
     "upstream": [
-      "RC-7 Relay 5 / Wire 437"
+      "RC-7 Relay 5",
+      "Wire 437"
     ],
     "downstream": [
       "CR4371",
+      "CR407 chain"
+    ],
+    "failureEffect": "Opens master safety chain"
+  },
+  {
+    "id": "CR5061",
+    "description": "Recirculator HTR1 High Level Safety Relay Contact",
+    "type": "Relay Contact",
+    "drawing": "RC-4 / RC-5",
+    "line": "407 / 506",
+    "branch": "HTR1 High Level",
+    "normalState": "Closed when HTR1 high level circuit healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "upstream": [
+      "FS5011",
+      "CR5011",
+      "TD5041",
+      "CR506"
+    ],
+    "downstream": [
       "CR407"
     ],
-    "failureEffect": "NH3 shutdown opens safety chain"
+    "failureEffect": "Opens master safety chain"
   },
   {
-    "id": "GG-6-1",
-    "description": "Ammonia Monitoring Station 1",
-    "type": "NH3 Controller",
-    "drawing": "RC-7",
-    "line": "700-719",
-    "location": "Ammonia Monitoring Panel",
-    "normalState": "Powered, no active alarm",
-    "expectedVoltage": "120 VAC service, 24 VDC sensor supply",
-    "failureEffect": "RC-7 detector groups unavailable"
-  },
-  {
-    "id": "GG-6-2",
-    "description": "Ammonia Monitoring Station 2",
-    "type": "NH3 Controller",
-    "drawing": "RC-8",
-    "line": "800-819",
-    "location": "Ammonia Monitoring Panel",
-    "normalState": "Powered, no active alarm",
-    "expectedVoltage": "120 VAC service, 24 VDC sensor supply",
-    "failureEffect": "RC-8 detector groups unavailable"
-  },
-  {
-    "id": "RC7-SENSOR-1",
-    "description": "RC-7 NH3 Sensor 1, Vent Line",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "700",
-    "zone": "Vent Line",
-    "location": "Vent Line",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-GG6-1"
+    "id": "CR5131",
+    "description": "Recirculator LTR1 High Level Safety Relay Contact",
+    "type": "Relay Contact",
+    "drawing": "RC-4 / RC-5",
+    "line": "407 / 513",
+    "branch": "LTR1 High Level",
+    "normalState": "Closed when LTR1 high level circuit healthy",
+    "expectedVoltage": "120 VAC passing when closed",
+    "upstream": [
+      "FS5081",
+      "CR5081",
+      "TD5111",
+      "CR513"
     ],
-    "failureEffect": "Vent line alarm or fault"
-  },
-  {
-    "id": "RC7-SENSOR-2",
-    "description": "RC-7 NH3 Sensor 2, Machine Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "701",
-    "zone": "Machine Room",
-    "location": "Machine Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
     "downstream": [
-      "EB-MR-1"
+      "CR407"
     ],
-    "failureEffect": "Machine room NH3 alarm"
+    "failureEffect": "Opens master safety chain"
   },
   {
-    "id": "RC7-SENSOR-3",
-    "description": "RC-7 NH3 Sensor 3, Machine Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "703",
-    "zone": "Machine Room",
-    "location": "Machine Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
+    "id": "FS5011",
+    "description": "Recirculator HTR1 High Level Float Switch",
+    "type": "Float Switch",
+    "drawing": "RC-5",
+    "line": "501",
+    "branch": "HTR1 High Level",
+    "normalState": "Normal level contact state healthy",
+    "expectedVoltage": "120 VAC through circuit when normal",
     "downstream": [
-      "EB-MR-2"
+      "CR5011",
+      "TD5041",
+      "CR5061"
     ],
-    "failureEffect": "Machine room NH3 alarm"
+    "failureEffect": "HTR1 high level safety trip"
   },
   {
-    "id": "RC7-SENSOR-4",
-    "description": "RC-7 NH3 Sensor 4, Machine Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "704",
-    "zone": "Machine Room",
-    "location": "Machine Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-MR-3"
+    "id": "CR5011",
+    "description": "Recirculator HTR1 High Level Relay",
+    "type": "Relay",
+    "drawing": "RC-5",
+    "line": "501",
+    "branch": "HTR1 High Level",
+    "normalState": "Energized in normal HTR1 path",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "FS5011"
     ],
-    "failureEffect": "Machine room NH3 alarm"
-  },
-  {
-    "id": "RC7-SENSOR-5",
-    "description": "RC-7 NH3 Sensor 5, Machine Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "705",
-    "zone": "Machine Room",
-    "location": "Machine Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
     "downstream": [
-      "EB-MR-4",
-      "Wire 437",
-      "CR437"
+      "TD5041",
+      "CR5061"
     ],
-    "failureEffect": "Machine room NH3 shutdown"
+    "failureEffect": "HTR1 high level logic failure"
   },
   {
-    "id": "RC7-SENSOR-6",
-    "description": "RC-7 NH3 Sensor 6, Machine Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "706",
-    "zone": "Machine Room",
-    "location": "Machine Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "Wire 437",
-      "CR437"
+    "id": "TD5041",
+    "description": "Recirculator HTR1 High Level 5 Sec Off Delay Timer",
+    "type": "Timer",
+    "drawing": "RC-5",
+    "line": "504",
+    "branch": "HTR1 High Level",
+    "normalState": "Output made after normal timing",
+    "expectedVoltage": "120 VAC input/output as timed",
+    "upstream": [
+      "CR5011"
     ],
-    "failureEffect": "Machine room NH3 shutdown"
-  },
-  {
-    "id": "RC7-SENSOR-7",
-    "description": "RC-7 NH3 Sensor 7, Chiller 2 Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "709",
-    "zone": "Chiller 2 Area",
-    "location": "Chiller 2 Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
     "downstream": [
-      "EB-CLR-1"
+      "CR5061"
     ],
-    "failureEffect": "Chiller area beacon alarm"
+    "failureEffect": "CR5061 may not energize"
   },
   {
-    "id": "RC7-SENSOR-8",
-    "description": "RC-7 NH3 Sensor 8, Evis Intake Air",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "710",
-    "zone": "Evis Intake Air",
-    "location": "Evis Intake Air",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
+    "id": "FS5081",
+    "description": "Recirculator LTR1 High Level Float Switch",
+    "type": "Float Switch",
+    "drawing": "RC-5",
+    "line": "508",
+    "branch": "LTR1 High Level",
+    "normalState": "Normal level contact state healthy",
+    "expectedVoltage": "120 VAC through circuit when normal",
     "downstream": [
-      "Wire 601",
-      "CR6011"
+      "CR5081",
+      "TD5111",
+      "CR5131"
     ],
-    "failureEffect": "Engine room ventilation circuit command"
+    "failureEffect": "LTR1 high level safety trip"
   },
   {
-    "id": "RC7-SENSOR-9",
-    "description": "RC-7 NH3 Sensor 9, Evis Intake Air",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "712",
-    "zone": "Evis Intake Air",
-    "location": "Evis Intake Air",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
+    "id": "CR5081",
+    "description": "Recirculator LTR1 High Level Relay",
+    "type": "Relay",
+    "drawing": "RC-5",
+    "line": "508",
+    "branch": "LTR1 High Level",
+    "normalState": "Energized in normal LTR1 path",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "FS5081"
+    ],
     "downstream": [
-      "Wire 609",
-      "CR6091"
+      "TD5111",
+      "CR5131"
+    ],
+    "failureEffect": "LTR1 high level logic failure"
+  },
+  {
+    "id": "TD5111",
+    "description": "Recirculator LTR1 High Level 5 Sec Off Delay Timer",
+    "type": "Timer",
+    "drawing": "RC-5",
+    "line": "511",
+    "branch": "LTR1 High Level",
+    "normalState": "Output made after normal timing",
+    "expectedVoltage": "120 VAC input/output as timed",
+    "upstream": [
+      "CR5081"
+    ],
+    "downstream": [
+      "CR5131"
+    ],
+    "failureEffect": "CR5131 may not energize"
+  },
+  {
+    "id": "CR6011",
+    "description": "High Ventilation Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "601",
+    "branch": "Ventilation",
+    "normalState": "Energized when high ventilation permissive healthy",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "TAS6021",
+      "SS6031",
+      "SS6041",
+      "Wire 601 NH3 output"
+    ],
+    "downstream": [
+      "EF-1",
+      "EF-2",
+      "Spare high vent"
+    ],
+    "failureEffect": "High ventilation permissive lost"
+  },
+  {
+    "id": "CR6091",
+    "description": "Evis M/U Air Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "609",
+    "branch": "Evis MUA",
+    "normalState": "Energized when Evis M/U air permissive healthy",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "Wire 609 NH3 output"
+    ],
+    "downstream": [
+      "Evis MUA Unit 1",
+      "Evis MUA Unit 2",
+      "Evis MUA Unit 3"
     ],
     "failureEffect": "Evis M/U air shutdown"
   },
   {
-    "id": "RC7-SENSOR-10",
-    "description": "RC-7 NH3 Sensor 10, Ice Machine Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "713",
-    "zone": "Ice Machine Area",
-    "location": "Ice Machine Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-ICE-1"
+    "id": "CR6141",
+    "description": "Cooler M/U Air Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "614",
+    "branch": "Cooler MUA",
+    "normalState": "Energized when cooler M/U air permissive healthy",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "Wire 614 NH3 output"
     ],
-    "failureEffect": "Ice machine beacon alarm"
-  },
-  {
-    "id": "RC7-SENSOR-11",
-    "description": "RC-7 NH3 Sensor 11, Ice Machine Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "715",
-    "zone": "Ice Machine Area",
-    "location": "Ice Machine Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
     "downstream": [
-      "EB-ICE-2"
-    ],
-    "failureEffect": "Ice machine beacon alarm"
-  },
-  {
-    "id": "RC7-SENSOR-12",
-    "description": "RC-7 NH3 Sensor 12, Ice Machine Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "716",
-    "zone": "Ice Machine Area",
-    "location": "Ice Machine Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-ICE-3"
-    ],
-    "failureEffect": "Ice machine beacon alarm"
-  },
-  {
-    "id": "RC7-SENSOR-13",
-    "description": "RC-7 NH3 Sensor 13, Ice Storage Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "717",
-    "zone": "Ice Storage Area",
-    "location": "Ice Storage Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-CHILLER-1"
-    ],
-    "failureEffect": "Ice storage/chiller beacon alarm"
-  },
-  {
-    "id": "RC7-SENSOR-14",
-    "description": "RC-7 NH3 Sensor 14, Chiller 1 Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-7",
-    "line": "718",
-    "zone": "Chiller 1 Area",
-    "location": "Chiller 1 Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-CHILLER-2"
-    ],
-    "failureEffect": "Chiller area beacon alarm"
-  },
-  {
-    "id": "EB-MR-1",
-    "description": "Machine Room Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "701",
-    "zone": "Machine Room",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Machine Room NH3 beacon active"
-  },
-  {
-    "id": "EB-MR-2",
-    "description": "Machine Room Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "703",
-    "zone": "Machine Room",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Machine Room NH3 beacon active"
-  },
-  {
-    "id": "EB-MR-3",
-    "description": "Machine Room Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "704",
-    "zone": "Machine Room",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Machine Room NH3 beacon active"
-  },
-  {
-    "id": "EB-MR-4",
-    "description": "Machine Room Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "705",
-    "zone": "Machine Room",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Machine Room NH3 beacon active"
-  },
-  {
-    "id": "EB-CLR-1",
-    "description": "Chiller 2 Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "709",
-    "zone": "Chiller 2 Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Chiller 2 Area NH3 beacon active"
-  },
-  {
-    "id": "EB-ICE-1",
-    "description": "Ice Machine Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "713",
-    "zone": "Ice Machine Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Ice Machine Area NH3 beacon active"
-  },
-  {
-    "id": "EB-ICE-2",
-    "description": "Ice Machine Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "714",
-    "zone": "Ice Machine Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Ice Machine Area NH3 beacon active"
-  },
-  {
-    "id": "EB-ICE-3",
-    "description": "Ice Machine Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "716",
-    "zone": "Ice Machine Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Ice Machine Area NH3 beacon active"
-  },
-  {
-    "id": "EB-CHILLER-1",
-    "description": "Ice Storage Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "717",
-    "zone": "Ice Storage Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Ice Storage Area NH3 beacon active"
-  },
-  {
-    "id": "EB-CHILLER-2",
-    "description": "Chiller 1 Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-7",
-    "line": "718",
-    "zone": "Chiller 1 Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Chiller 1 Area NH3 beacon active"
-  },
-  {
-    "id": "RC8-SENSOR-1",
-    "description": "RC-8 NH3 Sensor 1, MDM Dock",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "800",
-    "zone": "MDM Dock",
-    "location": "MDM Dock",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-MDMDOCK-1"
-    ],
-    "failureEffect": "MDM dock beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-2",
-    "description": "RC-8 NH3 Sensor 2, MDM Dock",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "801",
-    "zone": "MDM Dock",
-    "location": "MDM Dock",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-MDMDOCK-2"
-    ],
-    "failureEffect": "MDM dock beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-3",
-    "description": "RC-8 NH3 Sensor 3, Main Cooler",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "802",
-    "zone": "Main Cooler",
-    "location": "Main Cooler",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-CLRMAIN-1"
-    ],
-    "failureEffect": "Main cooler beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-4",
-    "description": "RC-8 NH3 Sensor 4, 35 Degree Cooler",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "804",
-    "zone": "35 Degree Cooler",
-    "location": "35 Degree Cooler",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-35CLR-1"
-    ],
-    "failureEffect": "35 degree cooler beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-5",
-    "description": "RC-8 NH3 Sensor 5, Cooler Area",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "805",
-    "zone": "Cooler Area",
-    "location": "Cooler Area",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-CHALL-1"
-    ],
-    "failureEffect": "Cooler area beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-6",
-    "description": "RC-8 NH3 Sensor 6, CO2 Cooler",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "806",
-    "zone": "CO2 Cooler",
-    "location": "CO2 Cooler",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-CO2CLR-1"
-    ],
-    "failureEffect": "CO2 cooler beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-7",
-    "description": "RC-8 NH3 Sensor 7, Cooler M/U Air",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "809",
-    "zone": "Cooler M/U Air",
-    "location": "Cooler M/U Air",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-STCK-1"
-    ],
-    "failureEffect": "Stack/cooler M/U air beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-8",
-    "description": "RC-8 NH3 Sensor 8, Attic",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "810",
-    "zone": "Attic",
-    "location": "Attic",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-ATTIC-1"
-    ],
-    "failureEffect": "Attic beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-9",
-    "description": "RC-8 NH3 Sensor 9, Attic",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "812",
-    "zone": "Attic",
-    "location": "Attic",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-ATTIC-2"
-    ],
-    "failureEffect": "Attic beacon alarm"
-  },
-  {
-    "id": "RC8-SENSOR-10",
-    "description": "RC-8 NH3 Sensor 10, Cooler M/U Air",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "813",
-    "zone": "Cooler M/U Air",
-    "location": "Cooler M/U Air",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "Wire 614",
-      "CR6141"
+      "Cooler MUA Unit"
     ],
     "failureEffect": "Cooler M/U air shutdown"
   },
   {
-    "id": "RC8-SENSOR-11",
-    "description": "RC-8 NH3 Sensor 11, Debone M/U Air",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "815",
-    "zone": "Debone M/U Air",
-    "location": "Debone M/U Air",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
+    "id": "CR6171",
+    "description": "Debone M/U Air Interlock Relay",
+    "type": "Relay",
+    "drawing": "RC-6",
+    "line": "617",
+    "branch": "Debone MUA",
+    "normalState": "Energized when debone M/U air permissive healthy",
+    "expectedVoltage": "120 VAC at coil",
+    "upstream": [
+      "Wire 617 NH3 output"
+    ],
     "downstream": [
-      "Wire 617",
-      "CR6171"
+      "Debone MUA Unit"
     ],
     "failureEffect": "Debone M/U air shutdown"
   },
   {
-    "id": "RC8-SENSOR-12",
-    "description": "RC-8 NH3 Sensor 12, Debone Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "816",
-    "zone": "Debone Room",
-    "location": "Debone Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-DBN-1"
+    "id": "LT4131",
+    "description": "Safety Circuit OK Pilot Light",
+    "type": "Pilot Light",
+    "drawing": "RC-4",
+    "line": "413",
+    "branch": "Indication",
+    "normalState": "ON when CR407 safety relay is made",
+    "expectedVoltage": "120 VAC when on",
+    "upstream": [
+      "CR407"
     ],
-    "failureEffect": "Debone room beacon alarm"
+    "failureEffect": "No safety OK indication"
   },
   {
-    "id": "RC8-SENSOR-13",
-    "description": "RC-8 NH3 Sensor 13, Debone Room",
-    "type": "NH3 Sensor",
-    "drawing": "RC-8",
-    "line": "817",
-    "zone": "Debone Room",
-    "location": "Debone Room",
-    "normalState": "No alarm, healthy 4-20 mA signal",
-    "expectedVoltage": "24 VDC sensor supply",
-    "downstream": [
-      "EB-DBN-2"
+    "id": "LT4141",
+    "description": "Safety Circuit Tripped Pilot Light",
+    "type": "Pilot Light",
+    "drawing": "RC-4",
+    "line": "414",
+    "branch": "Indication",
+    "normalState": "ON when safety circuit tripped",
+    "expectedVoltage": "120 VAC when trip indication active",
+    "upstream": [
+      "CR407"
     ],
-    "failureEffect": "Debone room beacon alarm"
-  },
-  {
-    "id": "EB-MDMDOCK-1",
-    "description": "MDM Dock Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "800",
-    "zone": "MDM Dock",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "MDM Dock NH3 beacon active"
-  },
-  {
-    "id": "EB-MDMDOCK-2",
-    "description": "MDM Dock Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "801",
-    "zone": "MDM Dock",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "MDM Dock NH3 beacon active"
-  },
-  {
-    "id": "EB-CLRMAIN-1",
-    "description": "Main Cooler Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "802",
-    "zone": "Main Cooler",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Main Cooler NH3 beacon active"
-  },
-  {
-    "id": "EB-35CLR-1",
-    "description": "35 Degree Cooler Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "804",
-    "zone": "35 Degree Cooler",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "35 Degree Cooler NH3 beacon active"
-  },
-  {
-    "id": "EB-CHALL-1",
-    "description": "Cooler Area Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "805",
-    "zone": "Cooler Area",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Cooler Area NH3 beacon active"
-  },
-  {
-    "id": "EB-CO2CLR-1",
-    "description": "CO2 Cooler Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "806",
-    "zone": "CO2 Cooler",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "CO2 Cooler NH3 beacon active"
-  },
-  {
-    "id": "EB-STCK-1",
-    "description": "Cooler M/U Air Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "809",
-    "zone": "Cooler M/U Air",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Cooler M/U Air NH3 beacon active"
-  },
-  {
-    "id": "EB-ATTIC-1",
-    "description": "Attic Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "810",
-    "zone": "Attic",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Attic NH3 beacon active"
-  },
-  {
-    "id": "EB-ATTIC-2",
-    "description": "Attic Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "812",
-    "zone": "Attic",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Attic NH3 beacon active"
-  },
-  {
-    "id": "EB-DBN-1",
-    "description": "Debone Room Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "816",
-    "zone": "Debone Room",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Debone Room NH3 beacon active"
-  },
-  {
-    "id": "EB-DBN-2",
-    "description": "Debone Room Emergency Beacon",
-    "type": "Emergency Beacon",
-    "drawing": "RC-8",
-    "line": "817",
-    "zone": "Debone Room",
-    "normalState": "OFF",
-    "expectedVoltage": "120 VAC when alarm output active",
-    "failureEffect": "Debone Room NH3 beacon active"
+    "failureEffect": "Safety trip indication"
   }
 ]
