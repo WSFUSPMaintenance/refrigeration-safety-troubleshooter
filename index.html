@@ -7,43 +7,19 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Refrigeration Safety Troubleshooter</h1>
-    <p>Wayne Farms Union Springs, Rev 5 Safety Control Panel</p>
-  </header>
+  <header><h1>Refrigeration Safety Troubleshooter</h1><p>Wayne Farms Union Springs, Rev 5 Safety Control Panel</p></header>
   <nav class="tabs">
     <button class="tab active" data-tab="symptoms">Symptom Troubleshooting</button>
     <button class="tab" data-tab="lookup">Device / Wire Search</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
   </nav>
   <main>
-    <section class="panel tabPanel" id="symptomsPanel">
-      <h2>What is the problem?</h2>
-      <p class="helper">Start here when the technician only knows the symptom.</p>
-      <div id="symptomButtons" class="grid"></div>
-    </section>
-    <section class="panel tabPanel hidden" id="lookupPanel">
-      <h2>Device / Wire Search</h2>
-      <p class="helper">Search by relay, wire number, switch, light, sensor, alarm, compressor, recirculator, or ventilation device.</p>
-      <div class="lookup">
-        <input id="searchInput" placeholder="Example: CR6011, EF-1, CR6091, Evis, Cooler, Debone..." />
-        <button id="searchBtn">Search</button>
-      </div>
-      <div id="searchResults"></div>
-    </section>
-    <section class="panel tabPanel hidden" id="quickPanel">
-      <h2>Quick Reference</h2>
-      <div id="quickReference"></div>
-    </section>
-    <section class="panel hidden" id="treePanel">
-      <button id="backBtn">← Back to Symptoms</button>
-      <h2 id="treeTitle"></h2>
-      <div id="stepCard"></div>
-    </section>
+    <section class="panel tabPanel" id="symptomsPanel"><h2>What is the problem?</h2><p class="helper">Start here when the technician only knows the symptom.</p><div id="symptomButtons" class="grid"></div></section>
+    <section class="panel tabPanel hidden" id="lookupPanel"><h2>Device / Wire Search</h2><p class="helper">Search relay, wire, sensor, alarm, beacon, zone, compressor, recirculator, or ventilation device.</p><div class="lookup"><input id="searchInput" placeholder="Example: CR437, Wire 437, EB-MR-1, Sensor 7, Chiller, Debone, NH3..." /><button id="searchBtn">Search</button></div><div id="searchResults"></div></section>
+    <section class="panel tabPanel hidden" id="quickPanel"><h2>Quick Reference</h2><div id="quickReference"></div></section>
+    <section class="panel hidden" id="treePanel"><button id="backBtn">← Back to Symptoms</button><h2 id="treeTitle"></h2><div id="stepCard"></div></section>
   </main>
-  <footer>
-    <p>Electrical troubleshooting only. Do not bypass safety devices. Verify process conditions before resetting any safety trip.</p>
-  </footer>
+  <footer><p>Electrical troubleshooting only. Do not bypass safety devices. Verify process conditions before resetting any safety trip.</p></footer>
   <script src="app.js"></script>
 </body>
 </html>
