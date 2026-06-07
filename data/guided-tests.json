@@ -52,7 +52,7 @@
         "missing": {
           "result": "HTR1 high level branch open. Check FS5011, CR5011, TD5041, and CR5061."
         },
-        "drawing": "RC-4/RC-5 line 506"
+        "drawing": "RC-5 line 506"
       },
       "g6": {
         "check": "Check CR5131 LTR1 high level contact output",
@@ -64,7 +64,7 @@
         "missing": {
           "result": "LTR1 high level branch open. Check FS5081, CR5081, TD5111, and CR5131."
         },
-        "drawing": "RC-4/RC-5 line 513"
+        "drawing": "RC-5 line 513"
       }
     }
   },
@@ -110,7 +110,7 @@
         "missing": {
           "result": "NH3 system is not commanding Debone M/U shutdown. Check RC-6 Debone M/U interlock and fan starter."
         },
-        "drawing": "RC-8 line 815 / RC-6 line 617"
+        "drawing": "RC-8 line 815"
       },
       "d2": {
         "check": "Check CR6171 coil/status",

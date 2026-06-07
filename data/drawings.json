@@ -1,0 +1,56 @@
+[
+  {
+    "id": "RC-1",
+    "title": "Cover Sheet / Drawing Index",
+    "file": "drawings/RC-1.png",
+    "notes": "Drawing index and sheet list."
+  },
+  {
+    "id": "RC-2",
+    "title": "Enclosure Layout",
+    "file": "drawings/RC-2.png",
+    "notes": "Physical panel layout and component placement."
+  },
+  {
+    "id": "RC-3",
+    "title": "Conduit Plan",
+    "file": "drawings/RC-3.png",
+    "notes": "Conduit routing plan."
+  },
+  {
+    "id": "RC-4",
+    "title": "Safety Circuit",
+    "file": "drawings/RC-4.png",
+    "notes": "Master safety chain, CR407, CR437, E-Stop/reset, safety pilot lights."
+  },
+  {
+    "id": "RC-5",
+    "title": "Safety Circuit / Interlocks",
+    "file": "drawings/RC-5.png",
+    "notes": "HTR1/LTR1 high level, compressor interlocks, solenoid outputs, remote enables."
+  },
+  {
+    "id": "RC-6",
+    "title": "Ventilation Interlock Wiring",
+    "file": "drawings/RC-6.png",
+    "notes": "High ventilation, Evis/Cooler/Debone M/U air shutdown/interlock wiring."
+  },
+  {
+    "id": "RC-7",
+    "title": "Ammonia Monitoring Station 1",
+    "file": "drawings/RC-7.png",
+    "notes": "NH3 sensors and outputs for machine room, evis intake, ice/chiller areas."
+  },
+  {
+    "id": "RC-8",
+    "title": "Ammonia Monitoring Station 2",
+    "file": "drawings/RC-8.png",
+    "notes": "NH3 sensors and outputs for docks, coolers, attic, Debone, M/U air shutdowns."
+  },
+  {
+    "id": "RC-9",
+    "title": "Blank / Continuation Sheet",
+    "file": "drawings/RC-9.png",
+    "notes": "Blank or continuation sheet."
+  }
+]
