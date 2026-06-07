@@ -110,21 +110,143 @@
     "to": "CR6171 / Debone M/U air shutdown"
   },
   {
-    "wire": "4131",
-    "drawing": "RC-4",
-    "line": "413",
-    "description": "Safety Circuit OK pilot light feed",
-    "expectedVoltage": "120 VAC when CR407 made",
-    "from": "CR407 contact",
-    "to": "LT4131"
+    "wire": "5231",
+    "drawing": "RC-5",
+    "line": "523",
+    "description": "CP-01 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071A",
+    "to": "CP-01 safety interlock input",
+    "notes": "If present on input but missing on output 5232, CP-01 interlock is open."
   },
   {
-    "wire": "4141",
-    "drawing": "RC-4",
-    "line": "414",
-    "description": "Safety Circuit Tripped pilot light feed",
-    "expectedVoltage": "120 VAC when CR407 dropped",
-    "from": "CR407 contact",
-    "to": "LT4141"
+    "wire": "5232",
+    "drawing": "RC-5",
+    "line": "523",
+    "description": "CP-01 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "CP-01 safety interlock output",
+    "to": "CP-01 starter/control circuit",
+    "notes": "If missing while 5231 is present, check CP-01 compressor safeties/interlock."
+  },
+  {
+    "wire": "5241",
+    "drawing": "RC-5",
+    "line": "524",
+    "description": "SC-01 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071B",
+    "to": "SC-01 safety interlock input",
+    "notes": "If present on input but missing on output 5242, SC-01 interlock is open."
+  },
+  {
+    "wire": "5242",
+    "drawing": "RC-5",
+    "line": "524",
+    "description": "SC-01 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "SC-01 safety interlock output",
+    "to": "SC-01 starter/control circuit",
+    "notes": "If missing while 5241 is present, check SC-01 compressor safeties/interlock."
+  },
+  {
+    "wire": "5251",
+    "drawing": "RC-5",
+    "line": "525",
+    "description": "SC-02 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071B",
+    "to": "SC-02 safety interlock input",
+    "notes": "If present on input but missing on output 5252, SC-02 interlock is open."
+  },
+  {
+    "wire": "5252",
+    "drawing": "RC-5",
+    "line": "525",
+    "description": "SC-02 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "SC-02 safety interlock output",
+    "to": "SC-02 starter/control circuit",
+    "notes": "If missing while 5251 is present, check SC-02 compressor safeties/interlock."
+  },
+  {
+    "wire": "5261",
+    "drawing": "RC-5",
+    "line": "526",
+    "description": "CP-02 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071B",
+    "to": "CP-02 safety interlock input",
+    "notes": "If present on input but missing on output 5262, CP-02 interlock is open."
+  },
+  {
+    "wire": "5262",
+    "drawing": "RC-5",
+    "line": "526",
+    "description": "CP-02 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "CP-02 safety interlock output",
+    "to": "CP-02 starter/control circuit",
+    "notes": "If missing while 5261 is present, check CP-02 compressor safeties/interlock."
+  },
+  {
+    "wire": "5271",
+    "drawing": "RC-5",
+    "line": "527",
+    "description": "CP-05 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071C",
+    "to": "CP-05 safety interlock input",
+    "notes": "If present on input but missing on output 5272, CP-05 interlock is open."
+  },
+  {
+    "wire": "5272",
+    "drawing": "RC-5",
+    "line": "527",
+    "description": "CP-05 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "CP-05 safety interlock output",
+    "to": "CP-05 starter/control circuit",
+    "notes": "If missing while 5271 is present, check CP-05 compressor safeties/interlock."
+  },
+  {
+    "wire": "5281",
+    "drawing": "RC-5",
+    "line": "528",
+    "description": "CP-06 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071C",
+    "to": "CP-06 safety interlock input",
+    "notes": "If present on input but missing on output 5282, CP-06 interlock is open."
+  },
+  {
+    "wire": "5282",
+    "drawing": "RC-5",
+    "line": "528",
+    "description": "CP-06 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "CP-06 safety interlock output",
+    "to": "CP-06 starter/control circuit",
+    "notes": "If missing while 5281 is present, check CP-06 compressor safeties/interlock."
+  },
+  {
+    "wire": "5291",
+    "drawing": "RC-5",
+    "line": "529",
+    "description": "CP-07 safety interlock input",
+    "expectedVoltage": "120 VAC when CR407 safety output is made",
+    "from": "CR4071C",
+    "to": "CP-07 safety interlock input",
+    "notes": "If present on input but missing on output 5292, CP-07 interlock is open."
+  },
+  {
+    "wire": "5292",
+    "drawing": "RC-5",
+    "line": "529",
+    "description": "CP-07 safety interlock output",
+    "expectedVoltage": "120 VAC when compressor interlock is closed",
+    "from": "CP-07 safety interlock output",
+    "to": "CP-07 starter/control circuit",
+    "notes": "If missing while 5291 is present, check CP-07 compressor safeties/interlock."
   }
 ]

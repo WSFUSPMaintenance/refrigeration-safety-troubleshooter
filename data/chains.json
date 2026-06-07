@@ -115,5 +115,110 @@
     ],
     "failureEffect": "High ventilation interlock fault or commanded ventilation state.",
     "firstCheck": "Check Wire 601 and CR6011."
+  },
+  {
+    "id": "cp-01-start-chain",
+    "title": "CP-01 Will Not Start Chain",
+    "description": "Safety permissive path for CP-01 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071A",
+      "Wire 5231",
+      "CP-01 Safety Interlock",
+      "Wire 5232",
+      "CP-01 Starter/Control"
+    ],
+    "failureEffect": "CP-01 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5231, then Wire 5232."
+  },
+  {
+    "id": "sc-01-start-chain",
+    "title": "SC-01 Will Not Start Chain",
+    "description": "Safety permissive path for SC-01 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071B",
+      "Wire 5241",
+      "SC-01 Safety Interlock",
+      "Wire 5242",
+      "SC-01 Starter/Control"
+    ],
+    "failureEffect": "SC-01 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5241, then Wire 5242."
+  },
+  {
+    "id": "sc-02-start-chain",
+    "title": "SC-02 Will Not Start Chain",
+    "description": "Safety permissive path for SC-02 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071B",
+      "Wire 5251",
+      "SC-02 Safety Interlock",
+      "Wire 5252",
+      "SC-02 Starter/Control"
+    ],
+    "failureEffect": "SC-02 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5251, then Wire 5252."
+  },
+  {
+    "id": "cp-02-start-chain",
+    "title": "CP-02 Will Not Start Chain",
+    "description": "Safety permissive path for CP-02 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071B",
+      "Wire 5261",
+      "CP-02 Safety Interlock",
+      "Wire 5262",
+      "CP-02 Starter/Control"
+    ],
+    "failureEffect": "CP-02 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5261, then Wire 5262."
+  },
+  {
+    "id": "cp-05-start-chain",
+    "title": "CP-05 Will Not Start Chain",
+    "description": "Safety permissive path for CP-05 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071C",
+      "Wire 5271",
+      "CP-05 Safety Interlock",
+      "Wire 5272",
+      "CP-05 Starter/Control"
+    ],
+    "failureEffect": "CP-05 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5271, then Wire 5272."
+  },
+  {
+    "id": "cp-06-start-chain",
+    "title": "CP-06 Will Not Start Chain",
+    "description": "Safety permissive path for CP-06 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071C",
+      "Wire 5281",
+      "CP-06 Safety Interlock",
+      "Wire 5282",
+      "CP-06 Starter/Control"
+    ],
+    "failureEffect": "CP-06 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5281, then Wire 5282."
+  },
+  {
+    "id": "cp-07-start-chain",
+    "title": "CP-07 Will Not Start Chain",
+    "description": "Safety permissive path for CP-07 compressor start.",
+    "nodes": [
+      "CR407",
+      "CR4071C",
+      "Wire 5291",
+      "CP-07 Safety Interlock",
+      "Wire 5292",
+      "CP-07 Starter/Control"
+    ],
+    "failureEffect": "CP-07 will not start.",
+    "firstCheck": "Check 120 VAC at Wire 5291, then Wire 5292."
   }
 ]

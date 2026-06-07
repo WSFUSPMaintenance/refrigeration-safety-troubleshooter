@@ -22,7 +22,7 @@
         "expected": "YES",
         "yes": "n3",
         "no": {
-          "result": "Use Device/Wire Search for the active beacon or inspect GG-6 controller display/alarm history."
+          "result": "Use Alarm Matrix or inspect GG-6 controller display/alarm history."
         }
       },
       "n3": {
@@ -70,13 +70,147 @@
         "device": "Master Safety Chain",
         "drawing": "RC-4",
         "line": "407",
-        "question": "Which upstream contact is open, CR4191, CR4171, CR4371, CR5061, or CR5131?",
-        "expected": "All closed",
+        "question": "Measure in order: CR4191, CR4171, CR4371, CR5061, CR5131. Did you find the first open contact?",
+        "expected": "YES",
         "yes": {
-          "result": "Repair the open branch shown in the master safety chain: E-Stop, reset, NH3, HTR1, or LTR1."
+          "result": "Repair the open branch shown, E-Stop, reset, NH3, HTR1, or LTR1."
         },
         "no": {
-          "result": "Measure each contact in order and identify the first point where 120 VAC is lost."
+          "result": "Check source 4001 and wiring into the safety chain."
+        }
+      }
+    }
+  },
+  "compressor-will-not-start": {
+    "title": "Compressor Will Not Start",
+    "start": "c1",
+    "nodes": {
+      "c1": {
+        "device": "Select Compressor",
+        "drawing": "RC-5",
+        "line": "523-529",
+        "question": "Which compressor will not start?",
+        "expected": "Select unit",
+        "choices": [
+          {
+            "label": "CP-01",
+            "next": "cp01"
+          },
+          {
+            "label": "SC-01",
+            "next": "sc01"
+          },
+          {
+            "label": "SC-02",
+            "next": "sc02"
+          },
+          {
+            "label": "CP-02",
+            "next": "cp02"
+          },
+          {
+            "label": "CP-05",
+            "next": "cp05"
+          },
+          {
+            "label": "CP-06",
+            "next": "cp06"
+          },
+          {
+            "label": "CP-07",
+            "next": "cp07"
+          }
+        ]
+      },
+      "cp01": {
+        "device": "CP-01 Wires 5231 / 5232",
+        "drawing": "RC-5",
+        "line": "523",
+        "question": "Is 120 VAC present on 5231 and then 5232?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to CP-01 starter/control."
+        },
+        "no": {
+          "result": "If 5231 is missing, check CR407 and CR4071A. If 5231 present and 5232 missing, CP-01 interlock is open."
+        }
+      },
+      "sc01": {
+        "device": "SC-01 Wires 5241 / 5242",
+        "drawing": "RC-5",
+        "line": "524",
+        "question": "Is 120 VAC present on 5241 and then 5242?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to SC-01 starter/control."
+        },
+        "no": {
+          "result": "If 5241 is missing, check CR407 and CR4071B. If 5241 present and 5242 missing, SC-01 interlock is open."
+        }
+      },
+      "sc02": {
+        "device": "SC-02 Wires 5251 / 5252",
+        "drawing": "RC-5",
+        "line": "525",
+        "question": "Is 120 VAC present on 5251 and then 5252?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to SC-02 starter/control."
+        },
+        "no": {
+          "result": "If 5251 is missing, check CR407 and CR4071B. If 5251 present and 5252 missing, SC-02 interlock is open."
+        }
+      },
+      "cp02": {
+        "device": "CP-02 Wires 5261 / 5262",
+        "drawing": "RC-5",
+        "line": "526",
+        "question": "Is 120 VAC present on 5261 and then 5262?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to CP-02 starter/control."
+        },
+        "no": {
+          "result": "If 5261 is missing, check CR407 and CR4071B. If 5261 present and 5262 missing, CP-02 interlock is open."
+        }
+      },
+      "cp05": {
+        "device": "CP-05 Wires 5271 / 5272",
+        "drawing": "RC-5",
+        "line": "527",
+        "question": "Is 120 VAC present on 5271 and then 5272?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to CP-05 starter/control."
+        },
+        "no": {
+          "result": "If 5271 is missing, check CR407 and CR4071C. If 5271 present and 5272 missing, CP-05 interlock is open."
+        }
+      },
+      "cp06": {
+        "device": "CP-06 Wires 5281 / 5282",
+        "drawing": "RC-5",
+        "line": "528",
+        "question": "Is 120 VAC present on 5281 and then 5282?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to CP-06 starter/control."
+        },
+        "no": {
+          "result": "If 5281 is missing, check CR407 and CR4071C. If 5281 present and 5282 missing, CP-06 interlock is open."
+        }
+      },
+      "cp07": {
+        "device": "CP-07 Wires 5291 / 5292",
+        "drawing": "RC-5",
+        "line": "529",
+        "question": "Is 120 VAC present on 5291 and then 5292?",
+        "expected": "Both powered when permissive is made",
+        "yes": {
+          "result": "Safety panel permissive is present. Move to CP-07 starter/control."
+        },
+        "no": {
+          "result": "If 5291 is missing, check CR407 and CR4071C. If 5291 present and 5292 missing, CP-07 interlock is open."
         }
       }
     }
@@ -89,35 +223,60 @@
         "device": "Affected Area",
         "drawing": "RC-6",
         "line": "609 / 614 / 617",
-        "question": "Which M/U air system is affected, Evis, Cooler, or Debone?",
-        "expected": "Identify area",
-        "yes": "m2",
-        "no": {
-          "result": "Search Evis, Cooler, or Debone to view the associated shutdown chain."
-        }
+        "question": "Which M/U air system is affected?",
+        "expected": "Select area",
+        "choices": [
+          {
+            "label": "Evis M/U Air",
+            "next": "evis"
+          },
+          {
+            "label": "Cooler M/U Air",
+            "next": "cooler"
+          },
+          {
+            "label": "Debone M/U Air",
+            "next": "debone"
+          }
+        ]
       },
-      "m2": {
-        "device": "Shutdown Wire",
-        "drawing": "RC-7 / RC-8 / RC-6",
-        "line": "609 / 614 / 617",
-        "question": "Is the associated NH3 shutdown wire active, 609, 614, or 617?",
+      "evis": {
+        "device": "Wire 609 / CR6091",
+        "drawing": "RC-7 / RC-6",
+        "line": "712 / 609",
+        "question": "Is Wire 609 active and is CR6091 responding?",
         "expected": "Depends on alarm state",
-        "yes": "m3",
-        "no": {
-          "result": "NH3 system is not commanding shutdown. Troubleshoot RC-6 relay/interlock and external fan starter."
-        }
-      },
-      "m3": {
-        "device": "Associated NH3 Sensor",
-        "drawing": "RC-7 / RC-8",
-        "line": "712 / 813 / 815",
-        "question": "Is the associated NH3 sensor in alarm or fault?",
-        "expected": "NO",
         "yes": {
-          "result": "Verify with portable detector, inspect sensor, and follow NH3 response procedure if confirmed."
+          "result": "Trace RC7 Sensor 9 and Evis MUA unit interlocks 610-612."
         },
         "no": {
-          "result": "Relay output or wiring fault suspected between NH3 monitoring station and RC-6."
+          "result": "NH3 system is not commanding Evis MUA shutdown. Check RC-6 Evis interlocks and fan starter."
+        }
+      },
+      "cooler": {
+        "device": "Wire 614 / CR6141",
+        "drawing": "RC-8 / RC-6",
+        "line": "813 / 614",
+        "question": "Is Wire 614 active and is CR6141 responding?",
+        "expected": "Depends on alarm state",
+        "yes": {
+          "result": "Trace RC8 Sensor 10 and Cooler MUA interlock 615."
+        },
+        "no": {
+          "result": "NH3 system is not commanding Cooler MUA shutdown. Check RC-6 Cooler interlock and fan starter."
+        }
+      },
+      "debone": {
+        "device": "Wire 617 / CR6171",
+        "drawing": "RC-8 / RC-6",
+        "line": "815 / 617",
+        "question": "Is Wire 617 active and is CR6171 responding?",
+        "expected": "Depends on alarm state",
+        "yes": {
+          "result": "Trace RC8 Sensor 11 and Debone MUA interlock 618."
+        },
+        "no": {
+          "result": "NH3 system is not commanding Debone MUA shutdown. Check RC-6 Debone interlock and fan starter."
         }
       }
     }
@@ -130,35 +289,43 @@
         "device": "Affected Vessel",
         "drawing": "RC-5",
         "line": "501 / 508",
-        "question": "Is the active trip HTR1 or LTR1?",
-        "expected": "Identify vessel",
-        "yes": "h2",
+        "question": "Which high level trip is active?",
+        "expected": "Select vessel",
+        "choices": [
+          {
+            "label": "HTR1 High Level",
+            "next": "htr1"
+          },
+          {
+            "label": "LTR1 High Level",
+            "next": "ltr1"
+          }
+        ]
+      },
+      "htr1": {
+        "device": "HTR1 Chain",
+        "drawing": "RC-5",
+        "line": "501-506",
+        "question": "Is HTR1 actually high level? If not, is FS5011 passing voltage?",
+        "expected": "Level normal and FS5011 passing",
+        "yes": {
+          "result": "Continue through CR5011 \u2192 TD5041 \u2192 CR5061 \u2192 CR407."
+        },
         "no": {
-          "result": "Check CR5061 for HTR1 or CR5131 for LTR1 to determine affected circuit."
+          "result": "Correct actual level or repair FS5011/field wiring."
         }
       },
-      "h2": {
-        "device": "Actual Vessel Level",
-        "drawing": "Field Verification",
-        "line": "",
-        "question": "Is the vessel actually in high level?",
-        "expected": "NO",
-        "yes": {
-          "result": "Real high level. Correct process condition before reset."
-        },
-        "no": "h3"
-      },
-      "h3": {
-        "device": "Float / Relay / Timer Chain",
+      "ltr1": {
+        "device": "LTR1 Chain",
         "drawing": "RC-5",
-        "line": "501-513",
-        "question": "Is voltage passing through the float switch, relay, and timer chain?",
-        "expected": "YES",
+        "line": "508-513",
+        "question": "Is LTR1 actually high level? If not, is FS5081 passing voltage?",
+        "expected": "Level normal and FS5081 passing",
         "yes": {
-          "result": "High-level branch appears healthy. Check CR5061 or CR5131 contact to CR407 chain."
+          "result": "Continue through CR5081 \u2192 TD5111 \u2192 CR5131 \u2192 CR407."
         },
         "no": {
-          "result": "Identify the first failed device in chain: FS5011/CR5011/TD5041 or FS5081/CR5081/TD5111."
+          "result": "Correct actual level or repair FS5081/field wiring."
         }
       }
     }

@@ -1,5 +1,15 @@
 [
   {
+    "symptom": "Compressor will not start",
+    "firstCheck": "Select compressor, then check safety interlock input and output wires",
+    "next": "If input powered but output missing, compressor interlock is open."
+  },
+  {
+    "symptom": "CP-05 will not start",
+    "firstCheck": "Wire 5271 then 5272",
+    "next": "If 5271 missing, check CR407/CR4071C. If 5272 missing, CP-05 interlock is open."
+  },
+  {
     "symptom": "Safety circuit lost",
     "firstCheck": "Wire 4071 at CR407",
     "next": "If missing, trace CR4191 \u2192 CR4171 \u2192 CR4371 \u2192 CR5061 \u2192 CR5131."
@@ -33,10 +43,5 @@
     "symptom": "Debone M/U air shutdown",
     "firstCheck": "Wire 617 and CR6171",
     "next": "Trace RC8 Sensor 11 \u2192 Wire 617 \u2192 CR6171 \u2192 Debone MUA interlock."
-  },
-  {
-    "symptom": "Beacon active but no NH3 found",
-    "firstCheck": "Portable detector and fixed sensor reading",
-    "next": "Check sensor calibration, relay output, beacon wiring, and controller history."
   }
 ]

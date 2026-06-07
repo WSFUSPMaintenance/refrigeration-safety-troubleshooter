@@ -1,0 +1,272 @@
+[
+  {
+    "sensor": "RC7-SENSOR-1",
+    "drawing": "RC-7",
+    "line": 700,
+    "area": "Vent Line",
+    "beacon": "EB-GG6-1",
+    "shutdown": "",
+    "effect": "Vent line alarm",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-2",
+    "drawing": "RC-7",
+    "line": 701,
+    "area": "Machine Room",
+    "beacon": "EB-MR-1",
+    "shutdown": "",
+    "effect": "Machine room beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-3",
+    "drawing": "RC-7",
+    "line": 703,
+    "area": "Machine Room",
+    "beacon": "EB-MR-2",
+    "shutdown": "",
+    "effect": "Machine room beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-4",
+    "drawing": "RC-7",
+    "line": 704,
+    "area": "Machine Room",
+    "beacon": "EB-MR-3",
+    "shutdown": "",
+    "effect": "Machine room beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-5",
+    "drawing": "RC-7",
+    "line": 705,
+    "area": "Machine Room",
+    "beacon": "EB-MR-4",
+    "shutdown": "Wire 437 / CR437 / CR407",
+    "effect": "Machine room shutdown",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-6",
+    "drawing": "RC-7",
+    "line": 706,
+    "area": "Machine Room",
+    "beacon": "",
+    "shutdown": "Wire 437 / CR437 / CR407",
+    "effect": "Machine room shutdown",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-7",
+    "drawing": "RC-7",
+    "line": 709,
+    "area": "Chiller 2 Area",
+    "beacon": "EB-CLR-1",
+    "shutdown": "",
+    "effect": "Chiller beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-8",
+    "drawing": "RC-7",
+    "line": 710,
+    "area": "Evis Intake Air",
+    "beacon": "",
+    "shutdown": "Wire 601 / CR6011",
+    "effect": "Ventilation command",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-9",
+    "drawing": "RC-7",
+    "line": 712,
+    "area": "Evis Intake Air",
+    "beacon": "",
+    "shutdown": "Wire 609 / CR6091",
+    "effect": "Evis MUA shutdown",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-10",
+    "drawing": "RC-7",
+    "line": 713,
+    "area": "Ice Machine Area",
+    "beacon": "EB-ICE-1",
+    "shutdown": "",
+    "effect": "Ice beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-11",
+    "drawing": "RC-7",
+    "line": 715,
+    "area": "Ice Machine Area",
+    "beacon": "EB-ICE-2",
+    "shutdown": "",
+    "effect": "Ice beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-12",
+    "drawing": "RC-7",
+    "line": 716,
+    "area": "Ice Machine Area",
+    "beacon": "EB-ICE-3",
+    "shutdown": "",
+    "effect": "Ice beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-13",
+    "drawing": "RC-7",
+    "line": 717,
+    "area": "Ice Storage Area",
+    "beacon": "EB-CHILLER-1",
+    "shutdown": "",
+    "effect": "Chiller beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC7-SENSOR-14",
+    "drawing": "RC-7",
+    "line": 718,
+    "area": "Chiller 1 Area",
+    "beacon": "EB-CHILLER-2",
+    "shutdown": "",
+    "effect": "Chiller beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-1",
+    "drawing": "RC-8",
+    "line": 800,
+    "area": "MDM Dock",
+    "beacon": "EB-MDMDOCK-1",
+    "shutdown": "",
+    "effect": "MDM dock beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-2",
+    "drawing": "RC-8",
+    "line": 801,
+    "area": "MDM Dock",
+    "beacon": "EB-MDMDOCK-2",
+    "shutdown": "",
+    "effect": "MDM dock beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-3",
+    "drawing": "RC-8",
+    "line": 802,
+    "area": "Main Cooler",
+    "beacon": "EB-CLRMAIN-1",
+    "shutdown": "",
+    "effect": "Main cooler beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-4",
+    "drawing": "RC-8",
+    "line": 804,
+    "area": "35 Degree Cooler",
+    "beacon": "EB-35CLR-1",
+    "shutdown": "",
+    "effect": "35 degree cooler beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-5",
+    "drawing": "RC-8",
+    "line": 805,
+    "area": "Cooler Area",
+    "beacon": "EB-CHALL-1",
+    "shutdown": "",
+    "effect": "Cooler area beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-6",
+    "drawing": "RC-8",
+    "line": 806,
+    "area": "CO2 Cooler",
+    "beacon": "EB-CO2CLR-1",
+    "shutdown": "",
+    "effect": "CO2 cooler beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-7",
+    "drawing": "RC-8",
+    "line": 809,
+    "area": "Cooler M/U Air",
+    "beacon": "EB-STCK-1",
+    "shutdown": "",
+    "effect": "Cooler MUA beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-8",
+    "drawing": "RC-8",
+    "line": 810,
+    "area": "Attic",
+    "beacon": "EB-ATTIC-1",
+    "shutdown": "",
+    "effect": "Attic beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-9",
+    "drawing": "RC-8",
+    "line": 812,
+    "area": "Attic",
+    "beacon": "EB-ATTIC-2",
+    "shutdown": "",
+    "effect": "Attic beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-10",
+    "drawing": "RC-8",
+    "line": 813,
+    "area": "Cooler M/U Air",
+    "beacon": "",
+    "shutdown": "Wire 614 / CR6141",
+    "effect": "Cooler MUA shutdown",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-11",
+    "drawing": "RC-8",
+    "line": 815,
+    "area": "Debone M/U Air",
+    "beacon": "",
+    "shutdown": "Wire 617 / CR6171",
+    "effect": "Debone MUA shutdown",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-12",
+    "drawing": "RC-8",
+    "line": 816,
+    "area": "Debone Room",
+    "beacon": "EB-DBN-1",
+    "shutdown": "",
+    "effect": "Debone beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  },
+  {
+    "sensor": "RC8-SENSOR-13",
+    "drawing": "RC-8",
+    "line": 817,
+    "area": "Debone Room",
+    "beacon": "EB-DBN-2",
+    "shutdown": "",
+    "effect": "Debone beacon",
+    "firstCheck": "Verify area with portable NH3 detector, then inspect fixed sensor reading and output."
+  }
+]
