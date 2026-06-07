@@ -1,3 +1,12 @@
-# Refrigeration Safety Troubleshooter v0.7
+# Refrigeration Safety Troubleshooter v0.8
 
-Master safety chain integration. Adds CR407 upstream tracing, HTR1/LTR1 high-level shutdown integration, NH3 to CR437 to CR407 trip path, and RC-6 MUA shutdown integration.
+## v0.8 Scope
+Expert-system structure update.
+
+Added:
+- Cause Chains tab
+- Device relationship database
+- Cause chain display inside search results
+- NH3 sensor-to-beacon-to-shutdown mapping
+- Master safety dependency mapping
+- Field-symptom based troubleshooting trees
