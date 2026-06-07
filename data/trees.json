@@ -1,219 +1,221 @@
 {
-  "engine-room-ventilation-fault": {
-    "title": "Engine Room Ventilation Fault",
+  "nh3-shutdown-active": {
+    "title": "NH3 Shutdown Active / CR437 Dropped",
+    "start": "n1",
+    "nodes": {
+      "n1": {
+        "device": "CR437",
+        "drawing": "RC-4",
+        "line": "437",
+        "question": "Is CR437 energized?",
+        "expected": "YES",
+        "yes": {
+          "result": "CR437 is energized. NH3 shutdown relay is not the active cause of the safety trip."
+        },
+        "no": "n2"
+      },
+      "n2": {
+        "device": "Wire 437",
+        "drawing": "RC-7 / RC-4",
+        "line": "705-706 / 437",
+        "question": "Is 120 VAC present on Wire 437 feeding CR437?",
+        "expected": "120 VAC when safe",
+        "yes": {
+          "result": "Wire 437 is present but CR437 is not energized. Suspect CR437 coil/socket/terminal issue."
+        },
+        "no": "n3"
+      },
+      "n3": {
+        "device": "RC-7 Relay 5 / Sensors 5-6",
+        "drawing": "RC-7",
+        "line": "705-706",
+        "question": "Are Machine Room Sensors 5 or 6 in alarm or fault?",
+        "expected": "NO",
+        "yes": {
+          "result": "Active NH3 alarm or sensor fault is holding CR437 out. Verify with portable detector and follow emergency response before reset."
+        },
+        "no": {
+          "result": "Controller relay output or wire 437 path fault suspected."
+        }
+      }
+    }
+  },
+  "machine-room-nh3-beacon": {
+    "title": "Machine Room NH3 Beacon Active",
+    "start": "m1",
+    "nodes": {
+      "m1": {
+        "device": "Portable NH3 Detector",
+        "drawing": "Field Verification",
+        "line": "",
+        "question": "Does portable detector confirm ammonia in the machine room?",
+        "expected": "NO",
+        "yes": {
+          "result": "Real NH3 event. Follow emergency response. Do not reset until area is cleared."
+        },
+        "no": "m2"
+      },
+      "m2": {
+        "device": "EB-MR-1 through EB-MR-4",
+        "drawing": "RC-7",
+        "line": "701-705",
+        "question": "Identify the active beacon. Is the associated fixed sensor in alarm/fault?",
+        "expected": "NO",
+        "yes": {
+          "result": "Investigate fixed sensor calibration, fault, contamination, or localized NH3 source."
+        },
+        "no": {
+          "result": "Beacon output relay/contact or beacon wiring may be stuck active."
+        }
+      }
+    }
+  },
+  "engine-room-ventilation-nh3": {
+    "title": "NH3 Triggered Engine Room Ventilation",
     "start": "v1",
     "nodes": {
       "v1": {
-        "device": "CR6011",
-        "drawing": "RC-6",
-        "line": "601",
-        "question": "Is CR6011 energized?",
-        "expected": "YES",
+        "device": "Wire 601",
+        "drawing": "RC-7 / RC-6",
+        "line": "710 / 601",
+        "question": "Is Wire 601 active from the NH3 monitoring system?",
+        "expected": "Depends on alarm state",
         "yes": "v2",
-        "no": "v5"
+        "no": {
+          "result": "NH3 monitoring is not commanding Wire 601. Troubleshoot normal RC-6 ventilation circuit."
+        }
       },
       "v2": {
-        "device": "EF-1 High Vent Interlock",
-        "drawing": "RC-6",
-        "line": "605",
-        "question": "Is EF-1 high vent interlock closed and passing voltage?",
-        "expected": "YES",
-        "yes": "v3",
-        "no": {
-          "result": "EF-1 interlock is open. Check EF-1 starter, overload, auxiliary contact, disconnect, or motor status."
-        }
-      },
-      "v3": {
-        "device": "EF-2 High Vent Interlock",
-        "drawing": "RC-6",
-        "line": "606",
-        "question": "Is EF-2 high vent interlock closed and passing voltage?",
-        "expected": "YES",
-        "yes": "v4",
-        "no": {
-          "result": "EF-2 interlock is open. Check EF-2 starter, overload, auxiliary contact, disconnect, or motor status."
-        }
-      },
-      "v4": {
-        "device": "Spare High Vent Interlock",
-        "drawing": "RC-6",
-        "line": "607",
-        "question": "Is the spare high vent interlock closed/jumpered if unused?",
-        "expected": "YES",
+        "device": "RC7 Sensor 8 / Evis Intake Air",
+        "drawing": "RC-7",
+        "line": "710",
+        "question": "Is Sensor 8 in alarm or fault?",
+        "expected": "NO",
         "yes": {
-          "result": "High ventilation interlock path appears healthy. Check downstream equipment control outside this panel."
+          "result": "NH3 monitor is commanding ventilation due to Sensor 8. Verify atmosphere and inspect sensor."
         },
         "no": {
-          "result": "Spare high vent interlock is open. Verify if spare is used or should be jumpered."
-        }
-      },
-      "v5": {
-        "device": "CR6011 Coil",
-        "drawing": "RC-6",
-        "line": "601",
-        "question": "Is 120 VAC present at CR6011 coil?",
-        "expected": "120 VAC",
-        "yes": {
-          "result": "CR6011 relay/coil/socket failure."
-        },
-        "no": "v6"
-      },
-      "v6": {
-        "device": "TAS6021 / Emergency Vent Switches",
-        "drawing": "RC-6",
-        "line": "602-604",
-        "question": "Are thermostat and emergency ventilation switch paths passing voltage?",
-        "expected": "YES",
-        "yes": {
-          "result": "Open conductor or terminal issue feeding CR6011."
-        },
-        "no": {
-          "result": "Open thermostat/emergency ventilation path. Verify TAS6021, SS6031, SS6041, and actual ventilation demand/position."
+          "result": "Relay output/wiring fault suspected between RC-7 and RC-6 Wire 601."
         }
       }
     }
   },
-  "evis-mua-fault": {
-    "title": "Evis M/U Air Interlock Fault",
-    "start": "ev1",
+  "evis-mua-nh3-shutdown": {
+    "title": "NH3 Triggered Evis M/U Air Shutdown",
+    "start": "e1",
     "nodes": {
-      "ev1": {
-        "device": "CR6091",
-        "drawing": "RC-6",
-        "line": "609",
-        "question": "Is CR6091 energized?",
-        "expected": "YES",
-        "yes": "ev2",
-        "no": "ev5"
-      },
-      "ev2": {
-        "device": "Evis M/U Air Unit 1 Interlock",
-        "drawing": "RC-6",
-        "line": "610",
-        "question": "Is Unit 1 interlock closed and passing voltage?",
-        "expected": "YES",
-        "yes": "ev3",
+      "e1": {
+        "device": "Wire 609",
+        "drawing": "RC-7 / RC-6",
+        "line": "712 / 609",
+        "question": "Is Wire 609 active from the NH3 monitoring system?",
+        "expected": "Depends on alarm state",
+        "yes": "e2",
         "no": {
-          "result": "Evis M/U Air Unit 1 interlock is open. Check starter, overload, auxiliary contact, disconnect, and motor status."
+          "result": "NH3 monitoring is not commanding Evis M/U shutdown. Troubleshoot RC-6 Evis M/U interlocks."
         }
       },
-      "ev3": {
-        "device": "Evis M/U Air Unit 2 Interlock",
-        "drawing": "RC-6",
-        "line": "611",
-        "question": "Is Unit 2 interlock closed and passing voltage?",
-        "expected": "YES",
-        "yes": "ev4",
-        "no": {
-          "result": "Evis M/U Air Unit 2 interlock is open. Check starter, overload, auxiliary contact, disconnect, and motor status."
-        }
-      },
-      "ev4": {
-        "device": "Evis M/U Air Unit 3 Interlock",
-        "drawing": "RC-6",
-        "line": "612",
-        "question": "Is Unit 3 interlock closed and passing voltage?",
-        "expected": "YES",
+      "e2": {
+        "device": "RC7 Sensor 9 / Evis Intake Air",
+        "drawing": "RC-7",
+        "line": "712",
+        "question": "Is Sensor 9 in alarm or fault?",
+        "expected": "NO",
         "yes": {
-          "result": "Evis M/U air interlock path appears healthy. Check downstream control outside this panel."
+          "result": "NH3 monitor is commanding Evis M/U shutdown due to Sensor 9. Verify atmosphere and inspect sensor."
         },
         "no": {
-          "result": "Evis M/U Air Unit 3 interlock is open. Check starter, overload, auxiliary contact, disconnect, and motor status."
-        }
-      },
-      "ev5": {
-        "device": "CR6091 Coil",
-        "drawing": "RC-6",
-        "line": "609",
-        "question": "Is 120 VAC present at CR6091 coil?",
-        "expected": "120 VAC",
-        "yes": {
-          "result": "CR6091 relay/coil/socket failure."
-        },
-        "no": {
-          "result": "Missing feed to CR6091. Trace upstream source power and related shutdown/permissive path."
+          "result": "Relay output/wiring fault suspected between RC-7 and RC-6 Wire 609."
         }
       }
     }
   },
-  "cooler-mua-fault": {
-    "title": "Cooler M/U Air Interlock Fault",
+  "cooler-mua-nh3-shutdown": {
+    "title": "NH3 Triggered Cooler M/U Air Shutdown",
     "start": "c1",
     "nodes": {
       "c1": {
-        "device": "CR6141",
-        "drawing": "RC-6",
-        "line": "614",
-        "question": "Is CR6141 energized?",
-        "expected": "YES",
+        "device": "Wire 614",
+        "drawing": "RC-8 / RC-6",
+        "line": "813 / 614",
+        "question": "Is Wire 614 active from the NH3 monitoring system?",
+        "expected": "Depends on alarm state",
         "yes": "c2",
-        "no": "c3"
-      },
-      "c2": {
-        "device": "Cooler M/U Air Unit Interlock",
-        "drawing": "RC-6",
-        "line": "615",
-        "question": "Is cooler M/U air unit interlock closed and passing voltage?",
-        "expected": "YES",
-        "yes": {
-          "result": "Cooler M/U air interlock path appears healthy. Check downstream control outside this panel."
-        },
         "no": {
-          "result": "Cooler M/U air interlock is open. Check starter, overload, auxiliary contact, disconnect, and motor status."
+          "result": "NH3 monitoring is not commanding Cooler M/U shutdown. Troubleshoot RC-6 Cooler M/U interlocks."
         }
       },
-      "c3": {
-        "device": "CR6141 Coil",
-        "drawing": "RC-6",
-        "line": "614",
-        "question": "Is 120 VAC present at CR6141 coil?",
-        "expected": "120 VAC",
+      "c2": {
+        "device": "RC8 Sensor 10 / Cooler M/U Air",
+        "drawing": "RC-8",
+        "line": "813",
+        "question": "Is Sensor 10 in alarm or fault?",
+        "expected": "NO",
         "yes": {
-          "result": "CR6141 relay/coil/socket failure."
+          "result": "NH3 monitor is commanding Cooler M/U shutdown due to Sensor 10. Verify atmosphere and inspect sensor."
         },
         "no": {
-          "result": "Missing feed to CR6141. Trace upstream source power and related shutdown/permissive path."
+          "result": "Relay output/wiring fault suspected between RC-8 and RC-6 Wire 614."
         }
       }
     }
   },
-  "debone-mua-fault": {
-    "title": "Debone M/U Air Interlock Fault",
+  "debone-mua-nh3-shutdown": {
+    "title": "NH3 Triggered Debone M/U Air Shutdown",
     "start": "d1",
     "nodes": {
       "d1": {
-        "device": "CR6171",
-        "drawing": "RC-6",
-        "line": "617",
-        "question": "Is CR6171 energized?",
-        "expected": "YES",
+        "device": "Wire 617",
+        "drawing": "RC-8 / RC-6",
+        "line": "815 / 617",
+        "question": "Is Wire 617 active from the NH3 monitoring system?",
+        "expected": "Depends on alarm state",
         "yes": "d2",
-        "no": "d3"
-      },
-      "d2": {
-        "device": "Debone M/U Air Unit Interlock",
-        "drawing": "RC-6",
-        "line": "618",
-        "question": "Is Debone M/U air unit interlock closed and passing voltage?",
-        "expected": "YES",
-        "yes": {
-          "result": "Debone M/U air interlock path appears healthy. Check downstream control outside this panel."
-        },
         "no": {
-          "result": "Debone M/U air interlock is open. Check starter, overload, auxiliary contact, disconnect, and motor status."
+          "result": "NH3 monitoring is not commanding Debone M/U shutdown. Troubleshoot RC-6 Debone M/U interlocks."
         }
       },
-      "d3": {
-        "device": "CR6171 Coil",
-        "drawing": "RC-6",
-        "line": "617",
-        "question": "Is 120 VAC present at CR6171 coil?",
-        "expected": "120 VAC",
+      "d2": {
+        "device": "RC8 Sensor 11 / Debone M/U Air",
+        "drawing": "RC-8",
+        "line": "815",
+        "question": "Is Sensor 11 in alarm or fault?",
+        "expected": "NO",
         "yes": {
-          "result": "CR6171 relay/coil/socket failure."
+          "result": "NH3 monitor is commanding Debone M/U shutdown due to Sensor 11. Verify atmosphere and inspect sensor."
         },
         "no": {
-          "result": "Missing feed to CR6171. Trace upstream source power and related shutdown/permissive path."
+          "result": "Relay output/wiring fault suspected between RC-8 and RC-6 Wire 617."
+        }
+      }
+    }
+  },
+  "beacon-active-no-nh3": {
+    "title": "Beacon Active but No NH3 Found",
+    "start": "b1",
+    "nodes": {
+      "b1": {
+        "device": "Portable NH3 Detector",
+        "drawing": "Field Verification",
+        "line": "",
+        "question": "Has the area been checked with a calibrated portable NH3 detector?",
+        "expected": "YES",
+        "yes": "b2",
+        "no": {
+          "result": "Verify atmosphere first with a portable detector before treating this as a false alarm."
+        }
+      },
+      "b2": {
+        "device": "Associated Fixed Sensor",
+        "drawing": "RC-7 / RC-8",
+        "line": "700-819",
+        "question": "Is the fixed sensor reading alarm, fault, or unstable signal?",
+        "expected": "NO",
+        "yes": {
+          "result": "Likely sensor calibration/drift/failure, contamination, or wiring/signal issue."
+        },
+        "no": {
+          "result": "Beacon output relay/contact or beacon wiring may be stuck active."
         }
       }
     }
@@ -223,125 +225,16 @@
     "start": "st1",
     "nodes": {
       "st1": {
-        "device": "Wire 4001",
+        "device": "CR407 / CR437",
         "drawing": "RC-4",
-        "line": "400",
-        "question": "Measure Wire 4001. Is 120 VAC present?",
-        "expected": "120 VAC",
-        "yes": "st2",
-        "no": {
-          "result": "Control power failure. Check incoming 120 VAC service and FU4021."
-        }
-      },
-      "st2": {
-        "device": "CR407",
-        "drawing": "RC-4",
-        "line": "407",
-        "question": "Is CR407 energized, LED ON?",
+        "line": "407 / 437",
+        "question": "Is CR437 energized and CR407 Safety Relay made?",
         "expected": "YES",
         "yes": {
-          "result": "CR407 is made. Verify downstream interlock outputs and pilot light circuit."
+          "result": "NH3 shutdown is not the active trip source. Continue normal safety circuit troubleshooting."
         },
         "no": {
-          "result": "CR407 is not energized. Trace upstream through CR4371, CR5061, CR5131, CR4191, pressure safety contacts, and reset circuit."
-        }
-      }
-    }
-  },
-  "compressor-wont-start": {
-    "title": "Compressor Will Not Start",
-    "start": "cw1",
-    "nodes": {
-      "cw1": {
-        "device": "CR407",
-        "drawing": "RC-4",
-        "line": "407",
-        "question": "Is CR407 energized and Safety OK light ON?",
-        "expected": "YES",
-        "yes": "cw2",
-        "no": {
-          "result": "Start with Safety Circuit Tripped tree. Compressor cannot run until safety relay is made."
-        }
-      },
-      "cw2": {
-        "device": "Compressor Interlock Input",
-        "drawing": "RC-5",
-        "line": "523-529",
-        "question": "Is 120 VAC present at the selected compressor interlock input?",
-        "expected": "120 VAC",
-        "yes": "cw3",
-        "no": {
-          "result": "Upstream safety/interlock feed missing. Trace CR4071 contact group."
-        }
-      },
-      "cw3": {
-        "device": "Compressor Interlock Output",
-        "drawing": "RC-5",
-        "line": "523-529",
-        "question": "Is 120 VAC present at the selected compressor interlock output?",
-        "expected": "120 VAC",
-        "yes": {
-          "result": "Safety panel has granted permission. Move to compressor starter/control panel."
-        },
-        "no": {
-          "result": "Compressor protection device or interlock contact open. Check overload, oil safety, HP/LP safeties, and auxiliary contacts."
-        }
-      }
-    }
-  },
-  "htr1-high-level": {
-    "title": "HTR1 High Level Shutdown",
-    "start": "h1",
-    "nodes": {
-      "h1": {
-        "device": "Actual HTR1 Vessel Level",
-        "drawing": "Field Verification",
-        "line": "",
-        "question": "Is HTR1 actually in high level?",
-        "expected": "NO",
-        "yes": {
-          "result": "Real process condition. Correct liquid level issue before reset."
-        },
-        "no": {
-          "result": "Level normal. Check FS5011, CR5011, TD5041, and CR5061 path."
-        }
-      }
-    }
-  },
-  "ltr1-high-level": {
-    "title": "LTR1 High Level Shutdown",
-    "start": "l1",
-    "nodes": {
-      "l1": {
-        "device": "Actual LTR1 Vessel Level",
-        "drawing": "Field Verification",
-        "line": "",
-        "question": "Is LTR1 actually in high level?",
-        "expected": "NO",
-        "yes": {
-          "result": "Real process condition. Correct liquid level issue before reset."
-        },
-        "no": {
-          "result": "Level normal. Check FS5081, CR5081, TD5111, and CR5131 path."
-        }
-      }
-    }
-  },
-  "nh3-shutdown": {
-    "title": "NH3 Shutdown",
-    "start": "n1",
-    "nodes": {
-      "n1": {
-        "device": "Active Beacon / Alarm",
-        "drawing": "RC-7 / RC-8",
-        "line": "700-819",
-        "question": "Is an area beacon or NH3 alarm active?",
-        "expected": "NO",
-        "yes": {
-          "result": "Verify with portable detector. If no ammonia present, investigate sensor relay/calibration."
-        },
-        "no": {
-          "result": "No active beacon. Check CR437 coil and Wire 4371 from monitor output."
+          "result": "If CR437 is dropped, open NH3 Shutdown Active / CR437 Dropped tree."
         }
       }
     }

@@ -1,52 +1,42 @@
 [
   {
-    "symptom": "Engine room ventilation fault",
-    "firstCheck": "CR6011, EF-1, EF-2 interlocks",
-    "next": "If CR6011 is energized, check EF-1 and EF-2 auxiliary/interlock contacts."
+    "symptom": "NH3 shutdown / CR437 dropped",
+    "firstCheck": "CR437, then Wire 437",
+    "next": "If Wire 437 is missing, trace to RC-7 Relay 5 and Machine Room Sensors 5/6."
   },
   {
-    "symptom": "CR6011 not energized",
-    "firstCheck": "CR6011 coil voltage",
-    "next": "If no voltage, trace TAS6021, SS6031, SS6041, and source feed."
+    "symptom": "Machine room beacon active",
+    "firstCheck": "Portable NH3 detector",
+    "next": "If no NH3 present, identify active EB-MR beacon and inspect associated RC-7 sensor/relay."
   },
   {
-    "symptom": "EF-1 high vent interlock open",
-    "firstCheck": "EF-1 starter/overload/aux contact",
-    "next": "If fan is running but contact open, inspect auxiliary contact wiring and mechanical linkage."
+    "symptom": "Engine room ventilation command from NH3",
+    "firstCheck": "Wire 601 and RC7 Sensor 8",
+    "next": "If Sensor 8 is not active, check RC-7 to RC-6 wiring/output."
   },
   {
-    "symptom": "EF-2 high vent interlock open",
-    "firstCheck": "EF-2 starter/overload/aux contact",
-    "next": "If fan is running but contact open, inspect auxiliary contact wiring and mechanical linkage."
+    "symptom": "Evis M/U air shutdown from NH3",
+    "firstCheck": "Wire 609 and RC7 Sensor 9",
+    "next": "If Sensor 9 is not active, check RC-7 to RC-6 wiring/output."
   },
   {
-    "symptom": "Evis M/U air shutdown",
-    "firstCheck": "CR6091, then Units 1-3 interlocks",
-    "next": "Find the first open unit interlock in the chain."
+    "symptom": "Cooler M/U air shutdown from NH3",
+    "firstCheck": "Wire 614 and RC8 Sensor 10",
+    "next": "If Sensor 10 is not active, check RC-8 to RC-6 wiring/output."
   },
   {
-    "symptom": "Cooler M/U air shutdown",
-    "firstCheck": "CR6141, then cooler M/U air unit interlock",
-    "next": "Check starter, overload, auxiliary contact, disconnect, and motor."
+    "symptom": "Debone M/U air shutdown from NH3",
+    "firstCheck": "Wire 617 and RC8 Sensor 11",
+    "next": "If Sensor 11 is not active, check RC-8 to RC-6 wiring/output."
   },
   {
-    "symptom": "Debone M/U air shutdown",
-    "firstCheck": "CR6171, then Debone M/U air unit interlock",
-    "next": "Check starter, overload, auxiliary contact, disconnect, and motor."
+    "symptom": "Beacon active but no ammonia found",
+    "firstCheck": "Portable detector and fixed sensor reading",
+    "next": "Check sensor calibration, relay output, beacon wiring, and controller alarm history."
   },
   {
-    "symptom": "Safety circuit tripped",
-    "firstCheck": "Wire 4001 and CR407",
-    "next": "If CR407 is de-energized, trace CR4371, CR5061, CR5131, CR4191, and pressure safety contacts."
-  },
-  {
-    "symptom": "Any compressor will not start",
-    "firstCheck": "Safety OK light and proper CR4071 contact group",
-    "next": "Compare compressor interlock input and output voltage."
-  },
-  {
-    "symptom": "NH3 shutdown",
-    "firstCheck": "Active beacon and portable detector",
-    "next": "If detector reads 0 ppm, verify sensor relay and calibration."
+    "symptom": "Debone beacon active",
+    "firstCheck": "RC8 Sensor 12/13 and EB-DBN-1/2",
+    "next": "Verify atmosphere, then inspect fixed sensor and beacon output."
   }
 ]
