@@ -1,3 +1,3 @@
-# Refrigeration Safety Troubleshooter v0.6
+# Refrigeration Safety Troubleshooter v0.7
 
-RC-7 and RC-8 Ammonia Monitoring Integration. Adds NH3 sensors, beacons, shutdown wires 437/601/609/614/617, CR437 integration, and NH3 troubleshooting trees.
+Master safety chain integration. Adds CR407 upstream tracing, HTR1/LTR1 high-level shutdown integration, NH3 to CR437 to CR407 trip path, and RC-6 MUA shutdown integration.
