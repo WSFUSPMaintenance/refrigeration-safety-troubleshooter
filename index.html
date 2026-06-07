@@ -16,21 +16,22 @@
     <button class="tab active" data-tab="symptoms">Symptom Troubleshooting</button>
     <button class="tab" data-tab="lookup">Device / Wire Search</button>
     <button class="tab" data-tab="chains">Cause Chains</button>
+    <button class="tab" data-tab="matrix">Alarm Matrix</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
   </nav>
 
   <main>
     <section class="panel tabPanel" id="symptomsPanel">
       <h2>What is the problem?</h2>
-      <p class="helper">Start here when the technician only knows the symptom.</p>
+      <p class="helper">Start with what the technician sees in the field.</p>
       <div id="symptomButtons" class="grid"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="lookupPanel">
       <h2>Device / Wire Search</h2>
-      <p class="helper">Search relay, wire, sensor, alarm, beacon, zone, safety chain, compressor, recirculator, or M/U air device.</p>
+      <p class="helper">Search relay, wire, sensor, alarm, beacon, area, compressor, recirculator, or M/U air device.</p>
       <div class="lookup">
-        <input id="searchInput" placeholder="Example: CR407, CR437, Sensor 6, EB-MR-4, Wire 617, Debone, HTR1, NH3..." />
+        <input id="searchInput" placeholder="Example: CP-05, Compressor 5, CR407, Wire 617, EB-MR-4, Debone, HTR1..." />
         <button id="searchBtn">Search</button>
       </div>
       <div id="searchResults"></div>
@@ -38,9 +39,15 @@
 
     <section class="panel tabPanel hidden" id="chainsPanel">
       <h2>Cause Chains</h2>
-      <p class="helper">Select a system path to view upstream causes and downstream effects.</p>
+      <p class="helper">View upstream causes and downstream effects.</p>
       <div id="chainButtons" class="grid"></div>
       <div id="chainResults"></div>
+    </section>
+
+    <section class="panel tabPanel hidden" id="matrixPanel">
+      <h2>NH3 Alarm Matrix</h2>
+      <p class="helper">Sensor, area, beacon, shutdown output, and first field check.</p>
+      <div id="alarmMatrix"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="quickPanel">
