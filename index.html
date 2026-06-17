@@ -20,6 +20,7 @@
     <button class="tab" data-tab="matrix">Alarm Matrix</button>
     <button class="tab" data-tab="drawings">Drawings</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
+    <button class="tab" data-tab="qcms">QCMS Test</button>
   </nav>
 
   <main>
@@ -71,6 +72,28 @@
       <div id="quickReference"></div>
     </section>
 
+    <section class="panel tabPanel hidden" id="qcmsPanel">
+      <h2>QCMS GitHub Integration Test</h2>
+
+      <p class="helper">
+        This test opens a Microsoft Form from the GitHub Pages application.
+        The form submission should trigger Power Automate and create a
+        SharePoint record.
+      </p>
+
+      <button
+        style="
+          padding:12px 20px;
+          font-size:16px;
+          font-weight:bold;
+          cursor:pointer;
+          border-radius:8px;
+        "
+        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=3JG89IfD0E6e175TItrr8LO9tidJOFRAtBCVSjfTIJdUQUlVMkM4SEgxS1NPWTRZUUlRU1RXQkxLSS4u','_blank')">
+        Submit QCMS Test Record
+      </button>
+    </section>
+
     <section class="panel hidden" id="treePanel">
       <button id="backBtn">← Back to Symptoms</button>
       <h2 id="treeTitle"></h2>
@@ -79,7 +102,10 @@
   </main>
 
   <footer>
-    <p>Electrical troubleshooting only. Do not bypass safety devices. Verify process conditions before resetting any safety trip.</p>
+    <p>
+      Electrical troubleshooting only. Do not bypass safety devices.
+      Verify process conditions before resetting any safety trip.
+    </p>
   </footer>
 
   <script src="app.js"></script>
