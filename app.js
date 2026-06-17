@@ -38,7 +38,6 @@ function setupTabs() {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       document.querySelectorAll('.tabPanel').forEach(p => p.classList.add('hidden'));
 
       const panel = document.getElementById(btn.dataset.tab + 'Panel');
@@ -56,7 +55,6 @@ function setupQcmsInspection() {
 
   submitBtn.addEventListener("click", () => {
     const dept = document.getElementById("department").value;
-
     const floor = document.querySelector('input[name="floorCondition"]:checked')?.value;
     const equipment = document.querySelector('input[name="equipmentCondition"]:checked')?.value;
     const comments = document.getElementById("comments").value;
@@ -68,18 +66,21 @@ function setupQcmsInspection() {
       return;
     }
 
-    const inspectionData = {
-      department: dept,
-      floorCondition: floor,
-      equipmentCondition: equipment,
-      comments: comments,
-      submittedAt: new Date().toISOString()
-    };
+    const baseUrl = "https://forms.office.com/Pages/ResponsePage.aspx?id=3JG89IfD0E6e175TItrr8LO9tidJOFRAtBCVSjfTIJdUQUlVMkM4SEgxS1NPWTRZUUlRU1RXQkxLSS4u";
 
-    console.log("QCMS Inspection Submitted:", inspectionData);
+    const formUrl =
+      baseUrl +
+      "&rb9344b3d05ed4543ae44a4869b290642=" + encodeURIComponent("QCMS Web App User") +
+      "&r1b4d2b79b78f41b9a8f2f487705dcbcb=" + encodeURIComponent(dept) +
+      "&rd0e7b9a2b3b1410a929537e7ffdaa148=" + encodeURIComponent("QCMS Prototype Submission") +
+      "&r0de6943bbe694fd29a7c2bb651ca2542=" + encodeURIComponent(comments) +
+      "&r1df9198d75624d9d9d554c92d0adca1f=" + encodeURIComponent(floor) +
+      "&r922e0dfea54e49f680cf5abf11c6de6f=" + encodeURIComponent(equipment);
 
-    status.innerHTML = "Inspection Submitted Successfully";
+    status.innerHTML = "Opening Microsoft Form with inspection data...";
     status.style.color = "green";
+
+    window.open(formUrl, "_blank");
   });
 }
 
