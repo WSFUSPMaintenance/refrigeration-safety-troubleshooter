@@ -22,6 +22,7 @@
     <button class="tab" data-tab="drawings">Drawings</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
     <button class="tab" data-tab="qcms">QCMS Inspection</button>
+    <button class="tab" data-tab="identity">Identity Test</button>
   </nav>
 
   <main>
@@ -140,6 +141,36 @@
           style="
             margin-top:20px;
             font-weight:bold;">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel tabPanel hidden" id="identityPanel">
+      <h2>User Identity Test</h2>
+      <p class="helper">
+        This test checks what information the GitHub-hosted web app can see from the browser without Entra/App Registration.
+      </p>
+
+      <div style="max-width:900px">
+        <button
+          id="runIdentityTest"
+          style="
+            padding:12px 20px;
+            font-size:16px;
+            font-weight:bold;
+            border-radius:8px;
+            cursor:pointer;">
+          Run Identity Test
+        </button>
+
+        <div
+          id="identityResults"
+          class="card"
+          style="
+            margin-top:20px;
+            white-space:pre-wrap;
+            overflow:auto;">
+          Click Run Identity Test to display available browser/session details.
         </div>
       </div>
     </section>
