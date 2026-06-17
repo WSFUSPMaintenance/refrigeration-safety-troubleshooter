@@ -6,6 +6,7 @@
   <title>Refrigeration Safety Troubleshooter</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header>
     <h1>Refrigeration Safety Troubleshooter</h1>
@@ -20,7 +21,7 @@
     <button class="tab" data-tab="matrix">Alarm Matrix</button>
     <button class="tab" data-tab="drawings">Drawings</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
-    <button class="tab" data-tab="qcms">QCMS Test</button>
+    <button class="tab" data-tab="qcms">QCMS Inspection</button>
   </nav>
 
   <main>
@@ -73,27 +74,74 @@
     </section>
 
     <section class="panel tabPanel hidden" id="qcmsPanel">
-      <h2>QCMS GitHub Integration Test</h2>
+      <h2>QCMS Inspection Test</h2>
+      <p class="helper">Prototype inspection form hosted in GitHub Pages.</p>
 
-      <p class="helper">
-        This test embeds the Microsoft Form directly inside the GitHub Pages application.
-        Submit the form below and verify that Power Automate creates a SharePoint record.
-      </p>
+      <div style="max-width:700px">
+        <label><strong>Department</strong></label>
+        <select id="department" style="width:100%;padding:10px;margin-bottom:20px;">
+          <option value="">Select Department</option>
+          <option>Sanitation</option>
+          <option>QA</option>
+          <option>Maintenance</option>
+          <option>Operations</option>
+        </select>
 
-      <iframe
-        src="https://forms.office.com/Pages/ResponsePage.aspx?id=3JG89IfD0E6e175TItrr8LO9tidJOFRAtBCVSjfTIJdUQUlVMkM4SEgxS1NPWTRZUUlRU1RXQkxLSS4u&embed=true"
-        width="100%"
-        height="900"
-        frameborder="0"
-        marginwidth="0"
-        marginheight="0"
-        style="
-          border:none;
-          max-width:100%;
-          background:white;
-          border-radius:8px;
-        ">
-      </iframe>
+        <hr>
+
+        <h3>Floor Condition</h3>
+        <label>
+          <input type="radio" name="floorCondition" value="Acceptable">
+          Acceptable
+        </label>
+
+        <label style="margin-left:20px;">
+          <input type="radio" name="floorCondition" value="Unacceptable">
+          Unacceptable
+        </label>
+
+        <hr>
+
+        <h3>Equipment Condition</h3>
+        <label>
+          <input type="radio" name="equipmentCondition" value="Acceptable">
+          Acceptable
+        </label>
+
+        <label style="margin-left:20px;">
+          <input type="radio" name="equipmentCondition" value="Unacceptable">
+          Unacceptable
+        </label>
+
+        <hr>
+
+        <h3>Comments</h3>
+        <textarea
+          id="comments"
+          rows="5"
+          style="width:100%;padding:10px;"
+          placeholder="Enter comments here..."></textarea>
+
+        <br><br>
+
+        <button
+          id="submitInspection"
+          style="
+            padding:12px 20px;
+            font-size:16px;
+            font-weight:bold;
+            border-radius:8px;
+            cursor:pointer;">
+          Submit Inspection
+        </button>
+
+        <div
+          id="inspectionStatus"
+          style="
+            margin-top:20px;
+            font-weight:bold;">
+        </div>
+      </div>
     </section>
 
     <section class="panel hidden" id="treePanel">
@@ -104,10 +152,7 @@
   </main>
 
   <footer>
-    <p>
-      Electrical troubleshooting only. Do not bypass safety devices.
-      Verify process conditions before resetting any safety trip.
-    </p>
+    <p>Electrical troubleshooting only. Do not bypass safety devices. Verify process conditions before resetting any safety trip.</p>
   </footer>
 
   <script src="app.js"></script>
