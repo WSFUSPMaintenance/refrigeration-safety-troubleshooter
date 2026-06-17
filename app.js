@@ -14,6 +14,7 @@ async function loadData() {
 
     setupTabs();
     setupQcmsInspection();
+    setupIdentityTest();
     renderSymptoms();
     renderQuickReference();
     renderChains();
@@ -81,6 +82,35 @@ function setupQcmsInspection() {
     status.style.color = "green";
 
     window.open(formUrl, "_blank");
+  });
+}
+
+function setupIdentityTest() {
+  const btn = document.getElementById("runIdentityTest");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    const results = {
+      currentUrl: window.location.href,
+      hostname: window.location.hostname,
+      origin: window.location.origin,
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      platform: navigator.platform,
+      cookiesEnabled: navigator.cookieEnabled,
+      online: navigator.onLine,
+      screenWidth: screen.width,
+      screenHeight: screen.height,
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+      referrer: document.referrer,
+      localStorageAvailable: typeof(Storage) !== "undefined"
+    };
+
+    document.getElementById("identityResults").textContent =
+      JSON.stringify(results, null, 2);
+
+    console.log("Identity Test Results", results);
   });
 }
 
