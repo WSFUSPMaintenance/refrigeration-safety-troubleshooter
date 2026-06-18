@@ -21,50 +21,71 @@
     <button class="tab" data-tab="matrix">Alarm Matrix</button>
     <button class="tab" data-tab="drawings">Drawings</button>
     <button class="tab" data-tab="quick">Quick Reference</button>
-    <button class="tab" data-tab="qcms">QCMS Inspection</button>
-    <button class="tab" data-tab="identity">Identity Test</button>
   </nav>
 
   <main>
     <section class="panel tabPanel" id="symptomsPanel">
       <h2>What is the problem?</h2>
-      <p class="helper">Start with what the technician sees in the field.</p>
+      <p class="helper">
+        Start with what the technician sees in the field.
+      </p>
       <div id="symptomButtons" class="grid"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="guidedPanel">
       <h2>Guided Meter Mode</h2>
-      <p class="helper">Use this when troubleshooting with a meter. Start with a symptom, then follow the voltage checks.</p>
+      <p class="helper">
+        Use this when troubleshooting with a meter. Start with a symptom,
+        then follow the voltage checks.
+      </p>
       <div id="guidedButtons" class="grid"></div>
       <div id="guidedCard"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="lookupPanel">
       <h2>Device / Wire Search</h2>
-      <p class="helper">Search relay, wire, sensor, alarm, beacon, area, compressor, recirculator, or M/U air device.</p>
+      <p class="helper">
+        Search relay, wire, sensor, alarm, beacon, area, compressor,
+        recirculator, or M/U air device.
+      </p>
+
       <div class="lookup">
-        <input id="searchInput" placeholder="Example: CP-05, Compressor 5, CR407, Wire 617, EB-MR-4, Debone, HTR1..." />
+        <input
+          id="searchInput"
+          placeholder="Example: CP-05, Compressor 5, CR407, Wire 617, EB-MR-4, Debone, HTR1..."
+        />
         <button id="searchBtn">Search</button>
       </div>
+
       <div id="searchResults"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="chainsPanel">
       <h2>Cause Chains</h2>
-      <p class="helper">View upstream causes and downstream effects.</p>
+      <p class="helper">
+        View upstream causes and downstream effects.
+      </p>
+
       <div id="chainButtons" class="grid"></div>
       <div id="chainResults"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="matrixPanel">
       <h2>NH3 Alarm Matrix</h2>
-      <p class="helper">Sensor, area, beacon, shutdown output, and first field check.</p>
+      <p class="helper">
+        Sensor, area, beacon, shutdown output, and first field check.
+      </p>
+
       <div id="alarmMatrix"></div>
     </section>
 
     <section class="panel tabPanel hidden" id="drawingsPanel">
       <h2>Drawings</h2>
-      <p class="helper">Open the Rev 5 drawing sheets directly in the app. Use the browser zoom or pinch-to-zoom on mobile for detail.</p>
+      <p class="helper">
+        Open the Rev 5 drawing sheets directly in the app. Use the browser
+        zoom or pinch-to-zoom on mobile for detail.
+      </p>
+
       <div id="drawingButtons" class="grid"></div>
       <div id="drawingViewer"></div>
     </section>
@@ -72,107 +93,6 @@
     <section class="panel tabPanel hidden" id="quickPanel">
       <h2>Quick Reference</h2>
       <div id="quickReference"></div>
-    </section>
-
-    <section class="panel tabPanel hidden" id="qcmsPanel">
-      <h2>QCMS Inspection Test</h2>
-      <p class="helper">Prototype inspection form hosted in GitHub Pages.</p>
-
-      <div style="max-width:700px">
-        <label><strong>Department</strong></label>
-        <select id="department" style="width:100%;padding:10px;margin-bottom:20px;">
-          <option value="">Select Department</option>
-          <option>Sanitation</option>
-          <option>QA</option>
-          <option>Maintenance</option>
-          <option>Operations</option>
-        </select>
-
-        <hr>
-
-        <h3>Floor Condition</h3>
-        <label>
-          <input type="radio" name="floorCondition" value="Acceptable">
-          Acceptable
-        </label>
-
-        <label style="margin-left:20px;">
-          <input type="radio" name="floorCondition" value="Unacceptable">
-          Unacceptable
-        </label>
-
-        <hr>
-
-        <h3>Equipment Condition</h3>
-        <label>
-          <input type="radio" name="equipmentCondition" value="Acceptable">
-          Acceptable
-        </label>
-
-        <label style="margin-left:20px;">
-          <input type="radio" name="equipmentCondition" value="Unacceptable">
-          Unacceptable
-        </label>
-
-        <hr>
-
-        <h3>Comments</h3>
-        <textarea
-          id="comments"
-          rows="5"
-          style="width:100%;padding:10px;"
-          placeholder="Enter comments here..."></textarea>
-
-        <br><br>
-
-        <button
-          id="submitInspection"
-          style="
-            padding:12px 20px;
-            font-size:16px;
-            font-weight:bold;
-            border-radius:8px;
-            cursor:pointer;">
-          Submit Inspection
-        </button>
-
-        <div
-          id="inspectionStatus"
-          style="
-            margin-top:20px;
-            font-weight:bold;">
-        </div>
-      </div>
-    </section>
-
-    <section class="panel tabPanel hidden" id="identityPanel">
-      <h2>User Identity Test</h2>
-      <p class="helper">
-        This test checks what information the GitHub-hosted web app can see from the browser without Entra/App Registration.
-      </p>
-
-      <div style="max-width:900px">
-        <button
-          id="runIdentityTest"
-          style="
-            padding:12px 20px;
-            font-size:16px;
-            font-weight:bold;
-            border-radius:8px;
-            cursor:pointer;">
-          Run Identity Test
-        </button>
-
-        <div
-          id="identityResults"
-          class="card"
-          style="
-            margin-top:20px;
-            white-space:pre-wrap;
-            overflow:auto;">
-          Click Run Identity Test to display available browser/session details.
-        </div>
-      </div>
     </section>
 
     <section class="panel hidden" id="treePanel">
@@ -183,7 +103,10 @@
   </main>
 
   <footer>
-    <p>Electrical troubleshooting only. Do not bypass safety devices. Verify process conditions before resetting any safety trip.</p>
+    <p>
+      Electrical troubleshooting only. Do not bypass safety devices.
+      Verify process conditions before resetting any safety trip.
+    </p>
   </footer>
 
   <script src="app.js"></script>
