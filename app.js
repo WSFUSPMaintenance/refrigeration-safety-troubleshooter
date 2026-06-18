@@ -13,8 +13,6 @@ async function loadData() {
     drawings = await fetch('data/drawings.json').then(r => r.json());
 
     setupTabs();
-    setupQcmsInspection();
-    setupIdentityTest();
     renderSymptoms();
     renderQuickReference();
     renderChains();
@@ -44,73 +42,8 @@ function setupTabs() {
       const panel = document.getElementById(btn.dataset.tab + 'Panel');
       if (panel) panel.classList.remove('hidden');
 
-      const treePanel = document.getElementById('treePanel');
-      if (treePanel) treePanel.classList.add('hidden');
+      document.getElementById('treePanel').classList.add('hidden');
     });
-  });
-}
-
-function setupQcmsInspection() {
-  const submitBtn = document.getElementById("submitInspection");
-  if (!submitBtn) return;
-
-  submitBtn.addEventListener("click", () => {
-    const dept = document.getElementById("department").value;
-    const floor = document.querySelector('input[name="floorCondition"]:checked')?.value;
-    const equipment = document.querySelector('input[name="equipmentCondition"]:checked')?.value;
-    const comments = document.getElementById("comments").value;
-    const status = document.getElementById("inspectionStatus");
-
-    if (!dept || !floor || !equipment) {
-      status.innerHTML = "Please complete all required fields.";
-      status.style.color = "red";
-      return;
-    }
-
-    const baseUrl = "https://forms.office.com/Pages/ResponsePage.aspx?id=3JG89IfD0E6e175TItrr8LO9tidJOFRAtBCVSjfTIJdUQUlVMkM4SEgxS1NPWTRZUUlRU1RXQkxLSS4u";
-
-    const formUrl =
-      baseUrl +
-      "&rb9344b3d05ed4543ae44a4869b290642=" + encodeURIComponent("QCMS Web App User") +
-      "&r1b4d2b79b78f41b9a8f2f487705dcbcb=" + encodeURIComponent(dept) +
-      "&rd0e7b9a2b3b1410a929537e7ffdaa148=" + encodeURIComponent("QCMS Prototype Submission") +
-      "&r0de6943bbe694fd29a7c2bb651ca2542=" + encodeURIComponent(comments) +
-      "&r1df9198d75624d9d9d554c92d0adca1f=" + encodeURIComponent(floor) +
-      "&r922e0dfea54e49f680cf5abf11c6de6f=" + encodeURIComponent(equipment);
-
-    status.innerHTML = "Opening Microsoft Form with inspection data...";
-    status.style.color = "green";
-
-    window.open(formUrl, "_blank");
-  });
-}
-
-function setupIdentityTest() {
-  const btn = document.getElementById("runIdentityTest");
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    const results = {
-      currentUrl: window.location.href,
-      hostname: window.location.hostname,
-      origin: window.location.origin,
-      userAgent: navigator.userAgent,
-      language: navigator.language,
-      platform: navigator.platform,
-      cookiesEnabled: navigator.cookieEnabled,
-      online: navigator.onLine,
-      screenWidth: screen.width,
-      screenHeight: screen.height,
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      referrer: document.referrer,
-      localStorageAvailable: typeof(Storage) !== "undefined"
-    };
-
-    document.getElementById("identityResults").textContent =
-      JSON.stringify(results, null, 2);
-
-    console.log("Identity Test Results", results);
   });
 }
 
@@ -125,8 +58,7 @@ function setTab(tabName) {
   const panel = document.getElementById(tabName + 'Panel');
   if (panel) panel.classList.remove('hidden');
 
-  const treePanel = document.getElementById('treePanel');
-  if (treePanel) treePanel.classList.add('hidden');
+  document.getElementById('treePanel').classList.add('hidden');
 }
 
 function getDrawing(ref) {
@@ -289,7 +221,9 @@ function setupSearch() {
 
   input.addEventListener('input', () => {
     if (input.value.trim().length >= 2) search();
-    if (input.value.trim().length === 0) document.getElementById('searchResults').innerHTML = '';
+    if (input.value.trim().length === 0) {
+      document.getElementById('searchResults').innerHTML = '';
+    }
   });
 
   document.getElementById('backBtn').onclick = () => {
